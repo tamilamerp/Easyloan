@@ -1,256 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>EasyLoan - All Loan Solutions</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style>
+
+/* ===== RESET ===== */
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:#f5f7fb;
+background:#f4f8ff;
+color:#222;
 }
+
+/* ===== NAVBAR ===== */
 
 header{
-background:#0056d6;
-color:white;
-padding:20px;
-text-align:center;
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:white;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+
 }
 
-header h1{
-font-size:40px;
+.logo{
+
+font-size:32px;
+font-weight:700;
+color:#0d6efd;
+
 }
 
-header p{
-margin-top:10px;
-font-size:18px;
+nav a{
+
+text-decoration:none;
+margin-left:30px;
+font-weight:500;
+color:#444;
+transition:.3s;
+
 }
+
+nav a:hover{
+
+color:#0d6efd;
+
+}
+
+/* ===== HERO ===== */
 
 .hero{
-padding:40px;
-text-align:center;
+
+padding:150px 8% 80px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+
 }
 
-.hero h2{
-font-size:35px;
-color:#0056d6;
+.hero-text{
+
+flex:1;
+min-width:350px;
+
+}
+
+.hero-text h1{
+
+font-size:55px;
+line-height:1.2;
 margin-bottom:20px;
+
 }
 
-.hero p{
+.hero-text span{
+
+color:#0d6efd;
+
+}
+
+.hero-text p{
+
 font-size:18px;
-margin-bottom:30px;
+color:#666;
+line-height:1.8;
+margin-bottom:35px;
+
 }
 
-.button{
-background:#00b050;
+.btn{
+
+display:inline-block;
+background:#0d6efd;
 color:white;
-padding:15px 30px;
+padding:16px 35px;
+border-radius:50px;
 text-decoration:none;
-border-radius:8px;
-font-size:20px;
+font-size:18px;
+transition:.3s;
+
 }
 
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-padding:40px;
+.btn:hover{
+
+background:#0047c3;
+transform:translateY(-3px);
+
 }
 
-.card{
+.hero-image{
+
+flex:1;
+text-align:center;
+min-width:350px;
+
+}
+
+.hero-image img{
+
+width:100%;
+max-width:520px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EasyLoan - All Loan Solutions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+/* ===== RESET ===== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f4f8ff;
+color:#222;
+}
+
+/* ===== NAVBAR ===== */
+
+header{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
 background:white;
-padding:25px;
-border-radius:12px;
-box-shadow:0 0 10px rgba(0,0,0,.1);
-text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+
 }
 
-.card h3{
-color:#0056d6;
-margin-bottom:10px;
+.logo{
+
+font-size:32px;
+font-weight:700;
+color:#0d6efd;
+
 }
 
-footer{
-background:#111;
+nav a{
+
+text-decoration:none;
+margin-left:30px;
+font-weight:500;
+color:#444;
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:#0d6efd;
+
+}
+
+/* ===== HERO ===== */
+
+.hero{
+
+padding:150px 8% 80px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+
+}
+
+.hero-text{
+
+flex:1;
+min-width:350px;
+
+}
+
+.hero-text h1{
+
+font-size:55px;
+line-height:1.2;
+margin-bottom:20px;
+
+}
+
+.hero-text span{
+
+color:#0d6efd;
+
+}
+
+.hero-text p{
+
+font-size:18px;
+color:#666;
+line-height:1.8;
+margin-bottom:35px;
+
+}
+
+.btn{
+
+display:inline-block;
+background:#0d6efd;
 color:white;
+padding:16px 35px;
+border-radius:50px;
+text-decoration:none;
+font-size:18px;
+transition:.3s;
+
+}
+
+.btn:hover{
+
+background:#0047c3;
+transform:translateY(-3px);
+
+}
+
+.hero-image{
+
+flex:1;
 text-align:center;
-padding:20px;
-margin-top:30px;
-}
-</style>
+min-width:350px;
 
-</head>
-
-<body>
-
-<header>
-
-<h1>EasyLoan</h1>
-
-<p>Trusted Partner for Car Loan, Bike Loan, Home Loan, Personal Loan & Business Loan</p>
-
-</header>
-
-<section class="hero">
-
-<h2>Fast & Easy Loan Approval</h2>
-
-<p>
-Car Loan | Bike Loan | Home Loan | Personal Loan | Business Loan | Gold Loan | Loan Against Property
-</p>
-
-<a class="button" href="https://wa.me/917358844950">
-Apply on WhatsApp
-</a>
-
-<.form-section{
-    max-width:600px;
-    margin:50px auto;
-    background:#ffffff;
-    padding:35px;
-    border-radius:20px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.15);
 }
 
-.form-section h2{
-    text-align:center;
-    color:#1e40af;
-    margin-bottom:25px;
-    font-size:30px;
+.hero-image img{
+
+width:100%;
+max-width:520px;
+
 }
-
-.form-section input,
-.form-section select{
-    width:100%;
-    padding:15px;
-    margin:10px 0;
-    border:1px solid #ddd;
-    border-radius:12px;
-    font-size:16px;
-    outline:none;
-    transition:.3s;
-    box-sizing:border-box;
+    
 }
-
-.form-section input:focus,
-.form-section select:focus{
-    border-color:#2563eb;
-    box-shadow:0 0 10px rgba(37,99,235,.25);
-}
-
-.form-section button{
-    width:100%;
-    background:#25D366;
-    color:white;
-    border:none;
-    padding:16px;
-    font-size:18px;
-    border-radius:12px;
-    cursor:pointer;
-    font-weight:bold;
-    transition:.3s;
-}
-
-.form-section button:hover{
-    background:#128C7E;
-    transform:translateY(-2px);
-}>
-<section class="application">
-    <h2>Loan Application Form</h2>
-
-    <form onsubmit="sendWhatsApp(); return false;">
-        <input type="text" id="name" placeholder="Full Name" required><br><br>
-
-        <input type="tel" id="mobile" placeholder="Mobile Number" required><br><br>
-
-        <select id="loan">
-            <option>Car Loan</option>
-            <option>Bike Loan</option>
-            <option>Home Loan</option>
-            <option>Personal Loan</option>
-            <option>Business Loan</option>
-            <option>Gold Loan</option>
-        </select><br><br>
-
-        <input type="text" id="city" placeholder="City" required><br><br>
-
-        <input type="text" id="income" placeholder="Monthly Income" required><br><br>
-
-        <input type="text" id="amount" placeholder="Loan Amount" required><br><br>
-
-        <button type="submit">Apply via WhatsApp</button>
-    </form>
-</section>
-
-<script>
-function sendWhatsApp() {
-    let msg =
-`Loan Application
-Name: ${document.getElementById('name').value}
-Mobile: ${document.getElementById('mobile').value}
-Loan Type: ${document.getElementById('loan').value}
-City: ${document.getElementById('city').value}
-Income: ${document.getElementById('income').value}
-Loan Amount: ${document.getElementById('amount').value}`;
-
-    window.open("https://wa.me/917358844950?text=" + encodeURIComponent(msg), "_blank");
-}
-</script>
-<section class="services">
-
-<div class="card">
-<h3>🚗 Car Loan</h3>
-<p>Lowest Interest Rate</p>
-</div>
-
-<div class="card">
-<h3>🏍️ Bike Loan</h3>
-<p>Quick Approval</p>
-</div>
-
-<div class="card">
-<h3>🏠 Home Loan</h3>
-<p>Maximum Loan Amount</p>
-</div>
-
-<div class="card">
-<h3>👤 Personal Loan</h3>
-<p>Instant Processing</p>
-</div>
-
-<div class="card">
-<h3>💼 Business Loan</h3>
-<p>Grow Your Business</p>
-</div>
-
-<div class="card">
-<h3>💰 Gold Loan</h3>
-<p>Best Value</p>
-</div>
-
-</section>
-
-<footer>
-
-<h2>Contact</h2>
-
-<p>Tamilselvan K</p>
-
-<p>📞 7358844950</p>
-
-<p>📧 tamil4666@gmail.com</p>
-
-<p>Salem, Tamil Nadu</p>
-
-</footer>
-
-</body>
-</html>
