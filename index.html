@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loan Thozhan - Salem</title>
+    <title>Loan Thozhan - Your Trusted Financial Partner</title>
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -97,7 +97,7 @@
             border-radius: 50%;
         }
 
-        .careers-btn {
+        .login-btn {
             background-color: var(--gold-primary);
             color: #0f0f0f;
             padding: 5px 12px;
@@ -140,10 +140,52 @@
         .nav-link i {
             color: var(--gold-primary);
             font-size: 11px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover .nav-link i {
+            transform: rotate(180deg);
         }
 
         .nav-link:hover, .nav-item:hover .nav-link {
             color: var(--gold-primary);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--card-bg);
+            border: 1px solid var(--gold-primary);
+            border-radius: 0 0 6px 6px;
+            min-width: 220px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+            display: none;
+            flex-direction: column;
+            list-style: none;
+            z-index: 1100;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: flex;
+        }
+
+        .dropdown-menu li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #252525;
+            transition: 0.2s;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: var(--card-hover);
+            color: var(--gold-primary);
+            padding-left: 20px;
         }
 
         /* Page Content Control */
@@ -169,7 +211,7 @@
         }
 
         .hero-logo {
-            max-height: 140px;
+            max-height: 130px;
             width: auto;
             margin-bottom: 15px;
             border-radius: 10px;
@@ -180,22 +222,20 @@
         .hero h1 {
             color: var(--gold-primary);
             font-size: 24px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
-        .hero-subtitle {
-            font-size: 16px;
+        .hero-poetry {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid var(--gold-primary);
+            border-radius: 8px;
+            padding: 12px;
+            max-width: 450px;
+            margin: 15px auto 0 auto;
+            font-style: italic;
             color: var(--gold-light);
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .hero-desc {
             font-size: 14px;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         /* Main Container */
@@ -214,6 +254,54 @@
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        /* Accordion Dropdown Blocks */
+        .accordion-box {
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+
+        .accordion-header {
+            padding: 15px 20px;
+            background-color: #1f1f1f;
+            color: var(--gold-primary);
+            font-size: 15px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .accordion-header:hover {
+            background-color: var(--card-hover);
+        }
+
+        .accordion-content {
+            padding: 15px 20px;
+            display: none;
+            background-color: var(--card-bg);
+            border-top: 1px solid #2a2a2a;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .accordion-box.active .accordion-content {
+            display: block;
+        }
+
+        .accordion-box.active .accordion-header i {
+            transform: rotate(180deg);
+        }
+
+        .accordion-header i {
+            transition: transform 0.3s;
         }
 
         /* Grid Cards */
@@ -258,13 +346,31 @@
             color: var(--text-muted);
         }
 
-        /* Forms & Containers */
-        .form-box {
+        /* Apply WhatsApp Button */
+        .apply-whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 14px;
+            width: 100%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+
+        /* Calculator & Forms */
+        .calculator-box, .enquiry-form, .career-form {
             background-color: var(--card-bg);
             border: 2px solid var(--gold-primary);
             border-radius: 10px;
             padding: 20px;
-            margin-bottom: 20px;
         }
 
         .form-group {
@@ -289,9 +395,9 @@
             font-size: 14px;
         }
 
-        .submit-btn {
-            background-color: #25D366;
-            color: white;
+        .submit-btn, .calc-btn {
+            background-color: var(--gold-primary);
+            color: #0f0f0f;
             padding: 12px;
             border: none;
             font-weight: 700;
@@ -299,41 +405,7 @@
             border-radius: 5px;
             cursor: pointer;
             width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        /* Calculator tabs & results */
-        .calc-tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .calc-tab-btn {
-            flex: 1;
-            padding: 10px;
-            background: #252525;
-            color: #fff;
-            border: 1px solid var(--gold-primary);
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 13px;
-        }
-
-        .calc-tab-btn.active {
-            background: var(--gold-primary);
-            color: #0f0f0f;
-        }
-
-        .calc-section-panel {
-            display: none;
-        }
-        .calc-section-panel.active {
-            display: block;
+            margin-top: 10px;
         }
 
         .calc-result {
@@ -343,6 +415,7 @@
             border-left: 4px solid var(--gold-primary);
             border-radius: 5px;
             font-size: 13px;
+            display: none;
         }
 
         /* Mobile Bottom Navigation Bar */
@@ -392,22 +465,34 @@
                 <span class="logo-text">LOAN THOZHAN</span>
             </a>
             
-            <!-- Desktop Navbar Menu -->
+            <!-- Desktop Navbar Menu (Updated with 3rd position Banks and dropdown filter support) -->
             <ul class="navbar-menu">
                 <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('home')"><i class="fa-solid fa-house"></i> Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('loans')"><i class="fa-solid fa-hand-holding-dollar"></i> Loans</a></li>
+                
+                <!-- 3rd Position: Banks Menu with Dropdown / Click options -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="showSection('banks')"><i class="fa-solid fa-building-columns"></i> Banks <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="filterBankCategory('bank-gov')"><i class="fa-solid fa-landmark"></i> Government Bank</a></li>
+                        <li><a href="#" onclick="filterBankCategory('bank-pvt')"><i class="fa-solid fa-building-columns"></i> Private Bank</a></li>
+                        <li><a href="#" onclick="filterBankCategory('bank-nbfc')"><i class="fa-solid fa-wallet"></i> NBFC</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('career')"><i class="fa-solid fa-briefcase"></i> Career</a></li>
                 <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('calculator')"><i class="fa-solid fa-calculator"></i> EMI Calc</a></li>
-                <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('contact')"><i class="fa-solid fa-phone"></i> Contact</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('enquiries')"><i class="fa-solid fa-phone"></i> Contact</a></li>
             </ul>
 
-            <!-- Header Right: Notification Bell & Careers -->
+            <!-- Header Right: Notification Bell & Login -->
             <div class="header-right-actions">
                 <button class="icon-btn" onclick="alert('No new notifications')">
                     <i class="fa-solid fa-bell"></i>
                     <span class="notification-badge">1</span>
                 </button>
-                <a href="#" class="careers-btn" onclick="showSection('careers')">
-                    <i class="fa-solid fa-briefcase"></i> Careers
+                <a href="#" class="login-btn" onclick="showSection('enquiries')">
+                    <i class="fa-solid fa-user"></i> Login
                 </a>
             </div>
         </div>
@@ -420,10 +505,11 @@
         <section class="hero">
             <img src="logo.jpeg" alt="Loan Thozhan Logo" class="hero-logo">
             <h1>LOAN THOZHAN</h1>
-            <div class="hero-subtitle">உங்கள் நிதி தேவைகளுக்கான நம்பகமான தோழன்</div>
-            <p class="hero-desc">
-                உங்களுக்குப் பொருத்தமான வங்கிகளைத் துல்லியமாகத் தேர்ந்தெடுத்து, அதிக வட்டி செலுத்துவதிலிருந்து உங்களை நாங்கள் பாதுகாத்து சேமிப்போம்!
-            </p>
+            <p>உங்கள் நிதித் தேவைகளுக்கான நம்பகமான தோழன்.</p>
+            
+            <div class="hero-poetry">
+                <p>“முயற்சியெனும் விதைத் தெளிப்போம்,<br>வெற்றியெனும் கனி பறிப்போம்!”</p>
+            </div>
         </section>
         
         <div class="container">
@@ -431,222 +517,192 @@
             <div class="loan-grid">
                 <div class="loan-card" onclick="showSection('loans')">
                     <i class="fa-solid fa-car"></i>
-                    <h3>New Car Loan</h3>
-                    <p>Best rates for brand new cars</p>
-                </div>
-                <div class="loan-card" onclick="showSection('loans')">
-                    <i class="fa-solid fa-car-side"></i>
-                    <h3>Used Car Loan</h3>
-                    <p>Easy financing for pre-owned cars</p>
+                    <h3>Car Loan</h3>
+                    <p>New & Used Car Financing</p>
                 </div>
                 <div class="loan-card" onclick="showSection('loans')">
                     <i class="fa-solid fa-motorcycle"></i>
                     <h3>Bike Loan</h3>
-                    <p>Instant two-wheeler loans</p>
+                    <p>Instant Two-Wheeler Loans</p>
                 </div>
                 <div class="loan-card" onclick="showSection('loans')">
                     <i class="fa-solid fa-house"></i>
                     <h3>Home Loan</h3>
-                    <p>Fulfill your dream home needs</p>
+                    <p>Dream Home Loans</p>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. Loans Section with Detailed Location Lead Form -->
-    <div id="loans" class="page-section">
-        <div class="container">
-            <h2 class="section-title"><i class="fa-solid fa-hand-holding-dollar"></i> லோன் வகைகள் & அப்ளிகேஷன் (Loan Application)</h2>
-            
-            <div class="loan-grid">
-                <div class="loan-card" onclick="selectLoanType('New Car Loan')">
-                    <i class="fa-solid fa-car"></i>
-                    <h3>New Car Loan</h3>
-                </div>
-                <div class="loan-card" onclick="selectLoanType('Used Car Loan')">
-                    <i class="fa-solid fa-car-side"></i>
-                    <h3>Used Car Loan</h3>
-                </div>
-                <div class="loan-card" onclick="selectLoanType('Bike Loan')">
-                    <i class="fa-solid fa-motorcycle"></i>
-                    <h3>Bike Loan</h3>
-                </div>
-                <div class="loan-card" onclick="selectLoanType('Home Loan')">
-                    <i class="fa-solid fa-house"></i>
-                    <h3>Home Loan</h3>
-                </div>
-                <div class="loan-card" onclick="selectLoanType('Personal Loan')">
+                <div class="loan-card" onclick="showSection('loans')">
                     <i class="fa-solid fa-user-tie"></i>
                     <h3>Personal Loan</h3>
+                    <p>Quick Funds Support</p>
                 </div>
-                <div class="loan-card" onclick="selectLoanType('Gold Loan')">
-                    <i class="fa-solid fa-coins"></i>
-                    <h3>Gold Loan</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Banks Section (Toggle & Independent Filter View) -->
+    <div id="banks" class="page-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fa-solid fa-building-columns"></i> வங்கிகள் மற்றும் நிறுவனங்கள் (Banks)</h2>
+            
+            <!-- Govt Banks -->
+            <div class="accordion-box bank-filter-item" id="bank-gov">
+                <div class="accordion-header" onclick="toggleAccordion('bank-gov')">
+                    <span><i class="fa-solid fa-landmark"></i> Government Bank (அரசு வங்கிகள்)</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul style="list-style: none;">
+                        <li style="padding: 5px 0;">🏦 State Bank of India (SBI)</li>
+                        <li style="padding: 5px 0;">🏦 Canara Bank</li>
+                        <li style="padding: 5px 0;">🏦 Bank of Baroda</li>
+                        <li style="padding: 5px 0;">🏦 Indian Overseas Bank (IOB)</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Lead Form Box -->
-            <div class="form-box" id="apply-form-box">
-                <h3 id="form-selected-title" style="color: var(--gold-primary); margin-bottom: 15px;">Apply for Loan</h3>
+            <!-- Private Banks -->
+            <div class="accordion-box bank-filter-item" id="bank-pvt">
+                <div class="accordion-header" onclick="toggleAccordion('bank-pvt')">
+                    <span><i class="fa-solid fa-building-columns"></i> Private Bank (தனியார் வங்கிகள்)</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul style="list-style: none;">
+                        <li style="padding: 5px 0;">🏦 HDFC Bank</li>
+                        <li style="padding: 5px 0;">🏦 ICICI Bank</li>
+                        <li style="padding: 5px 0;">🏦 Axis Bank</li>
+                        <li style="padding: 5px 0;">🏦 Federal Bank</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- NBFC -->
+            <div class="accordion-box bank-filter-item" id="bank-nbfc">
+                <div class="accordion-header" onclick="toggleAccordion('bank-nbfc')">
+                    <span><i class="fa-solid fa-wallet"></i> NBFC (நிதி நிறுவனங்கள்)</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul style="list-style: none;">
+                        <li style="padding: 5px 0;">🏢 Cholamandalam Finance</li>
+                        <li style="padding: 5px 0;">🏢 Shriram Finance</li>
+                        <li style="padding: 5px 0;">🏢 Sundaram Finance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Loans Section (Toggle Accordions with WhatsApp Apply & Symbols) -->
+    <div id="loans" class="page-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fa-solid fa-hand-holding-dollar"></i> Apply For Loan (லோன் விண்ணப்பம்)</h2>
+            <div class="enquiry-form">
                 <div class="form-group">
-                    <label>உங்கள் பெயர் (Full Name)</label>
-                    <input type="text" id="lead-name" placeholder="பெயரை உள்ளிடவும்">
+                    <label>👤 பெயர் (Name)</label>
+                    <input type="text" id="loan-cust-name" placeholder="உங்கள் பெயர்">
                 </div>
                 <div class="form-group">
-                    <label>போன் நம்பர் (Mobile Number)</label>
-                    <input type="tel" id="lead-phone" placeholder="தொலைபேசி எண்">
+                    <label>📱 மொபைல் நம்பர் (Mobile Number)</label>
+                    <input type="tel" id="loan-cust-phone" placeholder="10 இலக்க எண்">
                 </div>
                 <div class="form-group">
-                    <label>மாநிலம் (State)</label>
-                    <select id="lead-state" onchange="updateDistricts()">
-                        <option value="Tamil Nadu">Tamil Nadu</option>
-                        <option value="Kerala">Kerala</option>
-                        <option value="Karnataka">Karnataka</option>
-                        <option value="Andhra Pradesh">Andhra Pradesh</option>
-                        <option value="Other">Other State / India</option>
+                    <label>📍 மாவட்டம் (District)</label>
+                    <input type="text" id="loan-cust-district" placeholder="உங்கள் மாவட்டம்">
+                </div>
+                <div class="form-group">
+                    <label>💰 லோன் அமௌன்ட் (Loan Amount)</label>
+                    <input type="number" id="loan-cust-amount" placeholder="தேவையான தொகை">
+                </div>
+                <div class="form-group">
+                    <label>🏷️ லோன் வகை (Loan Type)</label>
+                    <select id="loan-cust-loantype">
+                        <option value="Car Loan">Car Loan</option>
+                        <option value="Bike Loan">Bike Loan</option>
+                        <option value="Home Loan">Home Loan</option>
+                        <option value="Personal Loan">Personal Loan</option>
                     </select>
                 </div>
-                <div class="form-group" id="district-group">
-                    <label>மாவட்டம் (District)</label>
-                    <select id="lead-district">
-                        <option value="Salem">Salem (சேலம் - HQ)</option>
-                        <option value="Chennai">Chennai</option>
-                        <option value="Coimbatore">Coimbatore</option>
-                        <option value="Madurai">Madurai</option>
-                        <option value="Trichy">Trichy</option>
-                        <option value="Erode">Erode</option>
-                        <option value="Namakkal">Namakkal</option>
-                        <option value="Dharmapuri">Dharmapuri</option>
-                        <option value="Krishnagiri">Krishnagiri</option>
-                        <option value="Villupuram">Villupuram</option>
-                        <option value="Other District">Other Tamil Nadu District</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>தேவையான லோன் தொகை (Loan Amount)</label>
-                    <input type="text" id="lead-amount" placeholder="எ.கா: ₹5,00,000">
-                </div>
-                <button type="button" class="submit-btn" onclick="sendLeadToWhatsApp()">
-                    <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> Apply Now via WhatsApp
+                <button type="button" class="submit-btn" onclick="sendLoanToWhatsApp()" style="background-color: #25D366; color: #fff;">
+                    <i class="fa-brands fa-whatsapp"></i> Submit via WhatsApp
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- 3. EMI Calculator Section (Dual: Reducing & Fixed) -->
-    <div id="calculator" class="page-section">
+    <!-- 4. Career Page Section -->
+    <div id="career" class="page-section">
         <div class="container">
-            <h2 class="section-title"><i class="fa-solid fa-calculator"></i> Dual EMI Calculators</h2>
-            
-            <div class="calc-tabs">
-                <button class="calc-tab-btn active" onclick="switchCalc('reducing', event)">1. Reducing (Diminishing)</button>
-                <button class="calc-tab-btn" onclick="switchCalc('fixed', event)">2. Fixed Calculation</button>
-            </div>
-
-            <!-- Reducing Calculator Panel -->
-            <div id="panel-reducing" class="calc-section-panel form-box active">
-                <h3 style="color: var(--gold-primary); margin-bottom: 10px; font-size: 15px;">Reducing Balance EMI Calculator</h3>
+            <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Career / Job Apply</h2>
+            <div class="career-form">
                 <div class="form-group">
-                    <label>Loan Amount (₹)</label>
-                    <input type="number" id="red-amount" placeholder="1000000">
-                </div>
-                <div class="form-group">
-                    <label>Annual Interest Rate (% P.A.)</label>
-                    <input type="number" step="0.01" id="red-rate" placeholder="8.5">
-                </div>
-                <div class="form-group">
-                    <label>Tenure (Years)</label>
-                    <input type="number" id="red-tenure" placeholder="5">
-                </div>
-                <button type="button" class="submit-btn" style="background-color: var(--gold-primary); color: #0f0f0f;" onclick="calcReducing()">Calculate Reducing EMI</button>
-                
-                <div id="red-result" class="calc-result" style="display: none;">
-                    <p><b>Monthly EMI:</b> <span id="red-emi" style="color: var(--gold-primary);">₹0</span></p>
-                    <p><b>Interest Only (Avg/Month):</b> <span id="red-int-month">₹0</span></p>
-                    <p><b>Total Interest:</b> <span id="red-total-int">₹0</span></p>
-                    <p><b>Total Payment:</b> <span id="red-total-pay">₹0</span></p>
-                    <p style="margin-top: 5px; font-size: 12px; color: var(--gold-light);">* Yearly Interest Breakdown & Chart generated successfully.</p>
-                </div>
-            </div>
-
-            <!-- Fixed Calculator Panel -->
-            <div id="panel-fixed" class="calc-section-panel form-box">
-                <h3 style="color: var(--gold-primary); margin-bottom: 10px; font-size: 15px;">Fixed Flat Rate Calculation</h3>
-                <div class="form-group">
-                    <label>Loan Amount (₹)</label>
-                    <input type="number" id="fix-amount" placeholder="1000000">
-                </div>
-                <div class="form-group">
-                    <label>Flat Interest Rate (% P.A.)</label>
-                    <input type="number" step="0.01" id="fix-rate" placeholder="8.5">
-                </div>
-                <div class="form-group">
-                    <label>Tenure (Years)</label>
-                    <input type="number" id="fix-tenure" placeholder="5">
-                </div>
-                <button type="button" class="submit-btn" style="background-color: var(--gold-primary); color: #0f0f0f;" onclick="calcFixed()">Calculate Fixed EMI</button>
-                
-                <div id="fix-result" class="calc-result" style="display: none;">
-                    <p><b>Monthly EMI:</b> <span id="fix-emi" style="color: var(--gold-primary);">₹0</span></p>
-                    <p><b>Fixed Interest Per Year:</b> <span id="fix-yr-int">₹0</span></p>
-                    <p><b>Total Interest:</b> <span id="fix-total-int">₹0</span></p>
-                    <p><b>Total Payment:</b> <span id="fix-total-pay">₹0</span></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 4. Contact Section with Salem Details & Thirukkural -->
-    <div id="contact" class="page-section">
-        <div class="container">
-            <h2 class="section-title"><i class="fa-solid fa-building"></i> Contact Us & Our Service</h2>
-            
-            <div class="form-box" style="text-align: center;">
-                <img src="logo.jpeg" alt="Logo" style="height: 80px; border-radius: 6px; border: 1px solid var(--gold-primary); margin-bottom: 10px;">
-                <h3 style="color: var(--gold-primary);">LOAN THOZHAN - சேலம்</h3>
-                <p style="font-style: italic; color: var(--gold-light); margin: 10px 0; font-size: 14px;">
-                    “முயற்சியெனும் விதைத் தெளிப்போம், வெற்றியெனும் கனி பறிப்போம்!”
-                </p>
-                <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px; line-height: 1.6;">
-                    நாங்கள் இதை ஒரு சேவையாகச் செய்து வருகிறோம். உங்களுக்குத் தேவையான லோன்களுக்குச் சரியான வழிகாட்டுதல் மற்றும் முறையான கைடன்ஸ் வழங்குவதற்காக எங்கள் குழு எப்போதும் தயாராக உள்ளது.
-                </p>
-                <div style="background: #121212; padding: 12px; border-radius: 6px; text-align: left; font-size: 13px;">
-                    <p><b>📍 முகவரி:</b> சேலம், தமிழ்நாடு, இந்தியா.</p>
-                    <p><b>📞 வாட்ஸ்அப் தொடர்பு:</b> +91 73588 44950</p>
-                    <p><b>⏰ வேலை நேரம்:</b> காலை 9:00 மணி - மாலை 7:00 மணி</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 5. Careers Section -->
-    <div id="careers" class="page-section">
-        <div class="container">
-            <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Careers - Join Our Team</h2>
-            
-            <div class="form-box" style="text-align: center;">
-                <p style="font-style: italic; color: var(--gold-light); margin-bottom: 15px; font-size: 14px;">
-                    “ஒன்றிணைவோம் லட்சியத்தை நோக்கிய பயணம்,<br>வெற்றி நமதே தோழரே!”
-                </p>
-                <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 15px;">
-                    நிதி மற்றும் லோன் துறையில் சாதிக்க விரும்புகிறீர்களா? எங்களது சேலம் தலைமை அலுவலகத்துடன் இணைந்திட உங்களது விவரங்களைப் பகிரவும்.
-                </p>
-                
-                <div class="form-group" style="text-align: left;">
-                    <label>Full Name</label>
+                    <label>👤 பெயர் (Name)</label>
                     <input type="text" id="career-name" placeholder="உங்கள் பெயர்">
                 </div>
-                <div class="form-group" style="text-align: left;">
-                    <label>Phone Number</label>
-                    <input type="tel" id="career-phone" placeholder="தொலைபேசி எண்">
+                <div class="form-group">
+                    <label>📱 மொபைல் நம்பர் (Mobile Number)</label>
+                    <input type="tel" id="career-phone" placeholder="10 இலக்க எண்">
                 </div>
-                <div class="form-group" style="text-align: left;">
-                    <label>Experience / Qualification</label>
-                    <input type="text" id="career-exp" placeholder="எ.கா: B.Com / 2 Yrs Experience">
+                <div class="form-group">
+                    <label>⭐ அனுபவம் (Experience)</label>
+                    <input type="text" id="career-exp" placeholder="எ.கா: 2 Years / Fresher">
                 </div>
-                <button type="button" class="submit-btn" onclick="applyCareer()">
-                    <i class="fa-brands fa-whatsapp"></i> Send Application to WhatsApp
+                <div class="form-group">
+                    <label>📄 ரெஸ்யூம் (Resume Upload File)</label>
+                    <input type="file" id="career-resume" accept=".pdf,.doc,.docx">
+                </div>
+                <button type="button" class="submit-btn" onclick="sendCareerToWhatsApp()" style="background-color: #25D366; color: #fff;">
+                    <i class="fa-brands fa-whatsapp"></i> Send Application via WhatsApp
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Calculator Section (Cleaned up: Diminishing IRR & Fixed calculation, brief summary output) -->
+    <div id="calculator" class="page-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fa-solid fa-calculator"></i> EMI Calculator</h2>
+            <div class="calculator-box">
+                <div class="form-group">
+                    <label>Loan Amount (₹)</label>
+                    <input type="number" id="calc-amount" placeholder="e.g. 1000000">
+                </div>
+                <div class="form-group">
+                    <label>Interest Rate (% P.A.)</label>
+                    <input type="number" step="0.01" id="calc-rate" placeholder="e.g. 8.5">
+                </div>
+                <div class="form-group">
+                    <label>Tenure (Months)</label>
+                    <input type="number" id="calc-tenure" placeholder="e.g. 60">
+                </div>
+                <div class="form-group">
+                    <label>Interest Type</label>
+                    <select id="calc-type">
+                        <option value="diminishing">Diminishing IRR Calculation</option>
+                        <option value="fixed">Fixed Calculation</option>
+                    </select>
+                </div>
+                <button type="button" class="calc-btn" onclick="calculateEMI()">Calculate EMI</button>
+                
+                <div id="result-box" class="calc-result">
+                    <h4 style="color: var(--gold-primary); margin-bottom: 6px;">Calculation Summary:</h4>
+                    <p><b>Monthly EMI:</b> <span id="emi-output" style="color: var(--gold-primary);">₹0</span></p>
+                    <p><b>Total Interest:</b> <span id="total-interest-output">₹0</span></p>
+                    <p><b>Principal + Interest Total:</b> <span id="total-payment-output">₹0</span></p>
+                    <p><b>Yearly Payment:</b> <span id="yearly-payment-output">₹0</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Enquiries Section (Contact) -->
+    <div id="enquiries" class="page-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fa-solid fa-phone"></i> Contact Us</h2>
+            <div class="enquiry-form">
+                <p><b>முகவரி:</b> உங்களது அலுவலக முகவரி இங்கே...</p>
+                <p style="margin-top: 10px;"><b>போன் நம்பர்:</b> +91 7358844950</p>
+                <p style="margin-top: 10px;"><b>மின்னஞ்சல்:</b> support@loanthozhan.com</p>
             </div>
         </div>
     </div>
@@ -655,15 +711,13 @@
     <div class="mobile-menu-bar">
         <a href="#" onclick="showSection('home')"><i class="fa-solid fa-house"></i>Home</a>
         <a href="#" onclick="showSection('loans')"><i class="fa-solid fa-hand-holding-dollar"></i>Loans</a>
+        <a href="#" onclick="showSection('banks')" onclick="filterBankCategory('all')"><i class="fa-solid fa-building-columns"></i>Banks</a>
+        <a href="#" onclick="showSection('career')"><i class="fa-solid fa-briefcase"></i>Career</a>
         <a href="#" onclick="showSection('calculator')"><i class="fa-solid fa-calculator"></i>EMI</a>
-        <a href="#" onclick="showSection('contact')"><i class="fa-solid fa-phone"></i>Contact</a>
-        <a href="#" onclick="showSection('careers')"><i class="fa-solid fa-briefcase"></i>Careers</a>
     </div>
 
     <!-- JavaScript Functions -->
     <script>
-        let selectedLoan = "New Car Loan";
-
         function showSection(sectionId) {
             const sections = document.querySelectorAll('.page-section');
             sections.forEach(sec => sec.classList.remove('active-section'));
@@ -675,114 +729,117 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function selectLoanType(loanName) {
-            selectedLoan = loanName;
-            document.getElementById('form-selected-title').innerText = `Apply for ${loanName}`;
-            document.getElementById('apply-form-box').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function updateDistricts() {
-            const state = document.getElementById('lead-state').value;
-            const distGroup = document.getElementById('district-group');
-            if (state !== 'Tamil Nadu') {
-                distGroup.style.display = 'none';
+        // Accordion Toggle function
+        function toggleAccordion(id) {
+            const element = document.getElementById(id);
+            if (element.classList.contains('active')) {
+                element.classList.remove('active');
             } else {
-                distGroup.style.display = 'block';
+                element.classList.add('active');
             }
         }
 
-        function sendLeadToWhatsApp() {
-            const name = document.getElementById('lead-name').value;
-            const phone = document.getElementById('lead-phone').value;
-            const state = document.getElementById('lead-state').value;
-            const district = document.getElementById('lead-district').value;
-            const amount = document.getElementById('lead-amount').value;
+        // Bank Category Filtering (One selected -> others hidden, selected opened)
+        function filterBankCategory(targetId) {
+            showSection('banks');
+            const items = document.querySelectorAll('.bank-filter-item');
+            items.forEach(item => {
+                if (item.id === targetId) {
+                    item.style.display = 'block';
+                    item.classList.add('active');
+                } else {
+                    item.style.display = 'none';
+                    item.classList.remove('active');
+                }
+            });
+        }
 
-            if (!name || !phone) {
-                alert("தயவுசெய்து பெயர் மற்றும் தொலைபேசி எண்ணை உள்ளிடவும்!");
+        // Reset filter view if general click
+        document.querySelector('a[onclick*="showSection(\'banks\')"]')?.addEventListener('click', () => {
+            const items = document.querySelectorAll('.bank-filter-item');
+            items.forEach(item => item.style.display = 'block');
+        });
+
+        // Loan Application WhatsApp Integration with exact symbols
+        function sendLoanToWhatsApp() {
+            const name = document.getElementById('loan-cust-name').value;
+            const phone = document.getElementById('loan-cust-phone').value;
+            const district = document.getElementById('loan-cust-district').value;
+            const amount = document.getElementById('loan-cust-amount').value;
+            const loanType = document.getElementById('loan-cust-loantype').value;
+
+            if (!name || !phone || !district || !amount) {
+                alert("தயவுசெய்து அனைத்து விவரங்களையும் பூர்த்தி செய்யவும்!");
                 return;
             }
 
-            let locationInfo = state === 'Tamil Nadu' ? `State: Tamil Nadu\nDistrict: ${district}` : `State: ${state}`;
-            const message = encodeURIComponent(`*New Loan Lead Submission*\n\nLoan Type: ${selectedLoan}\nName: ${name}\nPhone: ${phone}\n${locationInfo}\nAmount: ${amount || 'Not Specified'}`);
-            
+            const message = `👤 பெயர்: ${name}%0A` +
+                            `📱 மொபைல் நம்பர்: ${phone}%0A` +
+                            `📍 மாவட்டம்: ${district}%0A` +
+                            `💰 லோன் அமௌன்ட்: ₹ ${amount}%0A` +
+                            `🏷️ லோன் வகை: ${loanType}`;
+
             window.open(`https://wa.me/917358844950?text=${message}`, '_blank');
         }
 
-        function switchCalc(type, event) {
-            document.querySelectorAll('.calc-tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.calc-section-panel').forEach(panel => panel.classList.remove('active'));
-
-            event.target.classList.add('active');
-            if(type === 'reducing') {
-                document.getElementById('panel-reducing').classList.add('active');
-            } else {
-                document.getElementById('panel-fixed').classList.add('active');
-            }
-        }
-
-        function calcReducing() {
-            const p = parseFloat(document.getElementById('red-amount').value);
-            const annualRate = parseFloat(document.getElementById('red-rate').value);
-            const tenureYears = parseFloat(document.getElementById('red-tenure').value);
-
-            if (isNaN(p) || isNaN(annualRate) || isNaN(tenureYears) || p <= 0 || annualRate <= 0 || tenureYears <= 0) {
-                alert("Please enter valid numbers!");
-                return;
-            }
-
-            const r = annualRate / 12 / 100;
-            const n = tenureYears * 12;
-
-            const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-            const totalPayment = emi * n;
-            const totalInterest = totalPayment - p;
-            const avgMonthlyInterest = totalInterest / n;
-
-            document.getElementById('red-emi').innerText = "₹ " + emi.toFixed(2);
-            document.getElementById('red-int-month').innerText = "₹ " + avgMonthlyInterest.toFixed(2);
-            document.getElementById('red-total-int').innerText = "₹ " + totalInterest.toFixed(2);
-            document.getElementById('red-total-pay').innerText = "₹ " + totalPayment.toFixed(2);
-            
-            document.getElementById('red-result').style.display = 'block';
-        }
-
-        function calcFixed() {
-            const p = parseFloat(document.getElementById('fix-amount').value);
-            const annualRate = parseFloat(document.getElementById('fix-rate').value);
-            const tenureYears = parseFloat(document.getElementById('fix-tenure').value);
-
-            if (isNaN(p) || isNaN(annualRate) || isNaN(tenureYears) || p <= 0 || annualRate <= 0 || tenureYears <= 0) {
-                alert("Please enter valid numbers!");
-                return;
-            }
-
-            const totalInterest = (p * annualRate * tenureYears) / 100;
-            const totalPayment = p + totalInterest;
-            const n = tenureYears * 12;
-            const emi = totalPayment / n;
-            const yrInt = totalInterest / tenureYears;
-
-            document.getElementById('fix-emi').innerText = "₹ " + emi.toFixed(2);
-            document.getElementById('fix-yr-int').innerText = "₹ " + yrInt.toFixed(2);
-            document.getElementById('fix-total-int').innerText = "₹ " + totalInterest.toFixed(2);
-            document.getElementById('fix-total-pay').innerText = "₹ " + totalPayment.toFixed(2);
-            
-            document.getElementById('fix-result').style.display = 'block';
-        }
-
-        function applyCareer() {
+        // Career Application WhatsApp Integration
+        function sendCareerToWhatsApp() {
             const name = document.getElementById('career-name').value;
             const phone = document.getElementById('career-phone').value;
             const exp = document.getElementById('career-exp').value;
+            const resumeFile = document.getElementById('career-resume').files[0];
+            const resumeName = resumeFile ? resumeFile.name : "No file attached";
 
-            if (!name || !phone) {
-                alert("தயவுசெய்து பெயர் மற்றும் தொலைபேசி எண்ணை உள்ளிடவும்!");
+            if (!name || !phone || !exp) {
+                alert("தயவுசெய்து பெயர், தொலைபேசி மற்றும் அனுபவ விவரங்களை உள்ளிடவும்!");
                 return;
             }
 
-            const message = encodeURIComponent(`*Job Application / Careers Lead*\n\nName: ${name}\nPhone: ${phone}\nDetails: ${exp || 'N/A'}`);
+            const message = `--- Job Application ---%0A` +
+                            `👤 பெயர்: ${name}%0A` +
+                            `📱 மொபைல் நம்பர்: ${phone}%0A` +
+                            `⭐ அனுபவம்: ${exp}%0A` +
+                            `📄 ரெஸ்யூம் ஃபைல்: ${resumeName}`;
+
             window.open(`https://wa.me/917358844950?text=${message}`, '_blank');
+        }
+
+        // EMI Calculator Logic (Diminishing IRR & Fixed calculation with concise breakdown)
+        function calculateEMI() {
+            const p = parseFloat(document.getElementById('calc-amount').value);
+            const annualRate = parseFloat(document.getElementById('calc-rate').value);
+            const n = parseFloat(document.getElementById('calc-tenure').value);
+            const calcType = document.getElementById('calc-type').value;
+
+            if (isNaN(p) || isNaN(annualRate) || isNaN(n) || p <= 0 || annualRate <= 0 || n <= 0) {
+                alert("Please enter valid positive values!");
+                return;
+            }
+
+            let emi = 0;
+            let totalPayment = 0;
+            let totalInterest = 0;
+
+            if (calcType === 'diminishing') {
+                const r = annualRate / 12 / 100;
+                emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+                totalPayment = emi * n;
+                totalInterest = totalPayment - p;
+            } else {
+                // Fixed Calculation
+                totalInterest = (p * annualRate * (n / 12)) / 100;
+                totalPayment = p + totalInterest;
+                emi = totalPayment / n;
+            }
+
+            const yearlyPayment = emi * 12;
+
+            document.getElementById('emi-output').innerText = "₹ " + emi.toFixed(2);
+            document.getElementById('total-interest-output').innerText = "₹ " + totalInterest.toFixed(2);
+            document.getElementById('total-payment-output').innerText = "₹ " + totalPayment.toFixed(2);
+            document.getElementById('yearly-payment-output').innerText = "₹ " + yearlyPayment.toFixed(2);
+            
+            document.getElementById('result-box').style.display = 'block';
         }
     </script>
 </body>
