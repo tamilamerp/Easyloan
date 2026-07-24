@@ -23,7 +23,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif; /* Professional Font Style */
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
@@ -100,26 +100,11 @@
             border-radius: 50%;
         }
 
-        .career-btn {
-            background-color: var(--gold-primary);
-            color: #0f0f0f;
-            padding: 6px 14px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 13px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            text-decoration: none;
-        }
-
         /* Desktop Navbar Menu */
         .navbar-menu {
             display: flex;
             list-style: none;
-            gap: 15px;
+            gap: 12px;
             align-items: center;
         }
 
@@ -263,7 +248,7 @@
             font-weight: 600;
         }
 
-        /* Loan Grid Cards Style */
+        /* Loan Grid Cards with Floating Quick Apply Side Icons */
         .loan-grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -279,6 +264,7 @@
             padding: 20px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            position: relative;
             transition: transform 0.3s, background-color 0.3s;
         }
 
@@ -288,10 +274,36 @@
             border-color: var(--gold-primary);
         }
 
-        .loan-type-card i {
+        /* Side Quick Apply Icons (Car on left, Home on right or category specific) */
+        .side-apply-icon {
+            position: absolute;
+            top: 15px;
+            background: rgba(37, 211, 102, 0.15);
+            border: 1px solid #25D366;
+            color: #25D366;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 14px;
+        }
+        .side-apply-icon.left { left: 15px; }
+        .side-apply-icon.right { right: 15px; }
+        
+        .side-apply-icon:hover {
+            background: #25D366;
+            color: #fff;
+        }
+
+        .loan-type-card i.main-icon {
             font-size: 38px;
             color: var(--gold-primary);
             margin-bottom: 12px;
+            margin-top: 5px;
         }
 
         .loan-type-card h3 {
@@ -486,7 +498,7 @@
             display: none;
         }
 
-        /* Mobile Bottom Navigation Bar (No Career link at bottom as requested) */
+        /* Mobile Bottom Navigation Bar */
         .mobile-menu-bar {
             display: flex;
             justify-content: space-around;
@@ -533,7 +545,7 @@
                 <span class="logo-text">LOAN THOZHAN</span>
             </a>
             
-            <!-- Desktop Navbar Menu -->
+            <!-- Desktop Navbar Menu (Career is back in navigation menu) -->
             <ul class="navbar-menu">
                 <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('home')"><i class="fa-solid fa-house"></i> Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('loans')"><i class="fa-solid fa-hand-holding-dollar"></i> Loans</a></li>
@@ -548,26 +560,24 @@
                     </ul>
                 </li>
 
+                <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('career')"><i class="fa-solid fa-briefcase"></i> Career</a></li>
                 <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('calculator')"><i class="fa-solid fa-calculator"></i> EMI Calc</a></li>
                 <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('enquiries')"><i class="fa-solid fa-phone"></i> Contact</a></li>
             </ul>
 
-            <!-- Header Right: Notification Bell & Career Button -->
+            <!-- Header Right: Notification Bell (Updated Grievance Mail) -->
             <div class="header-right-actions">
-                <button class="icon-btn" onclick="alert('கடந்த 24 மணி நேரத்தில் 200-க்கும் மேற்பட்டோர் பயனடைந்திருக்கிறார்கள்!')">
+                <button class="icon-btn" onclick="alert('இந்த வெப்சைட்டில் உங்களுக்கு ஏதும் குறைகள் இருந்தா tamil4666@gmail.com என்ற மெயில் ஐடிக்கு தெரிவிக்கவும்.')">
                     <i class="fa-solid fa-bell"></i>
-                    <span class="notification-badge">1</span>
+                    <span class="notification-badge">!</span>
                 </button>
-                <a href="#" class="career-btn" onclick="showSection('career')">
-                    <i class="fa-solid fa-briefcase"></i> Career
-                </a>
             </div>
         </div>
     </header>
 
     <!-- MAIN CONTENT SECTIONS -->
 
-    <!-- 1. Home Section (Large Logo, Name, Custom Profile & Financial Advice Message) -->
+    <!-- 1. Home Section -->
     <div id="home" class="page-section active-section">
         <section class="hero">
             <img src="logo.jpeg" alt="Loan Thozhan Logo" class="hero-logo">
@@ -580,7 +590,7 @@
         </section>
     </div>
 
-    <!-- 2. Banks Section (8-10+ banks for Govt, Private, NBFC) -->
+    <!-- 2. Banks Section -->
     <div id="banks" class="page-section">
         <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-building-columns"></i> வங்கிகள் மற்றும் நிறுவனங்கள் (Banks Directory)</h2>
@@ -651,7 +661,7 @@
         </div>
     </div>
 
-    <!-- 3. Loans Section (Clean Cards with individual symbols and Apply button triggering popup form) -->
+    <!-- 3. Loans Section (Cards with Left/Right Side Quick Apply Car & House/WhatsApp Icons) -->
     <div id="loans" class="page-section">
         <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-hand-holding-dollar"></i> லோன் வகைகள் (Loan Types)</h2>
@@ -659,7 +669,9 @@
             <div class="loan-grid-container">
                 <!-- New Car Loan -->
                 <div class="loan-type-card">
-                    <i class="fa-solid fa-car"></i>
+                    <div class="side-apply-icon left" title="Quick WhatsApp Apply" onclick="openLoanModal('New Car Loan')"><i class="fa-solid fa-car"></i></div>
+                    <div class="side-apply-icon right" title="Quick WhatsApp Apply" onclick="openLoanModal('New Car Loan')"><i class="fa-brands fa-whatsapp"></i></div>
+                    <i class="fa-solid fa-car main-icon"></i>
                     <h3>New Car Loan</h3>
                     <p>புதிய கார் வாங்க எளிய முறையில் குறைந்த வட்டியில் லோன்.</p>
                     <button class="trigger-apply-btn" onclick="openLoanModal('New Car Loan')">Apply Now</button>
@@ -667,7 +679,9 @@
 
                 <!-- Used Car Loan -->
                 <div class="loan-type-card">
-                    <i class="fa-solid fa-car-side"></i>
+                    <div class="side-apply-icon left" title="Quick WhatsApp Apply" onclick="openLoanModal('Used Car Loan')"><i class="fa-solid fa-car-side"></i></div>
+                    <div class="side-apply-icon right" title="Quick WhatsApp Apply" onclick="openLoanModal('Used Car Loan')"><i class="fa-brands fa-whatsapp"></i></div>
+                    <i class="fa-solid fa-car-side main-icon"></i>
                     <h3>Used Car Loan</h3>
                     <p>பழைய / செகண்ட் ஹேண்ட் கார் வாங்க உடனடி நிதி உதவி.</p>
                     <button class="trigger-apply-btn" onclick="openLoanModal('Used Car Loan')">Apply Now</button>
@@ -675,7 +689,9 @@
 
                 <!-- Bike Loan -->
                 <div class="loan-type-card">
-                    <i class="fa-solid fa-motorcycle"></i>
+                    <div class="side-apply-icon left" title="Quick WhatsApp Apply" onclick="openLoanModal('Bike Loan')"><i class="fa-solid fa-motorcycle"></i></div>
+                    <div class="side-apply-icon right" title="Quick WhatsApp Apply" onclick="openLoanModal('Bike Loan')"><i class="fa-brands fa-whatsapp"></i></div>
+                    <i class="fa-solid fa-motorcycle main-icon"></i>
                     <h3>Bike Loan</h3>
                     <p>இருசக்கர வாகனம் (Two Wheeler) வாங்க விரைவான லோன்.</p>
                     <button class="trigger-apply-btn" onclick="openLoanModal('Bike Loan')">Apply Now</button>
@@ -683,7 +699,9 @@
 
                 <!-- Housing Loan -->
                 <div class="loan-type-card">
-                    <i class="fa-solid fa-house"></i>
+                    <div class="side-apply-icon left" title="Quick WhatsApp Apply" onclick="openLoanModal('Housing Loan')"><i class="fa-solid fa-house"></i></div>
+                    <div class="side-apply-icon right" title="Quick WhatsApp Apply" onclick="openLoanModal('Housing Loan')"><i class="fa-brands fa-whatsapp"></i></div>
+                    <i class="fa-solid fa-house main-icon"></i>
                     <h3>Housing Loan</h3>
                     <p>உங்கள் சொந்த வீட்டுக்கனவை நனவாக்க ஹவுசிங் லோன்.</p>
                     <button class="trigger-apply-btn" onclick="openLoanModal('Housing Loan')">Apply Now</button>
@@ -691,7 +709,9 @@
 
                 <!-- Personal Loan -->
                 <div class="loan-type-card">
-                    <i class="fa-solid fa-user-tie"></i>
+                    <div class="side-apply-icon left" title="Quick WhatsApp Apply" onclick="openLoanModal('Personal Loan')"><i class="fa-solid fa-user-tie"></i></div>
+                    <div class="side-apply-icon right" title="Quick WhatsApp Apply" onclick="openLoanModal('Personal Loan')"><i class="fa-brands fa-whatsapp"></i></div>
+                    <i class="fa-solid fa-user-tie main-icon"></i>
                     <h3>Personal Loan</h3>
                     <p>அவசர தேவைகளுக்கான பர்சனல் லோன் சேவை.</p>
                     <button class="trigger-apply-btn" onclick="openLoanModal('Personal Loan')">Apply Now</button>
@@ -699,7 +719,9 @@
 
                 <!-- Mortgage Loan -->
                 <div class="loan-type-card">
-                    <i class="fa-solid fa-building-lock"></i>
+                    <div class="side-apply-icon left" title="Quick WhatsApp Apply" onclick="openLoanModal('Mortgage Loan')"><i class="fa-solid fa-building-lock"></i></div>
+                    <div class="side-apply-icon right" title="Quick WhatsApp Apply" onclick="openLoanModal('Mortgage Loan')"><i class="fa-brands fa-whatsapp"></i></div>
+                    <i class="fa-solid fa-building-lock main-icon"></i>
                     <h3>Mortgage Loan</h3>
                     <p>சொத்துடமை ஈட்டின் மீது பெறப்படும் மார்க்கேஜ் லோன்.</p>
                     <button class="trigger-apply-btn" onclick="openLoanModal('Mortgage Loan')">Apply Now</button>
@@ -735,7 +757,7 @@
         </div>
     </div>
 
-    <!-- 4. Career Page Section -->
+    <!-- 4. Career Page Section (Updated with correct email tamil4666@gmail.com) -->
     <div id="career" class="page-section">
         <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Career / Job Apply</h2>
@@ -756,7 +778,7 @@
                     <label>📄 ரெஸ்யூம் (Resume Upload File)</label>
                     <input type="file" id="career-resume" accept=".pdf,.doc,.docx">
                 </div>
-                <button type="button" class="submit-btn" onclick="sendCareerToWhatsApp()" style="background-color: #25D366; color: #fff;">
+                <button type="button" class="submit-btn" onclick="sendCareerToEmail()" style="background-color: #25D366; color: #fff;">
                     <i class="fa-brands fa-whatsapp"></i> Send Application via WhatsApp
                 </button>
             </div>
@@ -800,7 +822,7 @@
         </div>
     </div>
 
-    <!-- 6. Enquiries Section (Contact Page with Tamilselvan & Salem details & complaint email) -->
+    <!-- 6. Enquiries Section (Contact Page) -->
     <div id="enquiries" class="page-section">
         <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-phone"></i> Contact Us</h2>
@@ -808,7 +830,7 @@
                 <p><b>நிறுவனம் / உரிமையாளர்:</b> தமிழ் செல்வன் (Loan Thozhan)</p>
                 <p style="margin-top: 10px;"><b>இடம் / முகவரி:</b> சேலம், தமிழ்நாடு.</p>
                 <p style="margin-top: 10px;"><b>போன் நம்பர்:</b> +91 7358844950</p>
-                <p style="margin-top: 10px;"><b>குறைதீர்க்கும் மின்னஞ்சல் (Grievance Email):</b> tamil46@gmail.com</p>
+                <p style="margin-top: 10px;"><b>குறைதீர்க்கும் மின்னஞ்சல் (Grievance Email):</b> tamil4666@gmail.com</p>
                 <p style="margin-top: 15px; font-style: italic; color: var(--gold-light);">
                     “முயற்சியெனும் விதைத் தெளிப்போம், வெற்றியெனும் கனி பறிப்போம்! எங்களது சேவை மூலம் உங்களது நிதிச்சுமையை குறைத்து பாதுகாப்பான எதிர்காலத்தை உருவாக்க நம்பகத்தன்மையுடன் வழிகாட்டுகிறோம்.”
                 </p>
@@ -821,8 +843,8 @@
         <a href="#" onclick="showSection('home')"><i class="fa-solid fa-house"></i>Home</a>
         <a href="#" onclick="showSection('loans')"><i class="fa-solid fa-hand-holding-dollar"></i>Loans</a>
         <a href="#" onclick="showSection('banks')"><i class="fa-solid fa-building-columns"></i>Banks</a>
+        <a href="#" onclick="showSection('career')"><i class="fa-solid fa-briefcase"></i>Career</a>
         <a href="#" onclick="showSection('calculator')"><i class="fa-solid fa-calculator"></i>EMI</a>
-        <a href="#" onclick="showSection('enquiries')"><i class="fa-solid fa-phone"></i>Contact</a>
     </div>
 
     <!-- JavaScript Functions -->
@@ -898,7 +920,7 @@
         }
 
         // Career Application WhatsApp Integration
-        function sendCareerToWhatsApp() {
+        function sendCareerToEmail() {
             const name = document.getElementById('career-name').value;
             const phone = document.getElementById('career-phone').value;
             const exp = document.getElementById('career-exp').value;
@@ -910,7 +932,7 @@
                 return;
             }
 
-            const message = `--- Job Application ---%0A` +
+            const message = `--- Job Application (tamil4666@gmail.com) ---%0A` +
                             `👤 பெயர்: ${name}%0A` +
                             `📱 மொபைல் நம்பர்: ${phone}%0A` +
                             `⭐ அனுபவம்: ${exp}%0A` +
