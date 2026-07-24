@@ -28,7 +28,6 @@
             background-color: var(--dark-bg);
             color: var(--text-color);
             line-height: 1.6;
-            scroll-behavior: smooth;
         }
 
         /* Header & Navigation */
@@ -71,56 +70,146 @@
             letter-spacing: 0.5px;
         }
 
-        nav ul {
+        /* Hamburger Menu Button */
+        .menu-toggle {
+            background: none;
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-primary);
+            font-size: 24px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
             display: flex;
-            list-style: none;
-            gap: 18px;
             align-items: center;
-            flex-wrap: wrap;
+            gap: 8px;
         }
 
-        nav ul li a {
+        .menu-toggle:hover {
+            background-color: var(--gold-primary);
+            color: #0f0f0f;
+        }
+
+        /* Side Navigation Drawer */
+        .side-drawer {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 300px;
+            height: 100%;
+            background-color: #161616;
+            border-left: 2px solid var(--gold-primary);
+            box-shadow: -5px 0 25px rgba(0,0,0,0.8);
+            transition: right 0.4s ease-in-out;
+            z-index: 2000;
+            padding: 30px 20px;
+            overflow-y: auto;
+        }
+
+        .side-drawer.active {
+            right: 0;
+        }
+
+        .drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+        }
+
+        .drawer-header h3 {
+            color: var(--gold-primary);
+            font-size: 20px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: var(--gold-primary);
+        }
+
+        .drawer-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .drawer-menu li a {
             color: var(--text-color);
             text-decoration: none;
+            font-size: 16px;
             font-weight: 600;
-            font-size: 14px;
-            transition: color 0.3s;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 15px;
+            padding: 12px 15px;
+            border-radius: 6px;
+            transition: background 0.3s, color 0.3s;
         }
 
-        nav ul li a i {
+        .drawer-menu li a i {
             color: var(--gold-primary);
+            font-size: 18px;
+            width: 20px;
+            text-align: center;
         }
 
-        nav ul li a:hover {
+        .drawer-menu li a:hover, .drawer-menu li a.active-link {
+            background-color: var(--card-bg);
             color: var(--gold-primary);
+            border-left: 4px solid var(--gold-primary);
         }
 
-        .contact-btn {
-            background-color: var(--gold-primary);
-            color: #0f0f0f !important;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-weight: 700 !important;
-            transition: background 0.3s;
+        /* Overlay background when menu opens */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            display: none;
+            z-index: 1500;
         }
 
-        .contact-btn:hover {
-            background-color: var(--gold-light) !important;
+        .overlay.active {
+            display: block;
+        }
+
+        /* Page Content Display Control (Single Page View Logic) */
+        .page-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .page-section.active-section {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Hero Section (Home) */
         .hero {
             text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(rgba(15,15,15,0.85), rgba(15,15,15,0.95)), url('') center/cover;
-            border-bottom: 2px solid #222;
+            padding: 120px 20px;
+            background: linear-gradient(rgba(15,15,15,0.9), rgba(15,15,15,0.95));
         }
 
         .hero-logo {
-            max-height: 160px;
+            max-height: 180px;
             width: auto;
             margin-bottom: 25px;
             border-radius: 12px;
@@ -130,7 +219,7 @@
 
         .hero h1 {
             color: var(--gold-primary);
-            font-size: 48px;
+            font-size: 50px;
             margin-bottom: 12px;
             letter-spacing: 1px;
         }
@@ -145,12 +234,8 @@
         /* Main Container */
         .container {
             max-width: 1300px;
-            margin: 50px auto;
+            margin: 40px auto;
             padding: 0 20px;
-        }
-
-        section {
-            margin-bottom: 70px;
         }
 
         h2.section-title {
@@ -297,26 +382,17 @@
         footer {
             background-color: var(--card-bg);
             text-align: center;
-            padding: 30px;
+            padding: 25px;
             border-top: 2px solid #222;
             color: var(--text-muted);
+            margin-top: 60px;
         }
 
         .contact-bar {
-            margin-top: 12px;
+            margin-top: 10px;
             color: var(--gold-primary);
             font-weight: bold;
             font-size: 16px;
-        }
-
-        @media (max-width: 900px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-            nav ul {
-                justify-content: center;
-            }
         }
     </style>
 </head>
@@ -325,37 +401,49 @@
     <!-- Header & Navigation -->
     <header>
         <div class="nav-container">
-            <a href="#home" class="logo-area">
+            <a href="#" onclick="showSection('home')" class="logo-area">
                 <img src="logo.jpeg" alt="Loan Thozhan Logo" class="logo-img">
                 <span class="logo-text">LOAN THOZHAN</span>
             </a>
-            <nav>
-                <ul>
-                    <li><a href="#home"><i class="fa-solid fa-house"></i> Home</a></li>
-                    <li><a href="#banks"><b class="fa-solid fa-building-columns"></i> Banks</a></li>
-                    <li><a href="#loans"><i class="fa-solid fa-hand-holding-dollar"></i> Loans</a></li>
-                    <li><a href="#interest"><i class="fa-solid fa-percent"></i> Interest Rates</a></li>
-                    <li><a href="#calculator"><i class="fa-solid fa-calculator"></i> Calculator</a></li>
-                    <li><a href="#documents"><i class="fa-solid fa-file-lines"></i> Documents</a></li>
-                    <li><a href="#enquiries"><i class="fa-solid fa-circle-question"></i> Enquiries</a></li>
-                    <li><a href="#careers"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
-                    <li><a href="#enquiries" class="contact-btn"><i class="fa-solid fa-phone"></i> Contact Now</a></li>
-                </ul>
-            </nav>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i> Menu
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section / Home -->
-    <section id="home" class="hero">
-        <img src="logo.jpeg" alt="Loan Thozhan Logo" class="hero-logo">
-        <h1>LOAN THOZHAN</h1>
-        <p>Your ultimate companion for Car Loans, Home Loans, and all financial solutions with best interest rates.</p>
-    </section>
+    <!-- Side Navigation Drawer -->
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+    <div class="side-drawer" id="sideDrawer">
+        <div class="drawer-header">
+            <h3>Navigation Menu</h3>
+            <button class="close-btn" onclick="toggleMenu()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="drawer-menu">
+            <li><a href="#" onclick="showSection('home'); toggleMenu();" id="link-home" class="active-link"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#" onclick="showSection('banks'); toggleMenu();" id="link-banks"><i class="fa-solid fa-building-columns"></i> Banks</a></li>
+            <li><a href="#" onclick="showSection('loans'); toggleMenu();" id="link-loans"><i class="fa-solid fa-hand-holding-dollar"></i> Loans</a></li>
+            <li><a href="#" onclick="showSection('interest'); toggleMenu();" id="link-interest"><i class="fa-solid fa-percent"></i> Interest Rates</a></li>
+            <li><a href="#" onclick="showSection('calculator'); toggleMenu();" id="link-calculator"><i class="fa-solid fa-calculator"></i> Calculator</a></li>
+            <li><a href="#" onclick="showSection('documents'); toggleMenu();" id="link-documents"><i class="fa-solid fa-file-lines"></i> Documents</a></li>
+            <li><a href="#" onclick="showSection('enquiries'); toggleMenu();" id="link-enquiries"><i class="fa-solid fa-circle-question"></i> Enquiries</a></li>
+            <li><a href="#" onclick="showSection('careers'); toggleMenu();" id="link-careers"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
+        </ul>
+    </div>
 
-    <div class="container">
+    <!-- MAIN CONTENT SECTIONS -->
 
-        <!-- 1. Banks Section -->
-        <section id="banks">
+    <!-- 1. Home Section -->
+    <div id="home" class="page-section active-section">
+        <section class="hero">
+            <img src="logo.jpeg" alt="Loan Thozhan Logo" class="hero-logo">
+            <h1>LOAN THOZHAN</h1>
+            <p>Your ultimate companion for Car Loans, Home Loans, and all financial solutions with best interest rates.</p>
+        </section>
+    </div>
+
+    <!-- 2. Banks Section -->
+    <div id="banks" class="page-section">
+        <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-building-columns"></i> Tie-up Banks & Financial Institutions</h2>
             <div class="grid-cards">
                 <div class="card">
@@ -392,10 +480,12 @@
                     </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- 2. Loans Section with Specific Icons -->
-        <section id="loans">
+    <!-- 3. Loans Section -->
+    <div id="loans" class="page-section">
+        <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-hand-holding-dollar"></i> Our Loan Products & Services</h2>
             <div class="grid-cards">
                 <div class="card">
@@ -453,10 +543,12 @@
                     </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- 3. Current Interest Rates Section -->
-        <section id="interest">
+    <!-- 4. Interest Rates Section -->
+    <div id="interest" class="page-section">
+        <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-percent"></i> Current Interest Rates Overview</h2>
             <div class="card">
                 <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
@@ -469,10 +561,12 @@
                     <li><b>Two Wheeler Loan:</b> Starts from 11.0% to 18.0% p.a.</li>
                 </ul>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- 4. Advanced IRR / Reducing EMI Calculator -->
-        <section id="calculator">
+    <!-- 5. Calculator Section -->
+    <div id="calculator" class="page-section">
+        <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-calculator"></i> Advanced Reducing / IRR EMI Calculator</h2>
             <div class="calculator-box">
                 <div class="form-group">
@@ -498,10 +592,12 @@
                     <p><b>Total Payment (Principal + Interest):</b> <span id="total-payment-output">₹0</span></p>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- 5. Required Documents Section -->
-        <section id="documents">
+    <!-- 6. Documents Section -->
+    <div id="documents" class="page-section">
+        <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-file-lines"></i> Required Documents</h2>
             <div class="grid-cards">
                 <div class="card">
@@ -538,10 +634,12 @@
                     </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- 6. Enquiries Section -->
-        <section id="enquiries">
+    <!-- 7. Enquiries Section -->
+    <div id="enquiries" class="page-section">
+        <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-circle-question"></i> Loan Eligibility Enquiries</h2>
             <div class="enquiry-form">
                 <form action="mailto:support@loanthozhan.com" method="POST" enctype="text/plain">
@@ -580,10 +678,12 @@
                     <button type="submit" class="submit-btn">Submit Enquiry Now</button>
                 </form>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- 7. Careers Section -->
-        <section id="careers">
+    <!-- 8. Careers Section -->
+    <div id="careers" class="page-section">
+        <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Careers - Join Our Team</h2>
             <div class="enquiry-form">
                 <p style="margin-bottom: 25px; color: var(--text-muted);">Build your career with Loan Thozhan. Fill in your details and upload your resume below.</p>
@@ -607,8 +707,7 @@
                     <button type="submit" class="submit-btn">Apply Now</button>
                 </form>
             </div>
-        </section>
-
+        </div>
     </div>
 
     <!-- Footer -->
@@ -619,8 +718,40 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Reducing Balance / IRR EMI Calculation -->
+    <!-- JavaScript for Menu Toggle and Page Switching Logic -->
     <script>
+        function toggleMenu() {
+            const drawer = document.getElementById('sideDrawer');
+            const overlay = document.getElementById('overlay');
+            drawer.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => sec.classList.remove('active-section'));
+
+            // Show target section
+            const target = document.getElementById(sectionId);
+            if (target) {
+                target.classList.add('active-section');
+            }
+
+            // Update active link styling in drawer
+            const links = document.querySelectorAll('.drawer-menu a');
+            links.forEach(link => link.classList.remove('active-link'));
+            
+            const activeLink = document.getElementById('link-' + sectionId);
+            if (activeLink) {
+                activeLink.classList.add('active-link');
+            }
+
+            // Scroll to top smoothly when changing page views
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Calculator Logic
         function calculateReducingEMI() {
             const p = parseFloat(document.getElementById('calc-amount').value);
             const annualRate = parseFloat(document.getElementById('calc-rate').value);
@@ -631,15 +762,13 @@
                 return;
             }
 
-            const r = annualRate / 12 / 100; // Monthly reducing interest rate
-            const n = tenureYears * 12; // Total months
+            const r = annualRate / 12 / 100;
+            const n = tenureYears * 12;
 
-            // Reducing Balance EMI Formula
             const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
             const totalPayment = emi * n;
             const totalInterest = totalPayment - p;
             
-            // Approximate 1st year interest breakdown
             let remainingPrincipal = p;
             let firstYearInterest = 0;
             for(let i = 1; i <= Math.min(12, n); i++) {
@@ -651,7 +780,6 @@
 
             const avgMonthlyInterest = totalInterest / n;
 
-            // Display results
             document.getElementById('emi-output').innerText = "₹ " + emi.toFixed(2);
             document.getElementById('monthly-interest-output').innerText = "₹ " + avgMonthlyInterest.toFixed(2) + " (Monthly Average)";
             document.getElementById('yearly-interest-output').innerText = "₹ " + firstYearInterest.toFixed(2) + " (Approx 1st Year)";
