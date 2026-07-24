@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loan Management System</title>
-    <!-- FontAwesome for Icons -->
+    <title>Loan Management App</title>
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #1a73e8;
-            --secondary-color: #f0f4f8;
-            --text-color: #333;
-            --accent-color: #34a853;
+            --primary: #1a73e8;
+            --bg-color: #f4f6f9;
+            --text-main: #333;
+            --white: #ffffff;
         }
 
         * {
@@ -22,246 +22,331 @@
         }
 
         body {
-            background-color: var(--secondary-color);
-            color: var(--text-color);
+            background-color: #e4e9f0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
         }
 
-        .container {
+        /* Mobile Screen Container */
+        .mobile-frame {
             width: 100%;
-            max-width: 450px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            height: 750px;
+            background: var(--bg-color);
+            border-radius: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             overflow: hidden;
             position: relative;
+            border: 10px solid #222;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Splash / First Page with Logo */
+        /* 1. Splash / Home Page with Logo */
         #splash-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background: #ffffff;
-            text-align: center;
-            padding: 20px;
+            z-index: 10;
+            transition: transform 0.5s ease-in-out;
         }
 
-        .logo-container {
-            margin-bottom: 30px;
-        }
-
-        .logo-container i {
+        .splash-logo {
             font-size: 80px;
-            color: var(--primary-color);
+            color: var(--primary);
+            margin-bottom: 20px;
         }
 
-        .logo-container h1 {
-            font-size: 26px;
-            margin-top: 15px;
-            color: var(--primary-color);
+        .splash-title {
+            font-size: 24px;
+            color: var(--primary);
+            font-weight: bold;
+            margin-bottom: 40px;
         }
 
         .launch-btn {
-            background-color: var(--primary-color);
-            color: white;
+            background: var(--primary);
+            color: var(--white);
             border: none;
-            padding: 12px 35px;
+            padding: 12px 40px;
             font-size: 18px;
-            border-radius: 25px;
+            border-radius: 30px;
             cursor: pointer;
-            transition: background 0.3s ease;
-            box-shadow: 0 4px 10px rgba(26, 115, 232, 0.3);
+            box-shadow: 0 4px 12px rgba(26,115,232,0.4);
+            font-weight: 600;
         }
 
-        .launch-btn:hover {
-            background-color: #1557b0;
-        }
-
-        /* Main Application Section */
-        #main-app {
+        /* 2. Main Application Area */
+        .app-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
             display: none;
-            padding: 25px;
+            padding-bottom: 80px;
         }
 
-        h2 {
-            text-align: center;
+        .header-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        /* Loan Grid Cards */
+        .loan-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
             margin-bottom: 20px;
-            color: var(--primary-color);
+        }
+
+        .loan-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .loan-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .loan-card i {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .loan-card h4 {
+            font-size: 14px;
+            color: var(--text-main);
+        }
+
+        /* Detailed Section (Initially hidden) */
+        .detail-section {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: none;
+            margin-bottom: 20px;
         }
 
         .form-group {
-            margin-bottom: 18px;
+            margin-bottom: 15px;
         }
 
-        label {
+        .form-group label {
             display: block;
-            margin-bottom: 8px;
+            font-size: 13px;
             font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
             font-size: 14px;
         }
 
-        select, input {
+        .action-btn {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
             width: 100%;
             padding: 12px;
-            border: 1px solid #ccc;
             border-radius: 8px;
-            font-size: 15px;
-            background: #fff;
+            font-weight: bold;
+            cursor: pointer;
         }
 
-        .options-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 18px;
+        /* 3. Bottom Navigation Bar (5 Headings) */
+        .bottom-nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 65px;
+            background: var(--white);
+            display: none;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 1px solid #ddd;
+            z-index: 5;
         }
 
-        .option-card {
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
+        .nav-item {
             text-align: center;
             cursor: pointer;
-            transition: all 0.2s ease;
-            background: #fafafa;
+            color: #777;
+            font-size: 11px;
         }
 
-        .option-card i {
-            font-size: 24px;
-            margin-bottom: 8px;
-            color: var(--primary-color);
+        .nav-item i {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 3px;
         }
 
-        .option-card div {
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .option-card.selected {
-            border-color: var(--primary-color);
-            background-color: #e8f0fe;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 14px;
-            font-size: 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        .submit-btn:hover {
-            background-color: #2b8a43;
+        .nav-item.active, .nav-item:hover {
+            color: var(--primary);
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- 1. First Page: Logo and Launch Button -->
+    <div class="mobile-frame">
+        
+        <!-- Splash / Home Page: Logo Only -->
         <div id="splash-screen">
-            <div class="logo-container">
-                <i class="fa-solid fa-landmark-dome"></i>
-                <h1>Loan Solutions</h1>
+            <div class="splash-logo">
+                <i class="fa-solid fa-landmark"></i>
             </div>
-            <button class="launch-btn" onclick="openApp()">Launch</button>
+            <div class="splash-title">Loan CRM System</div>
+            <button class="launch-btn" onclick="launchApp()">Launch</button>
         </div>
 
-        <!-- 2. Main App Screen -->
-        <div id="main-app">
-            <h2>Loan Calculator & Banks</h2>
-
-            <!-- Loan Category Selection -->
-            <div class="form-group">
-                <label>Loan Type தேர்ந்தெெடுக்கவும்:</label>
-                <div class="options-grid">
-                    <div class="option-card" onclick="selectLoan('New Car', this)">
-                        <i class="fa-solid fa-car"></i>
-                        <div>New Car Loan</div>
-                    </div>
-                    <div class="option-card" onclick="selectLoan('Used Car', this)">
-                        <i class="fa-solid fa-car-side"></i>
-                        <div>Used Car Loan</div>
-                    </div>
-                    <div class="option-card" onclick="selectLoan('Bike', this)">
-                        <i class="fa-solid fa-motorcycle"></i>
-                        <div>Bike Loan</div>
-                    </div>
-                    <div class="option-card" onclick="selectLoan('Home', this)">
-                        <i class="fa-solid fa-house"></i>
-                        <div>Home Loan</div>
-                    </div>
+        <!-- Main Application Screen -->
+        <div class="app-body" id="appBody">
+            <div class="header-title">லோன் வகைகள் (Loan Types)</div>
+            
+            <!-- Loan Selection Grid -->
+            <div class="loan-grid">
+                <div class="loan-card" onclick="openLoanDetails('New Car Loan', 'fa-car')">
+                    <i class="fa-solid fa-car"></i>
+                    <h4>New Car Loan</h4>
+                </div>
+                <div class="loan-card" onclick="openLoanDetails('Used Car Loan', 'fa-car-side')">
+                    <i class="fa-solid fa-car-side"></i>
+                    <h4>Used Car Loan</h4>
+                </div>
+                <div class="loan-card" onclick="openLoanDetails('Bike Loan', 'fa-motorcycle')">
+                    <i class="fa-solid fa-motorcycle"></i>
+                    <h4>Bike Loan</h4>
+                </div>
+                <div class="loan-card" onclick="openLoanDetails('Home Loan', 'fa-house')">
+                    <i class="fa-solid fa-house"></i>
+                    <h4>Home Loan</h4>
                 </div>
             </div>
 
-            <!-- Bank Selection with Icons -->
-            <div class="form-group">
-                <label for="bank-select"><i class="fa-solid fa-building-columns"></i> Bank தேர்ந்தெடுக்கவும்:</label>
-                <select id="bank-select">
-                    <option value="">-- வங்கியைத் தேர்ந்தெடுக்கவும் --</option>
-                    <option value="sbi">🏦 State Bank of India (SBI)</option>
-                    <option value="canara">🏦 Canara Bank</option>
-                    <option value="hdfc">🏦 HDFC Bank</option>
-                    <option value="icici">🏦 ICICI Bank</option>
-                    <option value="axis">🏦 Axis Bank</option>
-                    <option value="iob">🏦 Indian Overseas Bank (IOB)</option>
-                </select>
-            </div>
+            <!-- Detailed Functions Section (Appears on selecting a loan) -->
+            <div class="detail-section" id="detailSection">
+                <h3 id="selectedLoanTitle" style="color:var(--primary); margin-bottom:15px; font-size:16px;">Loan Details</h3>
+                
+                <div class="form-group">
+                    <label>வங்கி தேர்ந்தெடுக்கவும் (Bank Name):</label>
+                    <select id="bankName">
+                        <option value="sbi">🏦 State Bank of India (SBI)</option>
+                        <option value="canara">🏦 Canara Bank</option>
+                        <option value="hdfc">🏦 HDFC Bank</option>
+                        <option value="icici">🏦 ICICI Bank</option>
+                        <option value="axis">🏦 Axis Bank</option>
+                        <option value="iob">🏦 Indian Overseas Bank</option>
+                    </select>
+                </div>
 
-            <!-- Amount Input -->
-            <div class="form-group">
-                <label for="amount"><i class="fa-solid fa-indian-rupee-sign"></i> Loan Amount:</label>
-                <input type="number" id="amount" placeholder="தொகையை உள்ளிடவும்">
-            </div>
+                <div class="form-group">
+                    <label>லோன் தொகை (Loan Amount):</label>
+                    <input type="number" id="loanAmount" placeholder="தொகையை உள்ளிடவும் (₹)">
+                </div>
 
-            <button class="submit-btn" onclick="submitData()">Process Loan</button>
+                <div class="form-group">
+                    <label>கால அவகாசம் (Tenure in Years):</label>
+                    <select id="tenure">
+                        <option value="1">1 Year</option>
+                        <option value="3">3 Years</option>
+                        <option value="5">5 Years</option>
+                        <option value="7">7 Years</option>
+                    </select>
+                </div>
+
+                <button class="action-btn" onclick="processLoan()">Process Application</button>
+            </div>
         </div>
+
+        <!-- Bottom Navigation (5 Headings) -->
+        <div class="bottom-nav" id="bottomNav">
+            <div class="nav-item active" onclick="navClick(this)">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </div>
+            <div class="nav-item" onclick="navClick(this)">
+                <i class="fa-solid fa-file-lines"></i>
+                Applications
+            </div>
+            <div class="nav-item" onclick="navClick(this)">
+                <i class="fa-solid fa-calculator"></i>
+                EMI Calc
+            </div>
+            <div class="nav-item" onclick="navClick(this)">
+                <i class="fa-solid fa-building-columns"></i>
+                Banks
+            </div>
+            <div class="nav-item" onclick="navClick(this)">
+                <i class="fa-solid fa-user"></i>
+                Profile
+            </div>
+        </div>
+
     </div>
 
     <script>
-        let selectedLoanType = "";
+        let currentLoan = "";
 
-        function openApp() {
-            document.getElementById('splash-screen').style.display = 'none';
-            document.getElementById('main-app').style.display = 'block';
+        function launchApp() {
+            // Slide up effect for splash screen
+            let splash = document.getElementById('splash-screen');
+            splash.style.transform = "translateY(-100%)";
+            
+            setTimeout(() => {
+                splash.style.display = "none";
+                document.getElementById('appBody').style.display = "block";
+                document.getElementById('bottomNav').style.display = "flex";
+            }, 400);
         }
 
-        function selectLoan(type, element) {
-            selectedLoanType = type;
-            let cards = document.querySelectorAll('.option-card');
-            cards.forEach(c => c.classList.remove('selected'));
-            element.classList.add('selected');
+        function openLoanDetails(loanName, iconClass) {
+            currentLoan = loanName;
+            let detailSec = document.getElementById('detailSection');
+            document.getElementById('selectedLoanTitle').innerHTML = `<i class="fa-solid ${iconClass}"></i> ${loanName} Process`;
+            detailSec.style.display = "block";
+            detailSec.scrollIntoView({ behavior: 'smooth' });
         }
 
-        function submitData() {
-            let bank = document.getElementById('bank-select').value;
-            let amount = document.getElementById('amount').value;
+        function processLoan() {
+            let bank = document.getElementById('bankName').value;
+            let amount = document.getElementById('loanAmount').value;
+            let tenure = document.getElementById('tenure').value;
 
-            if (!selectedLoanType) {
-                alert("தயவுசெய்து லோன் வகையைத் தேர்ந்தெடுக்கவும்!");
-                return;
-            }
-            if (!bank) {
-                alert("தயவுசெய்து வங்கியைத் தேர்ந்தெடுக்கவும்!");
-                return;
-            }
-            if (!amount) {
+            if(!amount) {
                 alert("தயவுசெய்து தொகையை உள்ளிடவும்!");
                 return;
             }
 
-            alert(`Success!\nLoan: ${selectedLoanType}\nBank: ${bank.toUpperCase()}\nAmount: ₹${amount}`);
+            alert(`விவரங்கள் வெற்றிகரமாக சமர்ப்பிக்கப்பட்டன!\n\nLoan: ${currentLoan}\nBank: ${bank.toUpperCase()}\nAmount: ₹${amount}\nTenure: ${tenure} Years`);
+        }
+
+        function navClick(element) {
+            let items = document.querySelectorAll('.nav-item');
+            items.forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
         }
     </script>
 
