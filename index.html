@@ -6,6 +6,8 @@
     <title>Loan Thozhan - Your Trusted Financial Partner</title>
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts for Professional Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold-primary: #d4af37;
@@ -21,13 +23,13 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif; /* Professional Font Style */
         }
 
         body {
             background-color: var(--dark-bg);
             color: var(--text-color);
-            line-height: 1.5;
+            line-height: 1.6;
             overflow-x: hidden;
             padding-bottom: 70px;
         }
@@ -66,9 +68,10 @@
         }
 
         .logo-text {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--gold-primary);
+            letter-spacing: 0.5px;
         }
 
         .header-right-actions {
@@ -100,9 +103,9 @@
         .career-btn {
             background-color: var(--gold-primary);
             color: #0f0f0f;
-            padding: 5px 12px;
+            padding: 6px 14px;
             border-radius: 4px;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 13px;
             border: none;
             cursor: pointer;
@@ -116,7 +119,7 @@
         .navbar-menu {
             display: flex;
             list-style: none;
-            gap: 10px;
+            gap: 15px;
             align-items: center;
         }
 
@@ -127,8 +130,8 @@
         .nav-link {
             color: var(--text-color);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 13px;
+            font-weight: 500;
+            font-size: 14px;
             padding: 12px 10px;
             display: flex;
             align-items: center;
@@ -139,7 +142,7 @@
 
         .nav-link i {
             color: var(--gold-primary);
-            font-size: 11px;
+            font-size: 12px;
             transition: transform 0.3s ease;
         }
 
@@ -203,45 +206,48 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero Section (Home - Logo, Name, Custom Message) */
+        /* Hero Section (Home) */
         .hero {
             text-align: center;
-            padding: 50px 15px;
+            padding: 60px 20px;
             background: linear-gradient(rgba(15,15,15,0.9), rgba(15,15,15,0.95));
         }
 
         .hero-logo {
-            max-height: 150px;
+            max-height: 160px;
             width: auto;
-            margin-bottom: 15px;
-            border-radius: 10px;
+            margin-bottom: 20px;
+            border-radius: 12px;
             border: 2px solid var(--gold-primary);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
         }
 
         .hero h1 {
             color: var(--gold-primary);
-            font-size: 26px;
-            margin-bottom: 10px;
+            font-size: 28px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         .hero-message {
-            background: rgba(26, 26, 26, 0.9);
+            background: rgba(26, 26, 26, 0.95);
             border: 1px solid var(--gold-primary);
-            border-radius: 8px;
-            padding: 15px;
-            max-width: 600px;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 650px;
             margin: 20px auto 0 auto;
             color: var(--gold-light);
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 15px;
+            line-height: 1.8;
             text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
         /* Main Container */
         .container {
             max-width: 900px;
-            margin: 20px auto;
+            margin: 30px auto;
             padding: 0 15px;
         }
 
@@ -250,13 +256,117 @@
             border-bottom: 2px solid var(--gold-primary);
             padding-bottom: 8px;
             margin-bottom: 20px;
-            font-size: 20px;
+            font-size: 22px;
             display: flex;
             align-items: center;
             gap: 10px;
+            font-weight: 600;
         }
 
-        /* Accordion Dropdown Blocks */
+        /* Loan Grid Cards Style */
+        .loan-grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .loan-type-card {
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            border-top: 4px solid var(--gold-primary);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .loan-type-card:hover {
+            background-color: var(--card-hover);
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+        }
+
+        .loan-type-card i {
+            font-size: 38px;
+            color: var(--gold-primary);
+            margin-bottom: 12px;
+        }
+
+        .loan-type-card h3 {
+            color: var(--gold-primary);
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .loan-type-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .trigger-apply-btn {
+            background-color: var(--gold-primary);
+            color: #0f0f0f;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .trigger-apply-btn:hover {
+            background-color: var(--gold-light);
+        }
+
+        /* Modal Popup for Individual Loan Application Form */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 15px;
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            border: 2px solid var(--gold-primary);
+            border-radius: 10px;
+            padding: 25px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.9);
+            position: relative;
+            animation: scaleUp 0.3s ease-in-out;
+        }
+
+        @keyframes scaleUp {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--gold-primary);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Accordion Dropdown Blocks (Banks) */
         .accordion-box {
             background-color: var(--card-bg);
             border: 1px solid #333;
@@ -271,7 +381,7 @@
             background-color: #1f1f1f;
             color: var(--gold-primary);
             font-size: 15px;
-            font-weight: 700;
+            font-weight: 600;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -311,15 +421,16 @@
             border: none;
             padding: 10px 15px;
             border-radius: 5px;
-            font-weight: bold;
-            font-size: 13px;
+            font-weight: 600;
+            font-size: 14px;
             cursor: pointer;
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             text-decoration: none;
-            margin-top: 10px;
+            width: 100%;
+            margin-top: 15px;
         }
 
         /* Calculator & Forms */
@@ -338,7 +449,7 @@
             display: block;
             margin-bottom: 4px;
             color: var(--gold-light);
-            font-weight: 600;
+            font-weight: 500;
             font-size: 13px;
         }
 
@@ -357,7 +468,7 @@
             color: #0f0f0f;
             padding: 12px;
             border: none;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 15px;
             border-radius: 5px;
             cursor: pointer;
@@ -375,7 +486,7 @@
             display: none;
         }
 
-        /* Mobile Bottom Navigation Bar */
+        /* Mobile Bottom Navigation Bar (No Career link at bottom as requested) */
         .mobile-menu-bar {
             display: flex;
             justify-content: space-around;
@@ -422,12 +533,12 @@
                 <span class="logo-text">LOAN THOZHAN</span>
             </a>
             
-            <!-- Desktop Navbar Menu (3rd position Banks with filter dropdown) -->
+            <!-- Desktop Navbar Menu -->
             <ul class="navbar-menu">
                 <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('home')"><i class="fa-solid fa-house"></i> Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('loans')"><i class="fa-solid fa-hand-holding-dollar"></i> Loans</a></li>
                 
-                <!-- 3rd Position: Banks Menu -->
+                <!-- Banks Menu with Filter Dropdown -->
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="showSection('banks')"><i class="fa-solid fa-building-columns"></i> Banks <i class="fa-solid fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
@@ -456,7 +567,7 @@
 
     <!-- MAIN CONTENT SECTIONS -->
 
-    <!-- 1. Home Section (Logo, Name, Explanation message only) -->
+    <!-- 1. Home Section (Large Logo, Name, Custom Profile & Financial Advice Message) -->
     <div id="home" class="page-section active-section">
         <section class="hero">
             <img src="logo.jpeg" alt="Loan Thozhan Logo" class="hero-logo">
@@ -464,7 +575,7 @@
             <p>உங்கள் நிதித் தேவைகளுக்கான நம்பகமான தோழன்.</p>
             
             <div class="hero-message">
-                <p>உங்களது தனிப்பட்ட நிதித் தேவைகளையும் ப்ரொபைலையும் முழுமையாகப் புரிந்து கொண்டு, மிகக் குறைந்த வட்டி விகிதத்தில் லோன் பெற்றுத் தர உதவுகிறோம். அதிக வட்டி செலுத்துவதில் இருந்து உங்களை விடுவிக்க தெளிவான வழிகாட்டல்களையும் ஆலோசனைகளையும் வழங்கி பாதுகாப்பான வழி காட்டுகிறோம்.</p>
+                <p>உங்களது தனிப்பட்ட நிதித் தேவைகளையும் ப்ரொபைலையும் முழுமையாகப் புரிந்து கொண்டு, மிகக் குறைந்த வட்டி விகிதத்தில் லோன் பெற்றுத் தர உதவுகிறோம். அதிக வட்டி செலுத்துவதில் இருந்து உங்களை விடுவிக்க தெளிவான விளக்கங்களையும் ஆலோசனைகளையும் வழங்கி உங்களுக்கு நல்ல பாதுகாப்புடன் கூடிய வழிகாட்டலை வழங்குகிறோம்.</p>
             </div>
         </section>
     </div>
@@ -474,7 +585,7 @@
         <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-building-columns"></i> வங்கிகள் மற்றும் நிறுவனங்கள் (Banks Directory)</h2>
             
-            <!-- Govt Banks (10 Banks) -->
+            <!-- Govt Banks -->
             <div class="accordion-box bank-filter-item" id="bank-gov">
                 <div class="accordion-header" onclick="toggleAccordion('bank-gov')">
                     <span><i class="fa-solid fa-landmark"></i> Government Banks (அரசு வங்கிகள்)</span>
@@ -496,7 +607,7 @@
                 </div>
             </div>
 
-            <!-- Private Banks (10 Banks) -->
+            <!-- Private Banks -->
             <div class="accordion-box bank-filter-item" id="bank-pvt">
                 <div class="accordion-header" onclick="toggleAccordion('bank-pvt')">
                     <span><i class="fa-solid fa-building-columns"></i> Private Banks (தனியார் வங்கிகள்)</span>
@@ -518,7 +629,7 @@
                 </div>
             </div>
 
-            <!-- NBFC (8 Financial Companies) -->
+            <!-- NBFC -->
             <div class="accordion-box bank-filter-item" id="bank-nbfc">
                 <div class="accordion-header" onclick="toggleAccordion('bank-nbfc')">
                     <span><i class="fa-solid fa-wallet"></i> NBFC Financials (நிதி நிறுவனங்கள்)</span>
@@ -540,137 +651,87 @@
         </div>
     </div>
 
-    <!-- 3. Loans Section (Types with specific symbols, documents & direct WhatsApp individual apply form) -->
+    <!-- 3. Loans Section (Clean Cards with individual symbols and Apply button triggering popup form) -->
     <div id="loans" class="page-section">
         <div class="container">
-            <h2 class="section-title"><i class="fa-solid fa-hand-holding-dollar"></i> லோன் வகைகள் மற்றும் விண்ணப்பம் (Loans)</h2>
+            <h2 class="section-title"><i class="fa-solid fa-hand-holding-dollar"></i> லோன் வகைகள் (Loan Types)</h2>
             
-            <!-- New Car Loan -->
-            <div class="accordion-box" id="loan-new-car">
-                <div class="accordion-header" onclick="toggleAccordion('loan-new-car')">
-                    <span><i class="fa-solid fa-car"></i> New Car Loan (புதிய கார் லோன்)</span>
-                    <i class="fa-solid fa-chevron-down"></i>
+            <div class="loan-grid-container">
+                <!-- New Car Loan -->
+                <div class="loan-type-card">
+                    <i class="fa-solid fa-car"></i>
+                    <h3>New Car Loan</h3>
+                    <p>புதிய கார் வாங்க எளிய முறையில் குறைந்த வட்டியில் லோன்.</p>
+                    <button class="trigger-apply-btn" onclick="openLoanModal('New Car Loan')">Apply Now</button>
                 </div>
-                <div class="accordion-content">
-                    <p><b>அவசியமான ஆவணங்கள்:</b> PAN Card, Aadhaar Card, 3 Months Payslip / ITR, Bank Statement.</p>
-                    <div class="enquiry-form" style="margin-top: 15px; border: 1px solid #333;">
-                        <h4 style="color: var(--gold-primary); margin-bottom: 10px;">Apply for New Car Loan</h4>
-                        <div class="form-group"><label>👤 பெயர் (Name)</label><input type="text" id="name-new-car" placeholder="உங்கள் பெயர்"></div>
-                        <div class="form-group"><label>📱 மொபைல் நம்பர் (Number)</label><input type="tel" id="phone-new-car" placeholder="10 இலக்க எண்"></div>
-                        <div class="form-group"><label>📍 மாவட்டம் (District)</label><input type="text" id="dist-new-car" placeholder="உங்கள் மாவட்டம்"></div>
-                        <div class="form-group"><label>💰 லோன் அமௌன்ட் (Amount)</label><input type="number" id="amt-new-car" placeholder="தேவையான தொகை"></div>
-                        <button type="button" class="apply-whatsapp-btn" onclick="sendIndividualLoan('New Car Loan', 'name-new-car', 'phone-new-car', 'dist-new-car', 'amt-new-car')">
-                            <i class="fa-brands fa-whatsapp"></i> WhatsApp-ல் விண்ணப்பிக்க
-                        </button>
-                    </div>
+
+                <!-- Used Car Loan -->
+                <div class="loan-type-card">
+                    <i class="fa-solid fa-car-side"></i>
+                    <h3>Used Car Loan</h3>
+                    <p>பழைய / செகண்ட் ஹேண்ட் கார் வாங்க உடனடி நிதி உதவி.</p>
+                    <button class="trigger-apply-btn" onclick="openLoanModal('Used Car Loan')">Apply Now</button>
+                </div>
+
+                <!-- Bike Loan -->
+                <div class="loan-type-card">
+                    <i class="fa-solid fa-motorcycle"></i>
+                    <h3>Bike Loan</h3>
+                    <p>இருசக்கர வாகனம் (Two Wheeler) வாங்க விரைவான லோன்.</p>
+                    <button class="trigger-apply-btn" onclick="openLoanModal('Bike Loan')">Apply Now</button>
+                </div>
+
+                <!-- Housing Loan -->
+                <div class="loan-type-card">
+                    <i class="fa-solid fa-house"></i>
+                    <h3>Housing Loan</h3>
+                    <p>உங்கள் சொந்த வீட்டுக்கனவை நனவாக்க ஹவுசிங் லோன்.</p>
+                    <button class="trigger-apply-btn" onclick="openLoanModal('Housing Loan')">Apply Now</button>
+                </div>
+
+                <!-- Personal Loan -->
+                <div class="loan-type-card">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <h3>Personal Loan</h3>
+                    <p>அவசர தேவைகளுக்கான பர்சனல் லோன் சேவை.</p>
+                    <button class="trigger-apply-btn" onclick="openLoanModal('Personal Loan')">Apply Now</button>
+                </div>
+
+                <!-- Mortgage Loan -->
+                <div class="loan-type-card">
+                    <i class="fa-solid fa-building-lock"></i>
+                    <h3>Mortgage Loan</h3>
+                    <p>சொத்துடமை ஈட்டின் மீது பெறப்படும் மார்க்கேஜ் லோன்.</p>
+                    <button class="trigger-apply-btn" onclick="openLoanModal('Mortgage Loan')">Apply Now</button>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Used Car Loan -->
-            <div class="accordion-box" id="loan-used-car">
-                <div class="accordion-header" onclick="toggleAccordion('loan-used-car')">
-                    <span><i class="fa-solid fa-car-side"></i> Used Car Loan (பழைய கார் லோன்)</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <p><b>அவசியமான ஆவணங்கள்:</b> RC Book Copy, Insurance, PAN, Aadhaar, Income Proof.</p>
-                    <div class="enquiry-form" style="margin-top: 15px; border: 1px solid #333;">
-                        <h4 style="color: var(--gold-primary); margin-bottom: 10px;">Apply for Used Car Loan</h4>
-                        <div class="form-group"><label>👤 பெயர் (Name)</label><input type="text" id="name-used-car" placeholder="உங்கள் பெயர்"></div>
-                        <div class="form-group"><label>📱 மொபைல் நம்பர் (Number)</label><input type="tel" id="phone-used-car" placeholder="10 இலக்க எண்"></div>
-                        <div class="form-group"><label>📍 மாவட்டம் (District)</label><input type="text" id="dist-used-car" placeholder="உங்கள் மாவட்டம்"></div>
-                        <div class="form-group"><label>💰 லோன் அமௌன்ட் (Amount)</label><input type="number" id="amt-used-car" placeholder="தேவையான தொகை"></div>
-                        <button type="button" class="apply-whatsapp-btn" onclick="sendIndividualLoan('Used Car Loan', 'name-used-car', 'phone-used-car', 'dist-used-car', 'amt-used-car')">
-                            <i class="fa-brands fa-whatsapp"></i> WhatsApp-ல் விண்ணப்பிக்க
-                        </button>
-                    </div>
-                </div>
+    <!-- Loan Application Modal Popup -->
+    <div id="loanModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeLoanModal()">&times;</button>
+            <h3 id="modalLoanTitle" style="color: var(--gold-primary); margin-bottom: 15px; font-size: 18px;">Apply For Loan</h3>
+            <div class="form-group">
+                <label>👤 பெயர் (Name)</label>
+                <input type="text" id="modal-name" placeholder="உங்கள் பெயர்">
             </div>
-
-            <!-- Two Wheeler Loan -->
-            <div class="accordion-box" id="loan-bike">
-                <div class="accordion-header" onclick="toggleAccordion('loan-bike')">
-                    <span><i class="fa-solid fa-motorcycle"></i> Two Wheeler Loan (டூ வீலர் லோன்)</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <p><b>அவசியமான ஆவணங்கள்:</b> Aadhaar Card, PAN Card, Photo, Address Proof.</p>
-                    <div class="enquiry-form" style="margin-top: 15px; border: 1px solid #333;">
-                        <h4 style="color: var(--gold-primary); margin-bottom: 10px;">Apply for Two Wheeler Loan</h4>
-                        <div class="form-group"><label>👤 பெயர் (Name)</label><input type="text" id="name-bike" placeholder="உங்கள் பெயர்"></div>
-                        <div class="form-group"><label>📱 மொபைல் நம்பர் (Number)</label><input type="tel" id="phone-bike" placeholder="10 இலக்க எண்"></div>
-                        <div class="form-group"><label>📍 மாவட்டம் (District)</label><input type="text" id="dist-bike" placeholder="உங்கள் மாவட்டம்"></div>
-                        <div class="form-group"><label>💰 லோன் அமௌன்ட் (Amount)</label><input type="number" id="amt-bike" placeholder="தேவையான தொகை"></div>
-                        <button type="button" class="apply-whatsapp-btn" onclick="sendIndividualLoan('Two Wheeler Loan', 'name-bike', 'phone-bike', 'dist-bike', 'amt-bike')">
-                            <i class="fa-brands fa-whatsapp"></i> WhatsApp-ல் விண்ணப்பிக்க
-                        </button>
-                    </div>
-                </div>
+            <div class="form-group">
+                <label>📱 மொபைல் நம்பர் (Mobile Number)</label>
+                <input type="tel" id="modal-phone" placeholder="10 இலக்க எண்">
             </div>
-
-            <!-- Housing Loan -->
-            <div class="accordion-box" id="loan-home">
-                <div class="accordion-header" onclick="toggleAccordion('loan-home')">
-                    <span><i class="fa-solid fa-house"></i> Housing Loan (ஹவுசிங் லோன்)</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <p><b>அவசியமான ஆவணங்கள்:</b> Property Documents, Approval Plan, ITR / Form 16, Bank Statements.</p>
-                    <div class="enquiry-form" style="margin-top: 15px; border: 1px solid #333;">
-                        <h4 style="color: var(--gold-primary); margin-bottom: 10px;">Apply for Housing Loan</h4>
-                        <div class="form-group"><label>👤 பெயர் (Name)</label><input type="text" id="name-home" placeholder="உங்கள் பெயர்"></div>
-                        <div class="form-group"><label>📱 மொபைல் நம்பர் (Number)</label><input type="tel" id="phone-home" placeholder="10 இலக்க எண்"></div>
-                        <div class="form-group"><label>📍 மாவட்டம் (District)</label><input type="text" id="dist-home" placeholder="உங்கள் மாவட்டம்"></div>
-                        <div class="form-group"><label>💰 லோன் அமௌன்ட் (Amount)</label><input type="number" id="amt-home" placeholder="தேவையான தொகை"></div>
-                        <button type="button" class="apply-whatsapp-btn" onclick="sendIndividualLoan('Housing Loan', 'name-home', 'phone-home', 'dist-home', 'amt-home')">
-                            <i class="fa-brands fa-whatsapp"></i> WhatsApp-ல் விண்ணப்பிக்க
-                        </button>
-                    </div>
-                </div>
+            <div class="form-group">
+                <label>📍 மாவட்டம் (District)</label>
+                <input type="text" id="modal-district" placeholder="உங்கள் மாவட்டம்">
             </div>
-
-            <!-- Personal Loan -->
-            <div class="accordion-box" id="loan-personal">
-                <div class="accordion-header" onclick="toggleAccordion('loan-personal')">
-                    <span><i class="fa-solid fa-user-tie"></i> Personal Loan (பர்சனல் லோன்)</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <p><b>அவசியமான ஆவணங்கள்:</b> Salary Slips / Business Proof, PAN, Aadhaar, Bank Statement.</p>
-                    <div class="enquiry-form" style="margin-top: 15px; border: 1px solid #333;">
-                        <h4 style="color: var(--gold-primary); margin-bottom: 10px;">Apply for Personal Loan</h4>
-                        <div class="form-group"><label>👤 பெயர் (Name)</label><input type="text" id="name-personal" placeholder="உங்கள் பெயர்"></div>
-                        <div class="form-group"><label>📱 மொபைல் நம்பர் (Number)</label><input type="tel" id="phone-personal" placeholder="10 இலக்க எண்"></div>
-                        <div class="form-group"><label>📍 மாவட்டம் (District)</label><input type="text" id="dist-personal" placeholder="உங்கள் மாவட்டம்"></div>
-                        <div class="form-group"><label>💰 லோன் அமௌன்ட் (Amount)</label><input type="number" id="amt-personal" placeholder="தேவையான தொகை"></div>
-                        <button type="button" class="apply-whatsapp-btn" onclick="sendIndividualLoan('Personal Loan', 'name-personal', 'phone-personal', 'dist-personal', 'amt-personal')">
-                            <i class="fa-brands fa-whatsapp"></i> WhatsApp-ல் விண்ணப்பிக்க
-                        </button>
-                    </div>
-                </div>
+            <div class="form-group">
+                <label>💰 லோன் அமௌன்ட் (Loan Amount)</label>
+                <input type="number" id="modal-amount" placeholder="தேவையான தொகை">
             </div>
-
-            <!-- Mortgage Loan -->
-            <div class="accordion-box" id="loan-mortgage">
-                <div class="accordion-header" onclick="toggleAccordion('loan-mortgage')">
-                    <span><i class="fa-solid fa-building-lock"></i> Mortgage Loan (மார்க்கேஜ் லோன்)</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <p><b>அவசியமான ஆவணங்கள்:</b> Collateral Property Papers, Income Proof, KYC Documents.</p>
-                    <div class="enquiry-form" style="margin-top: 15px; border: 1px solid #333;">
-                        <h4 style="color: var(--gold-primary); margin-bottom: 10px;">Apply for Mortgage Loan</h4>
-                        <div class="form-group"><label>👤 பெயர் (Name)</label><input type="text" id="name-mortgage" placeholder="உங்கள் பெயர்"></div>
-                        <div class="form-group"><label>📱 மொபைல் நம்பர் (Number)</label><input type="tel" id="phone-mortgage" placeholder="10 இலக்க எண்"></div>
-                        <div class="form-group"><label>📍 மாவட்டம் (District)</label><input type="text" id="dist-mortgage" placeholder="உங்கள் மாவட்டம்"></div>
-                        <div class="form-group"><label>💰 லோன் அமௌன்ட் (Amount)</label><input type="number" id="amt-mortgage" placeholder="தேவையான தொகை"></div>
-                        <button type="button" class="apply-whatsapp-btn" onclick="sendIndividualLoan('Mortgage Loan', 'name-mortgage', 'phone-mortgage', 'dist-mortgage', 'amt-mortgage')">
-                            <i class="fa-brands fa-whatsapp"></i> WhatsApp-ல் விண்ணப்பிக்க
-                        </button>
-                    </div>
-                </div>
-            </div>
-
+            <button type="button" class="apply-whatsapp-btn" onclick="submitModalLoan()">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp-ல் சமர்ப்பிக்கவும்
+            </button>
         </div>
     </div>
 
@@ -739,7 +800,7 @@
         </div>
     </div>
 
-    <!-- 6. Enquiries Section (Contact Page with Tamilselvan & Salem details) -->
+    <!-- 6. Enquiries Section (Contact Page with Tamilselvan & Salem details & complaint email) -->
     <div id="enquiries" class="page-section">
         <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-phone"></i> Contact Us</h2>
@@ -747,6 +808,7 @@
                 <p><b>நிறுவனம் / உரிமையாளர்:</b> தமிழ் செல்வன் (Loan Thozhan)</p>
                 <p style="margin-top: 10px;"><b>இடம் / முகவரி:</b> சேலம், தமிழ்நாடு.</p>
                 <p style="margin-top: 10px;"><b>போன் நம்பர்:</b> +91 7358844950</p>
+                <p style="margin-top: 10px;"><b>குறைதீர்க்கும் மின்னஞ்சல் (Grievance Email):</b> tamil46@gmail.com</p>
                 <p style="margin-top: 15px; font-style: italic; color: var(--gold-light);">
                     “முயற்சியெனும் விதைத் தெளிப்போம், வெற்றியெனும் கனி பறிப்போம்! எங்களது சேவை மூலம் உங்களது நிதிச்சுமையை குறைத்து பாதுகாப்பான எதிர்காலத்தை உருவாக்க நம்பகத்தன்மையுடன் வழிகாட்டுகிறோம்.”
                 </p>
@@ -759,12 +821,14 @@
         <a href="#" onclick="showSection('home')"><i class="fa-solid fa-house"></i>Home</a>
         <a href="#" onclick="showSection('loans')"><i class="fa-solid fa-hand-holding-dollar"></i>Loans</a>
         <a href="#" onclick="showSection('banks')"><i class="fa-solid fa-building-columns"></i>Banks</a>
-        <a href="#" onclick="showSection('career')"><i class="fa-solid fa-briefcase"></i>Career</a>
         <a href="#" onclick="showSection('calculator')"><i class="fa-solid fa-calculator"></i>EMI</a>
+        <a href="#" onclick="showSection('enquiries')"><i class="fa-solid fa-phone"></i>Contact</a>
     </div>
 
     <!-- JavaScript Functions -->
     <script>
+        let selectedLoanType = "";
+
         function showSection(sectionId) {
             const sections = document.querySelectorAll('.page-section');
             sections.forEach(sec => sec.classList.remove('active-section'));
@@ -801,12 +865,22 @@
             });
         }
 
-        // Individual Loan WhatsApp Integration with exact symbols
-        function sendIndividualLoan(loanTypeName, nameId, phoneId, distId, amtId) {
-            const name = document.getElementById(nameId).value;
-            const phone = document.getElementById(phoneId).value;
-            const district = document.getElementById(distId).value;
-            const amount = document.getElementById(amtId).value;
+        // Modal Popups for Loans
+        function openLoanModal(loanType) {
+            selectedLoanType = loanType;
+            document.getElementById('modalLoanTitle').innerText = "Apply For " + loanType;
+            document.getElementById('loanModal').style.display = 'flex';
+        }
+
+        function closeLoanModal() {
+            document.getElementById('loanModal').style.display = 'none';
+        }
+
+        function submitModalLoan() {
+            const name = document.getElementById('modal-name').value;
+            const phone = document.getElementById('modal-phone').value;
+            const district = document.getElementById('modal-district').value;
+            const amount = document.getElementById('modal-amount').value;
 
             if (!name || !phone || !district || !amount) {
                 alert("தயவுசெய்து அனைத்து விவரங்களையும் பூர்த்தி செய்யவும்!");
@@ -817,9 +891,10 @@
                             `📱 மொபைல் நம்பர்: ${phone}%0A` +
                             `📍 மாவட்டம்: ${district}%0A` +
                             `💰 லோன் அமௌன்ட்: ₹ ${amount}%0A` +
-                            `🏷️ லோன் வகை: ${loanTypeName}`;
+                            `🏷️ லோன் வகை: ${selectedLoanType}`;
 
             window.open(`https://wa.me/917358844950?text=${message}`, '_blank');
+            closeLoanModal();
         }
 
         // Career Application WhatsApp Integration
