@@ -69,7 +69,7 @@
             color: var(--gold-primary);
         }
 
-        /* Dropdown Navbar Styles (Bank Style) */
+        /* Navbar Menu & Dropdowns */
         .navbar-menu {
             display: flex;
             list-style: none;
@@ -91,6 +91,7 @@
             align-items: center;
             gap: 6px;
             transition: color 0.3s;
+            cursor: pointer;
         }
 
         .nav-link i {
@@ -102,7 +103,6 @@
             color: var(--gold-primary);
         }
 
-        /* Dropdown Sub-menu Container */
         .dropdown-menu {
             position: absolute;
             top: 100%;
@@ -110,7 +110,7 @@
             background-color: var(--card-bg);
             border: 1px solid var(--gold-primary);
             border-radius: 0 0 8px 8px;
-            min-width: 220px;
+            min-width: 240px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.8);
             display: none;
             flex-direction: column;
@@ -214,7 +214,16 @@
             gap: 12px;
         }
 
-        /* Grid Layouts */
+        /* Grid Layouts & Sub-sections */
+        .sub-content-box {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .sub-content-box.active-sub {
+            display: block;
+        }
+
         .grid-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -268,37 +277,39 @@
             left: 0;
         }
 
-        /* Forms & Calculator Boxes */
+        /* Compact Forms & Calculator Boxes */
         .enquiry-form, .calculator-box {
             background-color: var(--card-bg);
             border: 2px solid var(--gold-primary);
             border-radius: 12px;
-            padding: 45px;
-            max-width: 800px;
+            padding: 25px 30px;
+            max-width: 600px;
             margin: 0 auto;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         .form-group {
-            margin-bottom: 22px;
+            margin-bottom: 15px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             color: var(--gold-light);
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
-            padding: 14px;
+            padding: 10px 12px;
             background-color: #121212;
             border: 1px solid #444;
             color: #fff;
             border-radius: 6px;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
@@ -310,10 +321,10 @@
         .submit-btn, .calc-btn {
             background-color: var(--gold-primary);
             color: #0f0f0f;
-            padding: 14px 25px;
+            padding: 12px 20px;
             border: none;
             font-weight: 700;
-            font-size: 17px;
+            font-size: 15px;
             border-radius: 6px;
             cursor: pointer;
             width: 100%;
@@ -326,21 +337,36 @@
         }
 
         .calc-result {
-            margin-top: 30px;
-            padding: 25px;
+            margin-top: 20px;
+            padding: 15px;
             background-color: #121212;
             border-left: 5px solid var(--gold-primary);
             border-radius: 6px;
-            font-size: 16px;
+            font-size: 14px;
             color: var(--text-color);
             display: none;
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
         .calc-result h4 {
             color: var(--gold-primary);
-            margin-bottom: 12px;
-            font-size: 20px;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        /* Careers Poetry Styling */
+        .poetry-box {
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a1a, #262626);
+            border: 1px solid var(--gold-primary);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            font-style: italic;
+            color: var(--gold-light);
+            line-height: 1.8;
+            font-size: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
         }
 
         /* Footer */
@@ -372,60 +398,48 @@
             </a>
             
             <ul class="navbar-menu">
-                <!-- 1. Home -->
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="showSection('home')"><i class="fa-solid fa-house"></i> Home</a>
                 </li>
 
-                <!-- 2. Banks Dropdown -->
+                <!-- Banks Dropdown -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link" onclick="showSection('banks')"><i class="fa-solid fa-building-columns"></i> Banks <i class="fa-solid fa-chevron-down"></i></a>
+                    <a href="#" class="nav-link" onclick="showSection('banks'); showBankSub('gov-bank');"><i class="fa-solid fa-building-columns"></i> Banks <i class="fa-solid fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" onclick="showSection('banks')"><i class="fa-solid fa-landmark"></i> Government Banks</a></li>
-                        <li><a href="#" onclick="showSection('banks')"><i class="fa-solid fa-building-user"></i> Private Banks</a></li>
-                        <li><a href="#" onclick="showSection('banks')"><i class="fa-solid fa-vault"></i> NBFC Financials</a></li>
+                        <li><a href="#" onclick="showSection('banks'); showBankSub('gov-bank');"><i class="fa-solid fa-landmark"></i> Government Banks</a></li>
+                        <li><a href="#" onclick="showSection('banks'); showBankSub('pvt-bank');"><i class="fa-solid fa-building-user"></i> Private Banks</a></li>
+                        <li><a href="#" onclick="showSection('banks'); showBankSub('nbfc-bank');"><i class="fa-solid fa-vault"></i> NBFC Financials</a></li>
                     </ul>
                 </li>
 
-                <!-- 3. Loans Dropdown -->
+                <!-- Loans Dropdown -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link" onclick="showSection('loans')"><i class="fa-solid fa-hand-holding-dollar"></i> Loans <i class="fa-solid fa-chevron-down"></i></a>
+                    <a href="#" class="nav-link" onclick="showSection('loans'); showLoanSub('car-loan');"><i class="fa-solid fa-hand-holding-dollar"></i> Loans <i class="fa-solid fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" onclick="showSection('loans')"><i class="fa-solid fa-car"></i> Car Loan</a></li>
-                        <li><a href="#" onclick="showSection('loans')"><i class="fa-solid fa-motorcycle"></i> Bike Loan</a></li>
-                        <li><a href="#" onclick="showSection('loans')"><i class="fa-solid fa-house-chimney"></i> Home Loan</a></li>
-                        <li><a href="#" onclick="showSection('loans')"><i class="fa-solid fa-user-tie"></i> Personal Loan</a></li>
-                        <li><a href="#" onclick="showSection('loans')"><i class="fa-solid fa-briefcase"></i> Business Loan</a></li>
-                        <li><a href="#" onclick="showSection('loans')"><i class="fa-solid fa-landmark-flag"></i> Mortgage & LAP</a></li>
+                        <li><a href="#" onclick="showSection('loans'); showLoanSub('car-loan');"><i class="fa-solid fa-car"></i> Car Loan</a></li>
+                        <li><a href="#" onclick="showSection('loans'); showLoanSub('bike-loan');"><i class="fa-solid fa-motorcycle"></i> Bike Loan</a></li>
+                        <li><a href="#" onclick="showSection('loans'); showLoanSub('home-loan');"><i class="fa-solid fa-house-chimney"></i> Home Loan</a></li>
+                        <li><a href="#" onclick="showSection('loans'); showLoanSub('personal-loan');"><i class="fa-solid fa-user-tie"></i> Personal Loan</a></li>
+                        <li><a href="#" onclick="showSection('loans'); showLoanSub('business-loan');"><i class="fa-solid fa-briefcase"></i> Business Loan</a></li>
+                        <li><a href="#" onclick="showSection('loans'); showLoanSub('mortgage-loan');"><i class="fa-solid fa-landmark-flag"></i> Mortgage & LAP</a></li>
                     </ul>
                 </li>
 
-                <!-- 4. Interest Rates -->
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="showSection('interest')"><i class="fa-solid fa-percent"></i> Interest Rates</a>
                 </li>
-
-                <!-- 5. Calculator -->
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="showSection('calculator')"><i class="fa-solid fa-calculator"></i> Calculator</a>
                 </li>
-
-                <!-- 6. Documents -->
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="showSection('documents')"><i class="fa-solid fa-file-lines"></i> Documents</a>
                 </li>
-
-                <!-- 7. Enquiries -->
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="showSection('enquiries')"><i class="fa-solid fa-circle-question"></i> Enquiries</a>
                 </li>
-
-                <!-- 8. Careers -->
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="showSection('careers')"><i class="fa-solid fa-briefcase"></i> Careers</a>
                 </li>
-
-                <!-- Contact Button -->
                 <li class="nav-item" style="margin-left: 10px;">
                     <a href="#" class="nav-link contact-top-btn" onclick="showSection('enquiries')"><i class="fa-solid fa-phone"></i> Contact Now</a>
                 </li>
@@ -448,126 +462,197 @@
     <div id="banks" class="page-section">
         <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-building-columns"></i> Tie-up Banks & Financial Institutions</h2>
-            <div class="grid-cards">
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-landmark"></i></div>
-                    <h3>Government Banks</h3>
-                    <ul>
-                        <li>State Bank of India (SBI)</li>
-                        <li>Canara Bank</li>
-                        <li>Bank of Baroda</li>
-                        <li>Indian Overseas Bank (IOB)</li>
-                        <li>Indian Bank & Union Bank</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-building-user"></i></div>
-                    <h3>Private Banks</h3>
-                    <ul>
-                        <li>HDFC Bank</li>
-                        <li>ICICI Bank</li>
-                        <li>Axis Bank</li>
-                        <li>Federal Bank</li>
-                        <li>Kotak Mahindra Bank</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-vault"></i></div>
-                    <h3>NBFC & Financial Institutions</h3>
-                    <ul>
-                        <li>Cholamandalam Finance</li>
-                        <li>Shriram Finance</li>
-                        <li>Sundaram Finance</li>
-                        <li>Tata Capital & L&T Finance</li>
-                        <li>Muthoot & Manappuram Finance</li>
-                    </ul>
+            
+            <div style="display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap;">
+                <button onclick="showBankSub('gov-bank')" class="calc-btn" style="width: auto; padding: 10px 20px;">Government Banks</button>
+                <button onclick="showBankSub('pvt-bank')" class="calc-btn" style="width: auto; padding: 10px 20px;">Private Banks</button>
+                <button onclick="showBankSub('nbfc-bank')" class="calc-btn" style="width: auto; padding: 10px 20px;">NBFC Financials</button>
+            </div>
+
+            <!-- Gov Banks -->
+            <div id="gov-bank" class="sub-content-box active-sub">
+                <div class="grid-cards">
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-landmark"></i></div>
+                        <h3>Government Banks List</h3>
+                        <ul>
+                            <li>State Bank of India (SBI)</li>
+                            <li>Canara Bank</li>
+                            <li>Bank of Baroda</li>
+                            <li>Indian Overseas Bank (IOB)</li>
+                            <li>Indian Bank & Union Bank of India</li>
+                            <li>Punjab National Bank (PNB)</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+
+            <!-- Pvt Banks -->
+            <div id="pvt-bank" class="sub-content-box">
+                <div class="grid-cards">
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-building-user"></i></div>
+                        <h3>Private Banks List</h3>
+                        <ul>
+                            <li>HDFC Bank</li>
+                            <li>ICICI Bank</li>
+                            <li>Axis Bank</li>
+                            <li>Federal Bank</li>
+                            <li>Kotak Mahindra Bank</li>
+                            <li>IndusInd Bank</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NBFC Banks -->
+            <div id="nbfc-bank" class="sub-content-box">
+                <div class="grid-cards">
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-vault"></i></div>
+                        <h3>NBFC Financial Institutions List</h3>
+                        <ul>
+                            <li>Cholamandalam Investment and Finance</li>
+                            <li>Shriram Finance</li>
+                            <li>Sundaram Finance</li>
+                            <li>Tata Capital Financial Services</li>
+                            <li>L&T Finance</li>
+                            <li>Muthoot & Manappuram Finance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
     <!-- 3. Loans Section -->
     <div id="loans" class="page-section">
         <div class="container">
-            <h2 class="section-title"><i class="fa-solid fa-hand-holding-dollar"></i> Our Loan Products & Services</h2>
-            <div class="grid-cards">
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-car"></i></div>
-                    <h3>Car Loan</h3>
-                    <ul>
-                        <li>New Car Loan (All Govt & Private Banks)</li>
-                        <li>Used / Second-hand Car Loan</li>
-                        <li>Car Refinance & Top-up Loans</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-motorcycle"></i></div>
-                    <h3>Bike Loan</h3>
-                    <ul>
-                        <li>Two Wheeler New Vehicle Finance</li>
-                        <li>Pre-owned Bike Loans</li>
-                        <li>Quick Documentation & Approval</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-house-chimney"></i></div>
-                    <h3>Home Loan</h3>
-                    <ul>
-                        <li>Home Purchase & Construction</li>
-                        <li>Home Extension & Plot Loans</li>
-                        <li>Balance Transfer Options</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-user-tie"></i></div>
-                    <h3>Personal Loan</h3>
-                    <ul>
-                        <li>Instant Unsecured Personal Loans</li>
-                        <li>Marriage, Medical & Travel Loans</li>
-                        <li>Flexible Tenures up to 5 Years</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-briefcase"></i></div>
-                    <h3>Business & MSME Loan</h3>
-                    <ul>
-                        <li>Working Capital & Business Growth</li>
-                        <li>Machinery & Equipment Loans</li>
-                        <li>Easy Collateral-free Options</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fa-solid fa-landmark-flag"></i></div>
-                    <h3>Mortgage & Other Loans</h3>
-                    <ul>
-                        <li>Loan Against Property (LAP)</li>
-                        <li>Gold Loan & Commercial Vehicle Loan</li>
-                        <li>Tractor & Heavy Vehicle Loans</li>
-                    </ul>
+            <h2 class="section-title"><i class="fa-solid fa-hand-holding-dollar"></i> Specific Loan Products & Partners</h2>
+            
+            <div style="display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap;">
+                <button onclick="showLoanSub('car-loan')" class="calc-btn" style="width: auto; padding: 8px 15px; font-size: 14px;">Car Loan</button>
+                <button onclick="showLoanSub('bike-loan')" class="calc-btn" style="width: auto; padding: 8px 15px; font-size: 14px;">Bike Loan</button>
+                <button onclick="showLoanSub('home-loan')" class="calc-btn" style="width: auto; padding: 8px 15px; font-size: 14px;">Home Loan</button>
+                <button onclick="showLoanSub('personal-loan')" class="calc-btn" style="width: auto; padding: 8px 15px; font-size: 14px;">Personal Loan</button>
+                <button onclick="showLoanSub('business-loan')" class="calc-btn" style="width: auto; padding: 8px 15px; font-size: 14px;">Business Loan</button>
+                <button onclick="showLoanSub('mortgage-loan')" class="calc-btn" style="width: auto; padding: 8px 15px; font-size: 14px;">Mortgage & LAP</button>
+            </div>
+
+            <!-- Car Loan Sub -->
+            <div id="car-loan" class="sub-content-box active-sub">
+                <div class="grid-cards">
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-car"></i></div>
+                        <h3>Car Loan Details & Banks</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 10px;">Available across New & Used cars with top financing partners.</p>
+                        <ul>
+                            <li><b>Partner Banks:</b> SBI, HDFC, ICICI, Axis, Cholamandalam, Sundaram</li>
+                            <li><b>Required Documents:</b> PAN, Aadhaar, 3 Months Payslip / ITR, 6 Months Bank Statement, Photos & Cheques</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+
+            <!-- Bike Loan Sub -->
+            <div id="bike-loan" class="sub-content-box">
+                <div class="grid-cards">
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-motorcycle"></i></div>
+                        <h3>Bike Loan Details & Banks</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 10px;">Instant approval two-wheeler finance options.</p>
+                        <ul>
+                            <li><b>Partner Banks:</b> Shriram Finance, HDFC Bank, IndusInd Bank, Muthoot Capital</li>
+                            <li><b>Required Documents:</b> PAN, Aadhaar, Income Proof / Bank Statement, Passport Size Photos & Cheques</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home Loan Sub -->
+            <div id="home-loan" class="sub-content-box">
+                <div class="grid-cards">
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                        <h3>Home Loan Details & Banks</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 10px;">Purchase, construction, and plot loan schemes with lowest rates.</p>
+                        <ul>
+                            <li><b>Partner Banks:</b> SBI, HDFC, Canara Bank, ICICI Bank, LIC Housing Finance</li>
+                            <li><b>Required Documents:</b> Property Documents, ITR / Form 16, Bank Statements, KYC (PAN & Aadhaar)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Loan Sub -->
+            <div id="personal-loan" class="sub-content-box">
+                <div class="grid-cards">
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-user-tie"></i></div>
+                        <h3>Personal Loan Details & Banks</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 10px;">Unsecured loans for instant financial requirements.</p>
+                        <ul>
+                            <li><b>Partner Banks:</b> HDFC, Axis, ICICI, Tata Capital, Bajaj Finance</li>
+                            <li><b>Required Documents:</b> 3 Months Salary Slips, 6 Months Bank Statement, PAN & Aadhaar</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Loan Sub -->
+            <div id="business-loan" class="sub-content-box">
+                <div class="grid-cards">
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-briefcase"></i></div>
+                        <h3>Business Loan Details & Banks</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 10px;">Working capital and expansion loans for enterprises.</p>
+                        <ul>
+                            <li><b>Partner Banks:</b> SBI, HDFC, ICICI, Tata Capital, Standard Chartered</li>
+                            <li><b>Required Documents:</b> 2 Years ITR, Balance Sheet, Business Proof / GST, Bank Statements</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mortgage Loan Sub -->
+            <div id="mortgage-loan" class="sub-content-box">
+                <div class="grid-cards">
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-landmark-flag"></i></div>
+                        <h3>Mortgage & LAP Details & Banks</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 10px;">Loan Against Property for high-value funding requirements.</p>
+                        <ul>
+                            <li><b>Partner Banks:</b> SBI, HDFC, ICICI, Cholamandalam, Sundaram Finance</li>
+                            <li><b>Required Documents:</b> Property Title Deeds, Income Proof (ITR/Salary), KYC documents</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
     <!-- 4. Interest Rates Section -->
     <div id="interest" class="page-section">
         <div class="container">
-            <h2 class="section-title"><i class="fa-solid fa-percent"></i> Current Interest Rates Overview</h2>
+            <h2 class="section-title"><i class="fa-solid fa-percent"></i> Comprehensive Interest Rates Comparison</h2>
             <div class="card">
                 <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
-                <h3>Bank-wise Estimated Interest Matrix</h3>
-                <ul style="font-size: 16px; margin-top: 15px;">
-                    <li><b>New Car Loan:</b> Starts from 8.5% to 11.5% p.a. (Reducing balance)</li>
-                    <li><b>Home Loan:</b> Starts from 8.40% to 10.25% p.a.</li>
-                    <li><b>Personal Loan:</b> Starts from 10.5% to 22.0% p.a.</li>
-                    <li><b>Business Loan / LAP:</b> Starts from 11.0% to 16.0% p.a.</li>
-                    <li><b>Two Wheeler Loan:</b> Starts from 11.0% to 18.0% p.a.</li>
+                <h3>Bank-wise High & Low Comparison Matrix</h3>
+                <p style="color: var(--text-muted); margin-bottom: 15px;">Compare lowest and highest market interest rates offered across government, private, and NBFC financial institutions:</p>
+                <ul style="font-size: 16px;">
+                    <li><b>New Car Loan:</b> Lowest ~8.5% (Govt/Private Banks) | Highest ~11.5% (NBFCs)</li>
+                    <li><b>Home Loan:</b> Lowest ~8.40% (SBI/HDFC) | Highest ~10.5% (Housing Finance Companies)</li>
+                    <li><b>Personal Loan:</b> Lowest ~10.5% (Top Private Banks) | Highest ~22.0% (Instant Lending Apps/NBFCs)</li>
+                    <li><b>Business Loan / LAP:</b> Lowest ~11.0% | Highest ~16.0%</li>
+                    <li><b>Two Wheeler Loan:</b> Lowest ~11.0% | Highest ~18.0%</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- 5. Calculator Section -->
+    <!-- 5. Calculator Section (Compact) -->
     <div id="calculator" class="page-section">
         <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-calculator"></i> Advanced Reducing / IRR EMI Calculator</h2>
@@ -588,11 +673,11 @@
                 
                 <div id="result-box" class="calc-result">
                     <h4>Detailed Loan Breakdown (Reducing Balance / IRR):</h4>
-                    <p><b>Monthly EMI:</b> <span id="emi-output" style="color: var(--gold-primary); font-size: 20px;">₹0</span></p>
+                    <p><b>Monthly EMI:</b> <span id="emi-output" style="color: var(--gold-primary); font-size: 18px;">₹0</span></p>
                     <p><b>Average Monthly Interest:</b> <span id="monthly-interest-output">₹0</span></p>
                     <p><b>Approx 1st Year Interest:</b> <span id="yearly-interest-output">₹0</span></p>
                     <p><b>Total Interest Payable:</b> <span id="total-interest-output">₹0</span></p>
-                    <p><b>Total Payment (Principal + Interest):</b> <span id="total-payment-output">₹0</span></p>
+                    <p><b>Total Payment:</b> <span id="total-payment-output">₹0</span></p>
                 </div>
             </div>
         </div>
@@ -640,7 +725,7 @@
         </div>
     </div>
 
-    <!-- 7. Enquiries Section -->
+    <!-- 7. Enquiries Section (Compact & Scrollable) -->
     <div id="enquiries" class="page-section">
         <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-circle-question"></i> Loan Eligibility Enquiries</h2>
@@ -684,12 +769,22 @@
         </div>
     </div>
 
-    <!-- 8. Careers Section -->
+    <!-- 8. Careers Section with Tamil Poetry -->
     <div id="careers" class="page-section">
         <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Careers - Join Our Team</h2>
+            
+            <!-- Tamil Motivational Poetry Box -->
+            <div class="poetry-box">
+                <p>“முயற்சியெனும் விதைத் தெளிப்போம்,<br>
+                வெற்றியெனும் கனி பறிப்போம்!<br>
+                கனவுகள் சுமந்து உழைப்போருக்கு,<br>
+                காலமெல்லாம் நம்முடன் வளமுண்டு!<br>
+                வாருங்கள் தோழரே, இணைவோம் சாதிப்போம்!”</p>
+            </div>
+
             <div class="enquiry-form">
-                <p style="margin-bottom: 25px; color: var(--text-muted);">Build your career with Loan Thozhan. Fill in your details and upload your resume below.</p>
+                <p style="margin-bottom: 20px; color: var(--text-muted); text-align: center;">Build your career with Loan Thozhan. Fill in your details and upload your resume below.</p>
                 <form action="mailto:support@loanthozhan.com" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="c-name">Full Name</label>
@@ -721,7 +816,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Page Switching Logic -->
+    <!-- JavaScript for Dynamic Section and Sub-section Switching -->
     <script>
         function showSection(sectionId) {
             const sections = document.querySelectorAll('.page-section');
@@ -732,6 +827,26 @@
                 target.classList.add('active-section');
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showBankSub(subId) {
+            const boxes = document.querySelectorAll('#banks .sub-content-box');
+            boxes.forEach(b => b.classList.remove('active-sub'));
+
+            const target = document.getElementById(subId);
+            if (target) {
+                target.classList.add('active-sub');
+            }
+        }
+
+        function showLoanSub(subId) {
+            const boxes = document.querySelectorAll('#loans .sub-content-box');
+            boxes.forEach(b => b.classList.remove('active-sub'));
+
+            const target = document.getElementById(subId);
+            if (target) {
+                target.classList.add('active-sub');
+            }
         }
 
         // Calculator Logic
