@@ -112,7 +112,47 @@ Apply on WhatsApp
 </a>
 
 </section>
+<section class="application">
+    <h2>Loan Application Form</h2>
 
+    <form onsubmit="sendWhatsApp(); return false;">
+        <input type="text" id="name" placeholder="Full Name" required><br><br>
+
+        <input type="tel" id="mobile" placeholder="Mobile Number" required><br><br>
+
+        <select id="loan">
+            <option>Car Loan</option>
+            <option>Bike Loan</option>
+            <option>Home Loan</option>
+            <option>Personal Loan</option>
+            <option>Business Loan</option>
+            <option>Gold Loan</option>
+        </select><br><br>
+
+        <input type="text" id="city" placeholder="City" required><br><br>
+
+        <input type="text" id="income" placeholder="Monthly Income" required><br><br>
+
+        <input type="text" id="amount" placeholder="Loan Amount" required><br><br>
+
+        <button type="submit">Apply via WhatsApp</button>
+    </form>
+</section>
+
+<script>
+function sendWhatsApp() {
+    let msg =
+`Loan Application
+Name: ${document.getElementById('name').value}
+Mobile: ${document.getElementById('mobile').value}
+Loan Type: ${document.getElementById('loan').value}
+City: ${document.getElementById('city').value}
+Income: ${document.getElementById('income').value}
+Loan Amount: ${document.getElementById('amount').value}`;
+
+    window.open("https://wa.me/917358844950?text=" + encodeURIComponent(msg), "_blank");
+}
+</script>
 <section class="services">
 
 <div class="card">
