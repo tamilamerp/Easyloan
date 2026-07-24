@@ -71,7 +71,6 @@
             color: var(--gold-primary);
         }
 
-        /* Right side Header Icons (Notification & Login) */
         .header-right-actions {
             display: flex;
             align-items: center;
@@ -113,7 +112,7 @@
             text-decoration: none;
         }
 
-        /* Desktop Navbar Menu with Dropdowns (HDFC Style) */
+        /* Desktop Navbar Menu */
         .navbar-menu {
             display: flex;
             list-style: none;
@@ -144,7 +143,6 @@
             transition: transform 0.3s ease;
         }
 
-        /* Arrow rotation on hover */
         .nav-item:hover .nav-link i {
             transform: rotate(180deg);
         }
@@ -153,7 +151,6 @@
             color: var(--gold-primary);
         }
 
-        /* Dropdown Menu - Top to Bottom slide */
         .dropdown-menu {
             position: absolute;
             top: 100%;
@@ -209,12 +206,12 @@
         /* Hero Section (Home) */
         .hero {
             text-align: center;
-            padding: 50px 15px;
+            padding: 40px 15px;
             background: linear-gradient(rgba(15,15,15,0.9), rgba(15,15,15,0.95));
         }
 
         .hero-logo {
-            max-height: 120px;
+            max-height: 130px;
             width: auto;
             margin-bottom: 15px;
             border-radius: 10px;
@@ -228,11 +225,17 @@
             margin-bottom: 10px;
         }
 
-        .hero p {
+        .hero-poetry {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid var(--gold-primary);
+            border-radius: 8px;
+            padding: 12px;
+            max-width: 450px;
+            margin: 15px auto 0 auto;
+            font-style: italic;
+            color: var(--gold-light);
             font-size: 14px;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
+            line-height: 1.5;
         }
 
         /* Main Container */
@@ -253,10 +256,58 @@
             gap: 10px;
         }
 
-        /* Grid Cards for Loans */
+        /* Accordion Dropdown Blocks */
+        .accordion-box {
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+
+        .accordion-header {
+            padding: 15px 20px;
+            background-color: #1f1f1f;
+            color: var(--gold-primary);
+            font-size: 15px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .accordion-header:hover {
+            background-color: var(--card-hover);
+        }
+
+        .accordion-content {
+            padding: 15px 20px;
+            display: none;
+            background-color: var(--card-bg);
+            border-top: 1px solid #2a2a2a;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .accordion-box.active .accordion-content {
+            display: block;
+        }
+
+        .accordion-box.active .accordion-header i {
+            transform: rotate(180deg);
+        }
+
+        .accordion-header i {
+            transition: transform 0.3s;
+        }
+
+        /* Grid Cards */
         .loan-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 15px;
             margin-bottom: 20px;
         }
@@ -266,7 +317,7 @@
             border: 1px solid #333;
             border-top: 3px solid var(--gold-primary);
             border-radius: 8px;
-            padding: 20px;
+            padding: 18px;
             text-align: center;
             cursor: pointer;
             transition: 0.3s;
@@ -279,15 +330,15 @@
         }
 
         .loan-card i {
-            font-size: 35px;
+            font-size: 32px;
             color: var(--gold-primary);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .loan-card h3 {
             color: var(--gold-primary);
-            margin-bottom: 8px;
-            font-size: 16px;
+            margin-bottom: 6px;
+            font-size: 15px;
         }
 
         .loan-card p {
@@ -295,41 +346,7 @@
             color: var(--text-muted);
         }
 
-        /* Detailed View Box */
-        .detail-box {
-            background-color: var(--card-bg);
-            border: 2px solid var(--gold-primary);
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            display: none;
-        }
-
-        .detail-box h3 {
-            color: var(--gold-primary);
-            margin-bottom: 10px;
-        }
-
-        .detail-box ul {
-            list-style: none;
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .detail-box ul li {
-            margin-bottom: 6px;
-            position: relative;
-            padding-left: 15px;
-        }
-
-        .detail-box ul li::before {
-            content: "•";
-            color: var(--gold-primary);
-            position: absolute;
-            left: 0;
-        }
-
+        /* Apply WhatsApp Button */
         .apply-whatsapp-btn {
             background-color: #25D366;
             color: white;
@@ -345,6 +362,7 @@
             justify-content: center;
             gap: 8px;
             text-decoration: none;
+            margin-top: 15px;
         }
 
         /* Calculator & Forms */
@@ -428,7 +446,6 @@
             color: var(--gold-primary);
         }
 
-        /* Hide desktop menu on very small screens if needed, keep clean */
         @media(max-width: 768px) {
             .navbar-menu { display: none; }
         }
@@ -447,28 +464,13 @@
                 <span class="logo-text">LOAN THOZHAN</span>
             </a>
             
-            <!-- Desktop Navbar Menu (HDFC Style Top-to-Bottom Dropdowns) -->
+            <!-- Desktop Navbar Menu -->
             <ul class="navbar-menu">
                 <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('home')"><i class="fa-solid fa-house"></i> Home</a></li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Banks <i class="fa-solid fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#" onclick="showSection('banks')"><i class="fa-solid fa-landmark"></i> Govt Banks (SBI, Canara)</a></li>
-                        <li><a href="#" onclick="showSection('banks')"><i class="fa-solid fa-building-columns"></i> Private Banks (HDFC, ICICI)</a></li>
-                        <li><a href="#" onclick="showSection('banks')"><i class="fa-solid fa-wallet"></i> NBFC Financials</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Loans <i class="fa-solid fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#" onclick="showSection('loans'); loadLoanDetail('Car Loan')"><i class="fa-solid fa-car"></i> Car Loan</a></li>
-                        <li><a href="#" onclick="showSection('loans'); loadLoanDetail('Bike Loan')"><i class="fa-solid fa-motorcycle"></i> Bike Loan</a></li>
-                        <li><a href="#" onclick="showSection('loans'); loadLoanDetail('Home Loan')"><i class="fa-solid fa-house"></i> Home Loan</a></li>
-                        <li><a href="#" onclick="showSection('loans'); loadLoanDetail('Personal Loan')"><i class="fa-solid fa-user-tie"></i> Personal Loan</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('calculator')">EMI Calc</a></li>
-                <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('enquiries')">Contact</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('banks')"><i class="fa-solid fa-building-columns"></i> Banks</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('loans')"><i class="fa-solid fa-hand-holding-dollar"></i> Loans</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('calculator')"><i class="fa-solid fa-calculator"></i> EMI Calc</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('enquiries')"><i class="fa-solid fa-phone"></i> Contact</a></li>
             </ul>
 
             <!-- Header Right: Notification Bell & Login -->
@@ -491,103 +493,157 @@
         <section class="hero">
             <img src="logo.jpeg" alt="Loan Thozhan Logo" class="hero-logo">
             <h1>LOAN THOZHAN</h1>
-            <p>Your trusted financial companion for Car Loans, Bike Loans, Home Loans & Banking Support.</p>
+            <p>உங்கள் நிதித் தேவைகளுக்கான நம்பகமான தோழன்.</p>
+            
+            <div class="hero-poetry">
+                <p>“முயற்சியெனும் விதைத் தெளிப்போம்,<br>வெற்றியெனும் கனி பறிப்போம்!”</p>
+            </div>
         </section>
         
         <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-star"></i> Quick Loan Selection</h2>
             <div class="loan-grid">
-                <div class="loan-card" onclick="showSection('loans'); loadLoanDetail('Car Loan')">
+                <div class="loan-card" onclick="showSection('loans')">
                     <i class="fa-solid fa-car"></i>
                     <h3>Car Loan</h3>
-                    <p>New & Used Car Financing with best banks</p>
+                    <p>New & Used Car Financing</p>
                 </div>
-                <div class="loan-card" onclick="showSection('loans'); loadLoanDetail('Bike Loan')">
+                <div class="loan-card" onclick="showSection('loans')">
                     <i class="fa-solid fa-motorcycle"></i>
                     <h3>Bike Loan</h3>
-                    <p>Instant approval two-wheeler loans</p>
+                    <p>Instant Two-Wheeler Loans</p>
                 </div>
-                <div class="loan-card" onclick="showSection('loans'); loadLoanDetail('Home Loan')">
+                <div class="loan-card" onclick="showSection('loans')">
                     <i class="fa-solid fa-house"></i>
                     <h3>Home Loan</h3>
-                    <p>Low interest rates for your dream home</p>
+                    <p>Dream Home Loans</p>
                 </div>
-                <div class="loan-card" onclick="showSection('loans'); loadLoanDetail('Personal Loan')">
+                <div class="loan-card" onclick="showSection('loans')">
                     <i class="fa-solid fa-user-tie"></i>
                     <h3>Personal Loan</h3>
-                    <p>Quick funds for your personal needs</p>
+                    <p>Quick Funds Support</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 2. Banks Section -->
+    <!-- 2. Banks Section (Toggle Dropdowns) -->
     <div id="banks" class="page-section">
         <div class="container">
-            <h2 class="section-title"><i class="fa-solid fa-building-columns"></i> Tie-up Banks & Financials</h2>
-            <div class="loan-grid">
-                <div class="loan-card">
-                    <i class="fa-solid fa-landmark"></i>
-                    <h3>State Bank of India (SBI)</h3>
-                    <p>Lowest interest rates for Car & Home loans.</p>
+            <h2 class="section-title"><i class="fa-solid fa-building-columns"></i> வங்கிகள் மற்றும் நிறுவனங்கள் (Banks)</h2>
+            
+            <!-- Govt Banks -->
+            <div class="accordion-box" id="bank-gov">
+                <div class="accordion-header" onclick="toggleAccordion('bank-gov')">
+                    <span><i class="fa-solid fa-landmark"></i> 1. Government Banks (அரசு வங்கிகள்)</span>
+                    <i class="fa-solid fa-chevron-down"></i>
                 </div>
-                <div class="loan-card">
-                    <i class="fa-solid fa-building-columns"></i>
-                    <h3>HDFC Bank</h3>
-                    <p>Fast processing and minimal documentation.</p>
+                <div class="accordion-content">
+                    <ul style="list-style: none;">
+                        <li style="padding: 5px 0;">🏦 State Bank of India (SBI)</li>
+                        <li style="padding: 5px 0;">🏦 Canara Bank</li>
+                        <li style="padding: 5px 0;">🏦 Bank of Baroda</li>
+                        <li style="padding: 5px 0;">🏦 Indian Overseas Bank (IOB)</li>
+                    </ul>
                 </div>
-                <div class="loan-card">
-                    <i class="fa-solid fa-coins"></i>
-                    <h3>Canara Bank</h3>
-                    <p>Reliable government banking solutions.</p>
+            </div>
+
+            <!-- Private Banks -->
+            <div class="accordion-box" id="bank-pvt">
+                <div class="accordion-header" onclick="toggleAccordion('bank-pvt')">
+                    <span><i class="fa-solid fa-building-columns"></i> 2. Private Banks (தனியார் வங்கிகள்)</span>
+                    <i class="fa-solid fa-chevron-down"></i>
                 </div>
-                <div class="loan-card">
-                    <i class="fa-solid fa-wallet"></i>
-                    <h3>Cholamandalam Finance</h3>
-                    <p>Flexible used car and vehicle finance.</p>
+                <div class="accordion-content">
+                    <ul style="list-style: none;">
+                        <li style="padding: 5px 0;">🏦 HDFC Bank</li>
+                        <li style="padding: 5px 0;">🏦 ICICI Bank</li>
+                        <li style="padding: 5px 0;">🏦 Axis Bank</li>
+                        <li style="padding: 5px 0;">🏦 Federal Bank</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- NBFC -->
+            <div class="accordion-box" id="bank-nbfc">
+                <div class="accordion-header" onclick="toggleAccordion('bank-nbfc')">
+                    <span><i class="fa-solid fa-wallet"></i> 3. NBFC Financials (நிதி நிறுவனங்கள்)</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul style="list-style: none;">
+                        <li style="padding: 5px 0;">🏢 Cholamandalam Finance</li>
+                        <li style="padding: 5px 0;">🏢 Shriram Finance</li>
+                        <li style="padding: 5px 0;">🏢 Sundaram Finance</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 3. Loans Section with Detailed Views & WhatsApp Apply (7358844950) -->
+    <!-- 3. Loans Section (Toggle Accordions with WhatsApp Apply) -->
     <div id="loans" class="page-section">
         <div class="container">
-            <h2 class="section-title"><i class="fa-solid fa-hand-holding-dollar"></i> Loan Products & Detailed Info</h2>
+            <h2 class="section-title"><i class="fa-solid fa-hand-holding-dollar"></i> லோன் வகைகள் மற்றும் விவரங்கள் (Loans)</h2>
             
-            <div class="loan-grid">
-                <div class="loan-card" onclick="loadLoanDetail('Car Loan')">
-                    <i class="fa-solid fa-car"></i>
-                    <h3>Car Loan</h3>
-                    <p>Click to view details</p>
+            <!-- Car Loan -->
+            <div class="accordion-box" id="loan-car">
+                <div class="accordion-header" onclick="toggleAccordion('loan-car')">
+                    <span><i class="fa-solid fa-car"></i> Car Loan (கார் லோன்)</span>
+                    <i class="fa-solid fa-chevron-down"></i>
                 </div>
-                <div class="loan-card" onclick="loadLoanDetail('Bike Loan')">
-                    <i class="fa-solid fa-motorcycle"></i>
-                    <h3>Bike Loan</h3>
-                    <p>Click to view details</p>
-                </div>
-                <div class="loan-card" onclick="loadLoanDetail('Home Loan')">
-                    <i class="fa-solid fa-house"></i>
-                    <h3>Home Loan</h3>
-                    <p>Click to view details</p>
-                </div>
-                <div class="loan-card" onclick="loadLoanDetail('Personal Loan')">
-                    <i class="fa-solid fa-user-tie"></i>
-                    <h3>Personal Loan</h3>
-                    <p>Click to view details</p>
+                <div class="accordion-content">
+                    <p><b>Partners:</b> SBI, HDFC, ICICI, Axis, Cholamandalam</p>
+                    <p style="margin-top: 5px;"><b>Documents:</b> PAN, Aadhaar, 3 Months Payslip / ITR, Bank Statement</p>
+                    <a href="https://wa.me/917358844950?text=Hello%20Loan%20Thozhan,%20I%20want%20to%20apply%20for%20Car%20Loan." target="_blank" class="apply-whatsapp-btn">
+                        <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> Apply Now via WhatsApp
+                    </a>
                 </div>
             </div>
 
-            <!-- Dynamic Detailed View Box -->
-            <div id="loan-detail-box" class="detail-box">
-                <h3 id="detail-title">Loan Details</h3>
-                <p id="detail-desc" style="color:var(--text-muted); margin-bottom: 10px; font-size:14px;"></p>
-                <ul id="detail-docs">
-                    <!-- Dynamic Docs & Banks -->
-                </ul>
-                <a id="whatsapp-apply-link" href="#" target="_blank" class="apply-whatsapp-btn">
-                    <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> Apply Now via WhatsApp (7358844950)
-                </a>
+            <!-- Bike Loan -->
+            <div class="accordion-box" id="loan-bike">
+                <div class="accordion-header" onclick="toggleAccordion('loan-bike')">
+                    <span><i class="fa-solid fa-motorcycle"></i> Bike Loan (பைக் லோன்)</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><b>Partners:</b> Shriram Finance, HDFC, IndusInd</p>
+                    <p style="margin-top: 5px;"><b>Documents:</b> PAN, Aadhaar, Income Proof, Photos</p>
+                    <a href="https://wa.me/917358844950?text=Hello%20Loan%20Thozhan,%20I%20want%20to%20apply%20for%20Bike%20Loan." target="_blank" class="apply-whatsapp-btn">
+                        <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> Apply Now via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Home Loan -->
+            <div class="accordion-box" id="loan-home">
+                <div class="accordion-header" onclick="toggleAccordion('loan-home')">
+                    <span><i class="fa-solid fa-house"></i> Home Loan (ஹோம் லோன்)</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><b>Partners:</b> SBI, HDFC, Canara Bank, LIC Housing</p>
+                    <p style="margin-top: 5px;"><b>Documents:</b> Property Papers, ITR / Form 16, Bank Statements</p>
+                    <a href="https://wa.me/917358844950?text=Hello%20Loan%20Thozhan,%20I%20want%20to%20apply%20for%20Home%20Loan." target="_blank" class="apply-whatsapp-btn">
+                        <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> Apply Now via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Personal Loan -->
+            <div class="accordion-box" id="loan-personal">
+                <div class="accordion-header" onclick="toggleAccordion('loan-personal')">
+                    <span><i class="fa-solid fa-user-tie"></i> Personal Loan (பர்சனல் லோன்)</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><b>Partners:</b> Axis, ICICI, Tata Capital, Bajaj Finance</p>
+                    <p style="margin-top: 5px;"><b>Documents:</b> Salary Slips or Business Proof & ITR</p>
+                    <a href="https://wa.me/917358844950?text=Hello%20Loan%20Thozhan,%20I%20want%20to%20apply%20for%20Personal%20Loan." target="_blank" class="apply-whatsapp-btn">
+                        <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> Apply Now via WhatsApp
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -621,10 +677,10 @@
         </div>
     </div>
 
-    <!-- 5. Enquiries / Contact Section -->
+    <!-- 5. Enquiries Section -->
     <div id="enquiries" class="page-section">
         <div class="container">
-            <h2 class="section-title"><i class="fa-solid fa-phone"></i> Direct Enquiry & Login</h2>
+            <h2 class="section-title"><i class="fa-solid fa-phone"></i> Direct Enquiry / Contact</h2>
             <div class="enquiry-form">
                 <div class="form-group">
                     <label>Customer Name</label>
@@ -670,50 +726,14 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function loadLoanDetail(loanName) {
-            const box = document.getElementById('loan-detail-box');
-            const title = document.getElementById('detail-title');
-            const desc = document.getElementById('detail-desc');
-            const docsList = document.getElementById('detail-docs');
-            const waLink = document.getElementById('whatsapp-apply-link');
-
-            box.style.display = 'block';
-            title.innerHTML = `<i class="fa-solid fa-check-circle"></i> ${loanName} Details`;
-            
-            let detailsText = "";
-            let docsHtml = "";
-
-            if (loanName === 'Car Loan') {
-                desc.innerText = "Get quick approval for New and Used car loans with low interest rates.";
-                docsHtml = `
-                    <li><b>Partner Banks:</b> SBI, HDFC, ICICI, Axis, Cholamandalam</li>
-                    <li><b>Required Docs:</b> PAN, Aadhaar, 3 Months Payslip / ITR, Bank Statement</li>
-                `;
-            } else if (loanName === 'Bike Loan') {
-                desc.innerText = "Easy documentation and fast disbursement for your two-wheeler purchase.";
-                docsHtml = `
-                    <li><b>Partner Banks:</b> Shriram Finance, HDFC, IndusInd</li>
-                    <li><b>Required Docs:</b> PAN, Aadhaar, Income Proof, Photos</li>
-                `;
-            } else if (loanName === 'Home Loan') {
-                desc.innerText = "Build or buy your dream home with flexible tenure up to 30 years.";
-                docsHtml = `
-                    <li><b>Partner Banks:</b> SBI, HDFC, Canara Bank, LIC Housing</li>
-                    <li><b>Required Docs:</b> Property Papers, ITR / Form 16, Bank Statements</li>
-                `;
+        // Accordion Toggle function (Click to Open / Click to Close)
+        function toggleAccordion(id) {
+            const element = document.getElementById(id);
+            if (element.classList.contains('active')) {
+                element.classList.remove('active');
             } else {
-                desc.innerText = "Instant personal loans for urgent financial requirements.";
-                docsHtml = `
-                    <li><b>Partner Banks:</b> Axis, ICICI, Tata Capital, Bajaj Finance</li>
-                    <li><b>Required Docs:</b> Salary Slips or Business Proof & ITR</li>
-                `;
+                element.classList.add('active');
             }
-
-            docsList.innerHTML = docsHtml;
-
-            // WhatsApp link directing to 7358844950
-            const message = encodeURIComponent(`Hello Loan Thozhan, I am interested in applying for a ${loanName}. Please assist me.`);
-            waLink.href = `https://wa.me/917358844950?text=${message}`;
         }
 
         function calculateEMI() {
