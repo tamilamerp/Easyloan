@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Easyfinance</title>
+    <title>Easyfinance - Instant Loan Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -17,120 +18,600 @@
             color: #333;
         }
 
-        /* Top Bar Info */
-        .top-bar {
-            background-color: #0d233a;
-            color: #fff;
-            padding: 10px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
-        }
-
-        .top-bar a {
-            color: #4da6ff;
-            text-decoration: none;
-            margin-left: 15px;
-        }
-
-        .top-bar a:hover {
-            text-decoration: underline;
-        }
-
-        /* Navigation Header */
+        /* Header Navigation */
         header {
-            background-color: #ffffff;
-            padding: 20px 5%;
+            background: #ffffff;
+            padding: 15px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: bold;
-            color: #0d233a;
+            color: #0b3c5d;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .logo span {
-            color: #28a745;
+            color: #00b0ff;
         }
 
-        /* Hero Banner */
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .btn-header-wa {
+            background-color: #25d366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Hero Section */
         .hero {
-            padding: 80px 5%;
-            text-align: center;
-            background: linear-gradient(135deg, #0d233a 0%, #1a4570 100%);
-            color: #ffffff;
+            padding: 50px 8% 30px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #eef5fc 0%, #ffffff 100%);
         }
 
-        .hero h1 {
-            font-size: 40px;
+        .hero-text {
+            max-width: 50%;
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+            color: #0b3c5d;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h1 span {
+            color: #0072ce;
+        }
+
+        .hero-text p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 20px;
+        }
+
+        .badge {
+            background: #ffffff;
+            padding: 12px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #0b3c5d;
+        }
+
+        .badge i {
+            font-size: 20px;
+            color: #0072ce;
+        }
+
+        /* Form + Why Choose Us Box */
+        .form-section {
+            max-width: 84%;
+            margin: -20px auto 50px auto;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: flex;
+            overflow: hidden;
+        }
+
+        .form-container {
+            padding: 40px;
+            width: 65%;
+        }
+
+        .form-container h2 {
+            color: #0b3c5d;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group {
             margin-bottom: 15px;
         }
 
-        .hero p {
-            font-size: 18px;
-            color: #dcdcdc;
-            margin-bottom: 25px;
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: #f9fbfd;
+            font-size: 14px;
         }
 
-        .btn-contact {
-            background-color: #28a745;
-            color: #ffffff;
-            padding: 12px 30px;
-            text-decoration: none;
+        .full-width {
+            grid-column: span 2;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: #25d366;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
             font-weight: bold;
-            border-radius: 5px;
-            display: inline-block;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
             transition: 0.3s;
         }
 
-        .btn-contact:hover {
-            background-color: #218838;
+        .btn-submit:hover {
+            background-color: #1eb857;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 600px) {
-            .top-bar {
-                flex-direction: column;
-                gap: 5px;
-                text-align: center;
-            }
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .hero h1 {
-                font-size: 28px;
-            }
+        /* Right Side Banner (Why Choose Us) */
+        .why-choose-us {
+            background: #004b93;
+            color: white;
+            padding: 40px;
+            width: 35%;
+        }
+
+        .why-choose-us h3 {
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            background: rgba(255,255,255,0.2);
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            font-size: 15px;
+            margin-bottom: 3px;
+        }
+
+        .feature-text p {
+            font-size: 12px;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        /* Loan Services Cards */
+        .services-section {
+            padding: 30px 8% 60px 8%;
+            text-align: center;
+        }
+
+        .services-section h2 {
+            font-size: 28px;
+            color: #0b3c5d;
+            margin-bottom: 35px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #eef5fc;
+            color: #0072ce;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px auto;
+            font-size: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 16px;
+            color: #0b3c5d;
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            font-size: 12px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .btn-apply-card {
+            background-color: #004b93;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 5px;
+            font-size: 13px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: #0b3c5d;
+            color: white;
+            padding: 30px 8%;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 26px;
+            margin-bottom: 5px;
+            color: #00b0ff;
+        }
+
+        .stat-item p {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: #07263d;
+            color: #a0b2c6;
+            padding: 50px 8% 20px 8%;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: #a0b2c6;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; text-align: center; }
+            .hero-text { max-width: 100%; margin-bottom: 30px; }
+            .form-section { flex-direction: column; width: 95%; }
+            .form-container, .why-choose-us { width: 100%; }
+            .footer-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Contact Bar -->
-    <div class="top-bar">
-        <div>Welcome to Easyfinance</div>
-        <div>
-            📞 <a href="tel:7358844950">7358844950</a>
-            ✉️ <a href="mailto:tamil4666@gmail.com">tamil4666@gmail.com</a>
+    <!-- Navigation Header -->
+    <header>
+        <div class="logo"><i class="fa-solid fa-building-columns"></i> Easy<span>finance</span></div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#services">Loans</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a href="https://wa.me/917358844950" class="btn-header-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Easy Finance, <br><span>Better Tomorrow</span></h1>
+            <p>Quick approval, low interest rates and hassle-free process. Get the best loan for your needs.</p>
+            
+            <div class="hero-badges">
+                <div class="badge"><i class="fa-solid fa-bolt"></i> Quick Approval</div>
+                <div class="badge"><i class="fa-solid fa-percent"></i> Low Interest</div>
+                <div class="badge"><i class="fa-solid fa-headset"></i> 24/7 Support</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form & Why Choose Us Container -->
+    <div class="form-section">
+        
+        <!-- Application Form -->
+        <div class="form-container">
+            <h2><i class="fa-solid fa-clipboard-list" style="color:#0072ce;"></i> Loan Application Form</h2>
+            <form onsubmit="sendToWhatsApp(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <input type="text" id="fullname" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="mobile" placeholder="Mobile Number" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <select id="loantype" required>
+                            <option value="">Select Loan Type</option>
+                            <option value="Car Loan">Car Loan</option>
+                            <option value="Bike Loan">Bike Loan</option>
+                            <option value="Home Loan">Home Loan</option>
+                            <option value="Personal Loan">Personal Loan</option>
+                            <option value="Business Loan">Business Loan</option>
+                            <option value="Gold Loan">Gold Loan</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="city" placeholder="City" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="income" placeholder="Monthly Income" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <input type="text" id="amount" placeholder="Loan Amount Required" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit"><i class="fa-brands fa-whatsapp"></i> Apply via WhatsApp</button>
+                <p style="text-align: center; font-size: 12px; color: #888; margin-top: 10px;">🔒 Your information is safe and secure with us.</p>
+            </form>
+        </div>
+
+        <!-- Why Choose Us -->
+        <div class="why-choose-us">
+            <h3>Why Choose Us?</h3>
+            
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-percent"></i></div>
+                <div class="feature-text">
+                    <h4>Lowest Interest Rates</h4>
+                    <p>Competitive rates for all loan types</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                <div class="feature-text">
+                    <h4>Quick & Easy Process</h4>
+                    <p>Minimal documentation and quick approval</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="feature-text">
+                    <h4>100% Secure</h4>
+                    <p>Your data is protected with top security</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-user-gear"></i></div>
+                <div class="feature-text">
+                    <h4>Expert Support</h4>
+                    <p>Our experts are always ready to help you</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Our Loan Services -->
+    <section class="services-section" id="services">
+        <h2>Our Loan Services</h2>
+        
+        <div class="cards-grid">
+            <div class="service-card">
+                <div class="card-icon"><i class="fa-solid fa-car"></i></div>
+                <h3>Car Loan</h3>
+                <p>Lowest interest rates on new & used cars.</p>
+                <button class="btn-apply-card" onclick="setLoan('Car Loan')">Apply Now</button>
+            </div>
+
+            <div class="service-card">
+                <div class="card-icon"><i class="fa-solid fa-motorcycle"></i></div>
+                <h3>Bike Loan</h3>
+                <p>Finance your dream bike with easy EMI options.</p>
+                <button class="btn-apply-card" onclick="setLoan('Bike Loan')">Apply Now</button>
+            </div>
+
+            <div class="service-card">
+                <div class="card-icon"><i class="fa-solid fa-house"></i></div>
+                <h3>Home Loan</h3>
+                <p>Make your dream home a reality with low rates.</p>
+                <button class="btn-apply-card" onclick="setLoan('Home Loan')">Apply Now</button>
+            </div>
+
+            <div class="service-card">
+                <div class="card-icon"><i class="fa-solid fa-user"></i></div>
+                <h3>Personal Loan</h3>
+                <p>Instant personal loan for your urgent needs.</p>
+                <button class="btn-apply-card" onclick="setLoan('Personal Loan')">Apply Now</button>
+            </div>
+
+            <div class="service-card">
+                <div class="card-icon"><i class="fa-solid fa-briefcase"></i></div>
+                <h3>Business Loan</h3>
+                <p>Grow your business with flexible loan solutions.</p>
+                <button class="btn-apply-card" onclick="setLoan('Business Loan')">Apply Now</button>
+            </div>
+
+            <div class="service-card">
+                <div class="card-icon"><i class="fa-solid fa-coins"></i></div>
+                <h3>Gold Loan</h3>
+                <p>Get instant loan against your gold jewellery.</p>
+                <button class="btn-apply-card" onclick="setLoan('Gold Loan')">Apply Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <h3>10,000+</h3>
+            <p>Happy Customers</p>
+        </div>
+        <div class="stat-item">
+            <h3>98%</h3>
+            <p>Approval Rate</p>
+        </div>
+        <div class="stat-item">
+            <h3>₹ 500Cr+</h3>
+            <p>Loans Disbursed</p>
+        </div>
+        <div class="stat-item">
+            <h3>24/7</h3>
+            <p>Customer Support</p>
         </div>
     </div>
 
-    <!-- Main Header -->
-    <header>
-        <div class="logo">Easy<span>finance</span></div>
-    </header>
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="color:white; margin-bottom:15px;"><i class="fa-solid fa-building-columns"></i> Easy<span>finance</span></div>
+                <p>We provide the best loan solutions with easy process, low interest rates and quick approval.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#services">Our Loans</a></li>
+                    <li><a href="#services">Services</a></li>
+                </ul>
+            </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>உங்கள் நிதித் தேவைகளுக்கான சிறந்த தீர்வு</h1>
-        <p>Easyfinance - விரைவான மற்றும் எளிமையான சேவைகள்</p>
-        <a href="tel:7358844950" class="btn-contact">தொடர்பு கொள்ள</a>
-    </section>
+            <div class="footer-col">
+                <h4>Loan Types</h4>
+                <ul>
+                    <li><a href="#services">Car Loan</a></li>
+                    <li><a href="#services">Personal Loan</a></li>
+                    <li><a href="#services">Home Loan</a></li>
+                    <li><a href="#services">Business Loan</a></li>
+                </ul>
+            </div>
 
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p><i class="fa-solid fa-phone"></i> +91 7358844950</p>
+                <p style="margin-top: 8px;"><i class="fa-solid fa-envelope"></i> tamil4666@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Easyfinance. All Rights Reserved. | Privacy Policy | Terms & Conditions</p>
+        </div>
+    </footer>
+
+    <script>
+        // WhatsApp Form Submit Functionality
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            
+            const myPhone = "917358844950"; // Your WhatsApp Number
+
+            const name = document.getElementById('fullname').value;
+            const mobile = document.getElementById('mobile').value;
+            const loan = document.getElementById('loantype').value;
+            const city = document.getElementById('city').value;
+            const income = document.getElementById('income').value;
+            const amount = document.getElementById('amount').value;
+
+            const message = *Easyfinance - புதிய லோன் விண்ணப்பம்*%0A%0A +
+                            👤 *பெயர்:* ${name}%0A +
+                            📞 *மொபைல்:* ${mobile}%0A +
+                            💰 *தேவைப்படும் லோன்:* ${loan}%0A +
+                            🏙️ *ஊர்/நகரம்:* ${city}%0A +
+                            💵 *மாத வருமானம்:* ${income}%0A +
+                            🏷️ *தேவைப்படும் தொகை:* ${amount};
+
+            const url = https://wa.me/${myPhone}?text=${message};
+            window.open(url, '_blank');
+        }
+
+        // Auto Select Loan Type when clicking Apply Now on Cards
+        function setLoan(loanName) {
+            document.getElementById('loantype').value = loanName;
+            window.scrollTo({ top: 300, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
