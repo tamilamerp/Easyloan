@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Easyfinance - Instant Loan Solutions</title>
+    <title>Easyfinance - Car Loan & Multi-Loan Partner</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -64,108 +64,215 @@
             gap: 8px;
         }
 
-        /* Hero Section */
+        /* Hero Banner */
         .hero {
-            padding: 50px 8% 30px 8%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            padding: 40px 8% 20px 8%;
+            text-align: center;
             background: linear-gradient(135deg, #eef5fc 0%, #ffffff 100%);
         }
 
-        .hero-text {
-            max-width: 50%;
-        }
-
-        .hero-text h1 {
-            font-size: 42px;
+        .hero h1 {
+            font-size: 36px;
             color: #0b3c5d;
             margin-bottom: 10px;
         }
 
-        .hero-text h1 span {
+        .hero h1 span {
             color: #0072ce;
         }
 
-        .hero-text p {
+        .hero p {
             color: #666;
             font-size: 16px;
-            margin-bottom: 25px;
-            line-height: 1.5;
         }
 
-        .hero-badges {
+        /* Loan Selection Tabs */
+        .loan-tabs-container {
+            max-width: 88%;
+            margin: 30px auto 10px auto;
             display: flex;
-            gap: 20px;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
-        .badge {
+        .tab-btn {
             background: #ffffff;
-            padding: 12px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 14px;
-            font-weight: bold;
-            color: #0b3c5d;
-        }
-
-        .badge i {
-            font-size: 20px;
+            border: 2px solid #0072ce;
             color: #0072ce;
-        }
-
-        /* Form + Why Choose Us Box */
-        .form-section {
-            max-width: 84%;
-            margin: -20px auto 50px auto;
-            background: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
             display: flex;
-            overflow: hidden;
+            align-items: center;
+            gap: 8px;
         }
 
-        .form-container {
-            padding: 40px;
-            width: 65%;
+        .tab-btn.active, .tab-btn:hover {
+            background: #0072ce;
+            color: #ffffff;
         }
 
-        .form-container h2 {
+        /* Bank Comparison Table Section */
+        .bank-section {
+            max-width: 88%;
+            margin: 20px auto 40px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .bank-section h2 {
             color: #0b3c5d;
-            margin-bottom: 25px;
+            font-size: 24px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        .sub-toggle {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .sub-btn {
+            background: #eef5fc;
+            border: 1px solid #b3d7ff;
+            color: #0b3c5d;
+            padding: 8px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .sub-btn.active {
+            background: #0b3c5d;
+            color: #ffffff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table th, table td {
+            padding: 14px 18px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        table th {
+            background-color: #0b3c5d;
+            color: #ffffff;
+            font-size: 15px;
+        }
+
+        table tbody tr:hover {
+            background-color: #f8fbfd;
+        }
+
+        .best-rate-badge {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+        /* Documents Section */
+        .doc-section {
+            max-width: 88%;
+            margin: 0 auto 40px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .doc-card {
+            background: #f8fbfd;
+            border: 1px solid #e1eaf1;
+            border-top: 4px solid #0072ce;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .doc-card h3 {
+            color: #0b3c5d;
+            font-size: 17px;
+            margin-bottom: 12px;
+        }
+
+        .doc-card ul {
+            list-style: none;
+        }
+
+        .doc-card ul li {
+            padding: 6px 0;
+            font-size: 14px;
+            color: #444;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .doc-card ul li i {
+            color: #25d366;
+        }
+
+        /* Form Container */
+        .form-section {
+            max-width: 88%;
+            margin: 0 auto 50px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
+            margin-top: 15px;
         }
 
-        .form-group {
-            margin-bottom: 15px;
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            color: #0b3c5d;
+            margin-bottom: 5px;
         }
 
         .form-group input, .form-group select {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             border: 1px solid #e0e0e0;
-            border-radius: 8px;
+            border-radius: 6px;
             background: #f9fbfd;
             font-size: 14px;
         }
 
-        .full-width {
-            grid-column: span 2;
-        }
-
         .btn-submit {
-            width: 100%;
+            grid-column: span 2;
             background-color: #25d366;
             color: white;
             padding: 15px;
@@ -178,190 +285,21 @@
             justify-content: center;
             align-items: center;
             gap: 10px;
-            transition: 0.3s;
-        }
-
-        .btn-submit:hover {
-            background-color: #1eb857;
-        }
-
-        /* Right Side Banner (Why Choose Us) */
-        .why-choose-us {
-            background: #004b93;
-            color: white;
-            padding: 40px;
-            width: 35%;
-        }
-
-        .why-choose-us h3 {
-            font-size: 22px;
-            margin-bottom: 25px;
-        }
-
-        .feature-item {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .feature-icon {
-            background: rgba(255,255,255,0.2);
-            width: 45px;
-            height: 45px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .feature-text h4 {
-            font-size: 15px;
-            margin-bottom: 3px;
-        }
-
-        .feature-text p {
-            font-size: 12px;
-            opacity: 0.8;
-            line-height: 1.4;
-        }
-
-        /* Loan Services Cards */
-        .services-section {
-            padding: 30px 8% 60px 8%;
-            text-align: center;
-        }
-
-        .services-section h2 {
-            font-size: 28px;
-            color: #0b3c5d;
-            margin-bottom: 35px;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-        }
-
-        .service-card {
-            background: #ffffff;
-            padding: 30px 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-        }
-
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: #eef5fc;
-            color: #0072ce;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px auto;
-            font-size: 24px;
-        }
-
-        .service-card h3 {
-            font-size: 16px;
-            color: #0b3c5d;
-            margin-bottom: 8px;
-        }
-
-        .service-card p {
-            font-size: 12px;
-            color: #777;
-            margin-bottom: 15px;
-        }
-
-        .btn-apply-card {
-            background-color: #004b93;
-            color: white;
-            border: none;
-            padding: 8px 18px;
-            border-radius: 5px;
-            font-size: 13px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            background: #0b3c5d;
-            color: white;
-            padding: 30px 8%;
-            display: flex;
-            justify-content: space-around;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 26px;
-            margin-bottom: 5px;
-            color: #00b0ff;
-        }
-
-        .stat-item p {
-            font-size: 13px;
-            opacity: 0.8;
+            margin-top: 10px;
         }
 
         /* Footer */
         footer {
             background: #07263d;
             color: #a0b2c6;
-            padding: 50px 8% 20px 8%;
+            padding: 40px 8% 20px 8%;
             font-size: 14px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-col h4 {
-            color: white;
-            margin-bottom: 15px;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 8px;
-        }
-
-        .footer-col ul li a {
-            color: #a0b2c6;
-            text-decoration: none;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
             text-align: center;
-            font-size: 13px;
         }
 
-        @media (max-width: 900px) {
-            .hero { flex-direction: column; text-align: center; }
-            .hero-text { max-width: 100%; margin-bottom: 30px; }
-            .form-section { flex-direction: column; width: 95%; }
-            .form-container, .why-choose-us { width: 100%; }
-            .footer-grid { grid-template-columns: 1fr; }
+        @media (max-width: 768px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .btn-submit { grid-column: span 1; }
         }
     </style>
 </head>
@@ -371,246 +309,288 @@
     <header>
         <div class="logo"><i class="fa-solid fa-building-columns"></i> Easy<span>finance</span></div>
         <nav>
-            <a href="#">Home</a>
-            <a href="#services">Loans</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+            <a href="#">Home / முகப்பு</a>
+            <a href="#loan-details">Bank Rates / வட்டி விகிதங்கள்</a>
+            <a href="#documents">Documents / ஆவணங்கள்</a>
+            <a href="#apply">Apply Now / விண்ணப்பிக்க</a>
         </nav>
-        <a href="https://wa.me/917358844950" class="btn-header-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+        <a href="https://wa.me/917358844950" class="btn-header-wa"><i class="fa-brands fa-whatsapp"></i> 7358844950</a>
     </header>
 
     <!-- Hero Banner -->
     <section class="hero">
-        <div class="hero-text">
-            <h1>Easy Finance, <br><span>Better Tomorrow</span></h1>
-            <p>Quick approval, low interest rates and hassle-free process. Get the best loan for your needs.</p>
-            
-            <div class="hero-badges">
-                <div class="badge"><i class="fa-solid fa-bolt"></i> Quick Approval</div>
-                <div class="badge"><i class="fa-solid fa-percent"></i> Low Interest</div>
-                <div class="badge"><i class="fa-solid fa-headset"></i> 24/7 Support</div>
-            </div>
-        </div>
+        <h1>Easy Finance, <span>Better Tomorrow</span></h1>
+        <p>அனைத்து முன்னணி வங்கிகளின் கடன் சேவைகளும் ஒரே இடத்தில் | Fast Approval & Lowest Interest</p>
     </section>
 
-    <!-- Application Form & Why Choose Us Container -->
-    <div class="form-section">
-        
-        <!-- Application Form -->
-        <div class="form-container">
-            <h2><i class="fa-solid fa-clipboard-list" style="color:#0072ce;"></i> Loan Application Form</h2>
-            <form onsubmit="sendToWhatsApp(event)">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <input type="text" id="fullname" placeholder="Full Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" id="mobile" placeholder="Mobile Number" required>
-                    </div>
-                    <div class="form-group full-width">
-                        <select id="loantype" required>
-                            <option value="">Select Loan Type</option>
-                            <option value="Car Loan">Car Loan</option>
-                            <option value="Bike Loan">Bike Loan</option>
-                            <option value="Home Loan">Home Loan</option>
-                            <option value="Personal Loan">Personal Loan</option>
-                            <option value="Business Loan">Business Loan</option>
-                            <option value="Gold Loan">Gold Loan</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="city" placeholder="City" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="income" placeholder="Monthly Income" required>
-                    </div>
-                    <div class="form-group full-width">
-                        <input type="text" id="amount" placeholder="Loan Amount Required" required>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn-submit"><i class="fa-brands fa-whatsapp"></i> Apply via WhatsApp</button>
-                <p style="text-align: center; font-size: 12px; color: #888; margin-top: 10px;">🔒 Your information is safe and secure with us.</p>
-            </form>
-        </div>
-
-        <!-- Why Choose Us -->
-        <div class="why-choose-us">
-            <h3>Why Choose Us?</h3>
-            
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fa-solid fa-percent"></i></div>
-                <div class="feature-text">
-                    <h4>Lowest Interest Rates</h4>
-                    <p>Competitive rates for all loan types</p>
-                </div>
-            </div>
-
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
-                <div class="feature-text">
-                    <h4>Quick & Easy Process</h4>
-                    <p>Minimal documentation and quick approval</p>
-                </div>
-            </div>
-
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                <div class="feature-text">
-                    <h4>100% Secure</h4>
-                    <p>Your data is protected with top security</p>
-                </div>
-            </div>
-
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fa-solid fa-user-gear"></i></div>
-                <div class="feature-text">
-                    <h4>Expert Support</h4>
-                    <p>Our experts are always ready to help you</p>
-                </div>
-            </div>
-        </div>
-
+    <!-- Main Loan Tabs -->
+    <div class="loan-tabs-container">
+        <button class="tab-btn active" onclick="switchMainLoan('car')"><i class="fa-solid fa-car"></i> Car Loan</button>
+        <button class="tab-btn" onclick="switchMainLoan('home')"><i class="fa-solid fa-house"></i> Home Loan</button>
+        <button class="tab-btn" onclick="switchMainLoan('personal')"><i class="fa-solid fa-user"></i> Personal Loan</button>
+        <button class="tab-btn" onclick="switchMainLoan('business')"><i class="fa-solid fa-briefcase"></i> Business Loan</button>
+        <button class="tab-btn" onclick="switchMainLoan('gold')"><i class="fa-solid fa-coins"></i> Gold Loan</button>
     </div>
 
-    <!-- Our Loan Services -->
-    <section class="services-section" id="services">
-        <h2>Our Loan Services</h2>
+    <!-- Bank Details & Rate of Interest Table -->
+    <div class="bank-section" id="loan-details">
+        <h2 id="section-heading"><i class="fa-solid fa-car" style="color: #0072ce;"></i> Car Loan - Bank Interest Rates & Tie-ups</h2>
         
-        <div class="cards-grid">
-            <div class="service-card">
-                <div class="card-icon"><i class="fa-solid fa-car"></i></div>
-                <h3>Car Loan</h3>
-                <p>Lowest interest rates on new & used cars.</p>
-                <button class="btn-apply-card" onclick="setLoan('Car Loan')">Apply Now</button>
+        <!-- Toggle for New Car vs Used Car (Appears for Car Loan) -->
+        <div class="sub-toggle" id="car-sub-toggle">
+            <button class="sub-btn active" id="btn-newcar" onclick="loadCarData('new')">New Car Loan (புதிய கார்)</button>
+            <button class="sub-btn" id="btn-usedcar" onclick="loadCarData('used')">Used Car Loan (செகண்ட் ஹேண்ட் கார்)</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>வங்கி / நிதி நிறுவனம் (Bank / NBFC)</th>
+                    <th>வட்டி விகிதம் (Interest Rate)</th>
+                    <th>சிறப்பம்சங்கள் / விவரங்கள்</th>
+                </tr>
+            </thead>
+            <tbody id="bank-table-body">
+                <!-- Data populated dynamically via JS -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Required Documents Checklist -->
+    <div class="doc-section" id="documents">
+        <h2 style="color:#0b3c5d;"><i class="fa-solid fa-file-invoice" style="color: #0072ce;"></i> Required Documents / தேவையான ஆவணங்கள்</h2>
+        
+        <div class="doc-grid">
+            <!-- Salaried Card -->
+            <div class="doc-card">
+                <h3>👔 Salaried (மாதச் சம்பளக்காரர்கள்)</h3>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check"></i> PAN Card</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Aadhaar Card</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Last 3 Months Pay Slip</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Last 6 Months Bank Statement</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Form 16 (Last 2 Years)</li>
+                </ul>
             </div>
 
-            <div class="service-card">
-                <div class="card-icon"><i class="fa-solid fa-motorcycle"></i></div>
-                <h3>Bike Loan</h3>
-                <p>Finance your dream bike with easy EMI options.</p>
-                <button class="btn-apply-card" onclick="setLoan('Bike Loan')">Apply Now</button>
+            <!-- Business Card -->
+            <div class="doc-card">
+                <h3>🏭 Business (சுய தொழில் / வியாபாரம்)</h3>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check"></i> PAN Card</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Aadhaar Card</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Last 2 Years ITR Proof</li>
+                    <li><i class="fa-solid fa-circle-check"></i> GST Copy & Business Proof</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Last 1 Year Bank Statement</li>
+                </ul>
             </div>
 
-            <div class="service-card">
-                <div class="card-icon"><i class="fa-solid fa-house"></i></div>
-                <h3>Home Loan</h3>
-                <p>Make your dream home a reality with low rates.</p>
-                <button class="btn-apply-card" onclick="setLoan('Home Loan')">Apply Now</button>
-            </div>
-
-            <div class="service-card">
-                <div class="card-icon"><i class="fa-solid fa-user"></i></div>
-                <h3>Personal Loan</h3>
-                <p>Instant personal loan for your urgent needs.</p>
-                <button class="btn-apply-card" onclick="setLoan('Personal Loan')">Apply Now</button>
-            </div>
-
-            <div class="service-card">
-                <div class="card-icon"><i class="fa-solid fa-briefcase"></i></div>
-                <h3>Business Loan</h3>
-                <p>Grow your business with flexible loan solutions.</p>
-                <button class="btn-apply-card" onclick="setLoan('Business Loan')">Apply Now</button>
-            </div>
-
-            <div class="service-card">
-                <div class="card-icon"><i class="fa-solid fa-coins"></i></div>
-                <h3>Gold Loan</h3>
-                <p>Get instant loan against your gold jewellery.</p>
-                <button class="btn-apply-card" onclick="setLoan('Gold Loan')">Apply Now</button>
+            <!-- NIP Card -->
+            <div class="doc-card" style="border-top-color: #25d366;">
+                <h3>✨ NIP (Non-Income Profile)</h3>
+                <p style="font-size: 12px; color: #666; margin-bottom: 8px;">வருமான சான்று இல்லாதவர்களுக்கான எளிய வழி:</p>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check"></i> PAN Card</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Aadhaar Card</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Last 6 Months Bank Statement</li>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Stats Bar -->
-    <div class="stats-bar">
-        <div class="stat-item">
-            <h3>10,000+</h3>
-            <p>Happy Customers</p>
-        </div>
-        <div class="stat-item">
-            <h3>98%</h3>
-            <p>Approval Rate</p>
-        </div>
-        <div class="stat-item">
-            <h3>₹ 500Cr+</h3>
-            <p>Loans Disbursed</p>
-        </div>
-        <div class="stat-item">
-            <h3>24/7</h3>
-            <p>Customer Support</p>
-        </div>
+    <!-- Application Form -->
+    <div class="form-section" id="apply">
+        <h2 style="color:#0b3c5d;"><i class="fa-solid fa-paper-plane" style="color: #0072ce;"></i> Loan Application Form / விண்ணப்பிக்க</h2>
+        <form onsubmit="sendToWhatsApp(event)">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Full Name / உங்கள் பெயர்</label>
+                    <input type="text" id="fullname" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number / போன் எண்</label>
+                    <input type="tel" id="mobile" placeholder="Mobile Number" required>
+                </div>
+                <div class="form-group">
+                    <label>Loan Type / கடன் வகை</label>
+                    <select id="loantype" required>
+                        <option value="Car Loan">Car Loan / கார் லோன்</option>
+                        <option value="Home Loan">Home Loan / ஹோம் லோன்</option>
+                        <option value="Personal Loan">Personal Loan / பர்சனல் லோன்</option>
+                        <option value="Business Loan">Business Loan / பிசினஸ் லோன்</option>
+                        <option value="Gold Loan">Gold Loan / கோல்ட் லோன்</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Profile Type / வேலை வகை</label>
+                    <select id="profile" required>
+                        <option value="Salaried">Salaried (மாதச் சம்பளம்)</option>
+                        <option value="Business">Business (சுய தொழில்)</option>
+                        <option value="NIP">NIP (Non-Income Profile)</option>
+                    </select>
+                </div>
+                <div class="form-group" style="grid-column: span 2;">
+                    <label>Required Loan Amount / தேவைப்படும் கடன் தொகை</label>
+                    <input type="text" id="amount" placeholder="₹ Amount" required>
+                </div>
+
+                <button type="submit" class="btn-submit"><i class="fa-brands fa-whatsapp"></i> Apply via WhatsApp / விண்ணப்பிக்க</button>
+            </div>
+        </form>
     </div>
 
     <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <div class="logo" style="color:white; margin-bottom:15px;"><i class="fa-solid fa-building-columns"></i> Easy<span>finance</span></div>
-                <p>We provide the best loan solutions with easy process, low interest rates and quick approval.</p>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#services">Our Loans</a></li>
-                    <li><a href="#services">Services</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Loan Types</h4>
-                <ul>
-                    <li><a href="#services">Car Loan</a></li>
-                    <li><a href="#services">Personal Loan</a></li>
-                    <li><a href="#services">Home Loan</a></li>
-                    <li><a href="#services">Business Loan</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Contact Us</h4>
-                <p><i class="fa-solid fa-phone"></i> +91 7358844950</p>
-                <p style="margin-top: 8px;"><i class="fa-solid fa-envelope"></i> tamil4666@gmail.com</p>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2026 Easyfinance. All Rights Reserved. | Privacy Policy | Terms & Conditions</p>
-        </div>
+    <footer>
+        <p><strong>Easyfinance - Multi Loan Partner</strong> | 📞 7358844950 | ✉️ tamil4666@gmail.com</p>
+        <p style="margin-top: 10px; font-size: 12px; opacity: 0.7;">© 2026 Easyfinance. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // WhatsApp Form Submit Functionality
+        // Full Bank Data Structure
+        const loanData = {
+            newCar: [
+                { name: "State Bank of India (SBI)", rate: "8.65% - 9.15%", detail: "மிகக் குறைந்த வட்டி, Zero Pre-payment Penalty", best: true },
+                { name: "Bank of Baroda (BOB)", rate: "8.70% - 9.30%", detail: "குறைந்த Processing Fee", best: false },
+                { name: "Canara Bank", rate: "8.75% - 9.40%", detail: "எளிமையான வழிமுறைகள்", best: false },
+                { name: "Bank of India (BOI)", rate: "8.85% - 9.50%", detail: "வேகமான கடன் அனுமதி", best: false },
+                { name: "Punjab National Bank (PNB)", rate: "8.75% - 9.25%", detail: "அரசு ஊழியர்களுக்கு சிறப்பு சலுகை", best: false },
+                { name: "HDFC Bank", rate: "8.75% - 9.50%", detail: "Instant Sanction", best: false },
+                { name: "ICICI Bank", rate: "8.75% - 9.60%", detail: "100% On-Road Funding", best: false },
+                { name: "Axis Bank", rate: "8.85% - 9.70%", detail: "Flexible Tenure Options", best: false },
+                { name: "Kotak Mahindra Bank", rate: "8.90% - 9.80%", detail: "குறைந்தபட்ச ஆவணங்கள்", best: false },
+                { name: "IndusInd Bank", rate: "9.00% - 10.50%", detail: "விரைவான சேவை", best: false },
+                { name: "Equitas Small Finance Bank", rate: "10.00% - 12.00%", detail: "சுலபமான தகுதிகள்", best: false }
+            ],
+            usedCar: [
+                { name: "State Bank of India (SBI)", rate: "10.25% - 11.25%", detail: "நம்பகமான அரசு வங்கி சேவை", best: true },
+                { name: "Bank of Baroda / Canara Bank", rate: "10.50% - 12.00%", detail: "குறைவான நடைமுறைகள்", best: false },
+                { name: "HDFC Bank / ICICI Bank", rate: "10.75% - 13.50%", detail: "வேகமான பரிசீலனை", best: false },
+                { name: "Axis Bank / Kotak Bank", rate: "11.00% - 14.00%", detail: "நெகிழ்வான தவணைகள்", best: false },
+                { name: "Cholamandalam Finance (Chola)", rate: "12.50% - 16.00%", detail: "எளிமையான தகுதி அளவுகோல்", best: false },
+                { name: "Mahindra & Mahindra Finance", rate: "12.00% - 15.50%", detail: "அனைத்து வாகனங்களுக்கும் கடன்", best: false },
+                { name: "Bajaj Finance", rate: "11.50% - 15.00%", detail: "உடனடி ஒப்புதல்", best: false },
+                { name: "Tata Capital", rate: "11.50% - 14.50%", detail: "சிறந்த வாடிக்கையாளர் சேவை", best: false },
+                { name: "Equitas Small Finance Bank", rate: "13.00% - 17.00%", detail: "குறைந்தபட்ச ஆவணங்கள்", best: false }
+            ],
+            home: [
+                { name: "State Bank of India (SBI)", rate: "8.40% - 9.05%", detail: "மிகக் குறைந்த வட்டி விகிதம்", best: true },
+                { name: "Bank of Baroda / Canara Bank", rate: "8.40% - 9.15%", detail: "குறைந்த Processing Fee", best: false },
+                { name: "Bank of India / PNB", rate: "8.45% - 9.20%", detail: "எளிமையான செயல்முறை", best: false },
+                { name: "HDFC Bank", rate: "8.50% - 9.25%", detail: "வேகமான ஆவணச் சரிபார்ப்பு", best: false },
+                { name: "ICICI Bank / Axis Bank", rate: "8.50% - 9.35%", detail: "நெகிழ்வான கடன் காலம்", best: false },
+                { name: "Kotak Mahindra Bank", rate: "8.70% - 9.30%", detail: "Quick Processing", best: false },
+                { name: "LIC Housing Finance", rate: "8.50% - 9.40%", detail: "சிறந்த ஹோம் லோன் திட்டங்கள்", best: false },
+                { name: "Tata Capital / Bajaj Housing", rate: "8.70% - 10.00%", detail: "சுலபமான தகுதிகள்", best: false },
+                { name: "Cholamandalam (Home Loans)", rate: "9.50% - 12.50%", detail: "சுய தொழில் செய்பவர்களுக்கு ஏற்றது", best: false }
+            ],
+            personal: [
+                { name: "HDFC Bank", rate: "10.50% - 12.50%", detail: "Instant Loan for Salaried", best: true },
+                { name: "ICICI Bank", rate: "10.75% - 13.00%", detail: "குறைந்தபட்ச ஆவணங்கள்", best: false },
+                { name: "State Bank of India (SBI)", rate: "11.00% - 13.50%", detail: "குறைந்த வட்டி சலுகை", best: false },
+                { name: "Axis Bank / Kotak Bank", rate: "11.25% - 14.00%", detail: "Quick Disbursal", best: false },
+                { name: "IndusInd Bank / Bajaj Finserv", rate: "11.50% - 15.00%", detail: "உடனடி கடன் பெறலாம்", best: false },
+                { name: "Tata Capital", rate: "11.75% - 14.50%", detail: "எளிமையான தகுதிகள்", best: false }
+            ],
+            business: [
+                { name: "HDFC Bank / ICICI Bank", rate: "12.00% - 15.00%", detail: "தொழில் வளர்ச்சிக்கு சிறந்த திட்டம்", best: true },
+                { name: "Axis Bank / Kotak Bank", rate: "12.50% - 16.00%", detail: "Flexible Repayment", best: false },
+                { name: "Bajaj Finance", rate: "12.00% - 16.50%", detail: "Quick Business Loan", best: false },
+                { name: "Tata Capital", rate: "12.50% - 17.00%", detail: "குறைந்தபட்ச ஆவணங்கள்", best: false },
+                { name: "Cholamandalam / Mahindra Finance", rate: "14.00% - 18.00%", detail: "சுய தொழில் புரிவோருக்கு சிறப்பு திட்டம்", best: false }
+            ],
+            gold: [
+                { name: "State Bank of India (SBI)", rate: "8.25% - 9.00%", detail: "மிகக் குறைந்த வட்டி", best: true },
+                { name: "Canara Bank / Bank of Baroda", rate: "8.30% - 9.15%", detail: "அரசு வங்கி பாதுகாப்பு", best: false },
+                { name: "HDFC Bank / ICICI Bank", rate: "8.75% - 11.00%", detail: "உடனடி பண வசதி", best: false },
+                { name: "Muthoot Finance / Manappuram", rate: "9.90% - 18.00%", detail: "10 நிமிடங்களில் கடன் பெறலாம்", best: false }
+            ]
+        };
+
+        // Render Table Function
+        function renderTable(dataList) {
+            const tbody = document.getElementById('bank-table-body');
+            tbody.innerHTML = '';
+            dataList.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${item.name}</strong> ${item.best ? '<span class="best-rate-badge">Lowest Rate</span>' : ''}</td>
+                    <td style="color:#25d366; font-weight:bold;">${item.rate}</td>
+                    <td>${item.detail}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Switch Main Loan Categories
+        function switchMainLoan(type) {
+            const toggle = document.getElementById('car-sub-toggle');
+            const heading = document.getElementById('section-heading');
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            if(type === 'car') {
+                toggle.style.display = 'flex';
+                heading.innerHTML = <i class="fa-solid fa-car" style="color: #0072ce;"></i> Car Loan - Bank Interest Rates & Tie-ups;
+                loadCarData('new');
+                document.getElementById('loantype').value = 'Car Loan';
+            } else {
+                toggle.style.display = 'none';
+                if(type === 'home') {
+                    heading.innerHTML = <i class="fa-solid fa-house" style="color: #0072ce;"></i> Home Loan - Bank Interest Rates & Tie-ups;
+                    renderTable(loanData.home);
+                    document.getElementById('loantype').value = 'Home Loan';
+                } else if(type === 'personal') {
+                    heading.innerHTML = <i class="fa-solid fa-user" style="color: #0072ce;"></i> Personal Loan - Bank Interest Rates & Tie-ups;
+                    renderTable(loanData.personal);
+                    document.getElementById('loantype').value = 'Personal Loan';
+                } else if(type === 'business') {
+                    heading.innerHTML = <i class="fa-solid fa-briefcase" style="color: #0072ce;"></i> Business Loan - Bank Interest Rates & Tie-ups;
+                    renderTable(loanData.business);
+                    document.getElementById('loantype').value = 'Business Loan';
+                } else if(type === 'gold') {
+                    heading.innerHTML = <i class="fa-solid fa-coins" style="color: #0072ce;"></i> Gold Loan - Bank Interest Rates & Tie-ups;
+                    renderTable(loanData.gold);
+                    document.getElementById('loantype').value = 'Gold Loan';
+                }
+            }
+        }
+
+        // Load Car Loan Sub Categories (New vs Used)
+        function loadCarData(subType) {
+            document.getElementById('btn-newcar').classList.remove('active');
+            document.getElementById('btn-usedcar').classList.remove('active');
+
+            if(subType === 'new') {
+                document.getElementById('btn-newcar').classList.add('active');
+                renderTable(loanData.newCar);
+            } else {
+                document.getElementById('btn-usedcar').classList.add('active');
+                renderTable(loanData.usedCar);
+            }
+        }
+
+        // Initialize with Car Loan New Data
+        loadCarData('new');
+
+        // Send Form Data to WhatsApp
         function sendToWhatsApp(e) {
             e.preventDefault();
-            
-            const myPhone = "917358844950"; // Your WhatsApp Number
-
+            const phone = "917358844950";
             const name = document.getElementById('fullname').value;
             const mobile = document.getElementById('mobile').value;
             const loan = document.getElementById('loantype').value;
-            const city = document.getElementById('city').value;
-            const income = document.getElementById('income').value;
+            const profile = document.getElementById('profile').value;
             const amount = document.getElementById('amount').value;
 
-            const message = *Easyfinance - புதிய லோன் விண்ணப்பம்*%0A%0A +
-                            👤 *பெயர்:* ${name}%0A +
-                            📞 *மொபைல்:* ${mobile}%0A +
-                            💰 *தேவைப்படும் லோன்:* ${loan}%0A +
-                            🏙️ *ஊர்/நகரம்:* ${city}%0A +
-                            💵 *மாத வருமானம்:* ${income}%0A +
-                            🏷️ *தேவைப்படும் தொகை:* ${amount};
+            const message = *Easyfinance Lead*%0A%0A +
+                            👤 *Name:* ${name}%0A +
+                            📞 *Mobile:* ${mobile}%0A +
+                            🚗 *Loan Type:* ${loan}%0A +
+                            💼 *Profile:* ${profile}%0A +
+                            💵 *Amount Required:* ${amount};
 
-            const url = https://wa.me/${myPhone}?text=${message};
-            window.open(url, '_blank');
-        }
-
-        // Auto Select Loan Type when clicking Apply Now on Cards
-        function setLoan(loanName) {
-            document.getElementById('loantype').value = loanName;
-            window.scrollTo({ top: 300, behavior: 'smooth' });
+            window.open(https://wa.me/${phone}?text=${message}, '_blank');
         }
     </script>
 </body>
