@@ -191,28 +191,69 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero Section (Home) */
+        /* Hero Section (Home with Orbiting Green Round Loan Icons) */
         .hero {
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px 20px;
             background: linear-gradient(rgba(15,15,15,0.9), rgba(15,15,15,0.95));
         }
 
-        .hero-logo {
-            max-height: 160px;
-            width: auto;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            border: 2px solid var(--gold-primary);
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+        .hero-logo-orbit-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+
+        .hero-logo {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--gold-primary);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+            z-index: 2;
+        }
+
+        /* Green Round Orbiting Quick Icons */
+        .orbit-icon {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            background-color: #25D366;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            transition: transform 0.2s, background-color 0.2s;
+            z-index: 3;
+            border: 2px solid #fff;
+        }
+
+        .orbit-icon:hover {
+            transform: scale(1.15);
+            background-color: #1ebe5d;
+        }
+
+        /* Positioning around the 280x280 circle */
+        .orbit-1 { top: 10px; left: 116px; }   /* Top: Car */
+        .orbit-2 { top: 70px; right: 20px; }  /* Top Right: Bike */
+        .orbit-3 { bottom: 50px; right: 25px; } /* Bottom Right: Home */
+        .orbit-4 { bottom: 50px; left: 25px; }  /* Bottom Left: Personal */
+        .orbit-5 { top: 70px; left: 20px; }   /* Top Left: Mortgage */
 
         .hero h1 {
             color: var(--gold-primary);
             font-size: 28px;
             margin-bottom: 12px;
             font-weight: 700;
-            letter-spacing: 0.5px;
         }
 
         .hero-message {
@@ -248,7 +289,7 @@
             font-weight: 600;
         }
 
-        /* Loan Grid Cards with Floating Quick Apply Side Icons */
+        /* Loan Grid Cards */
         .loan-grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -264,7 +305,6 @@
             padding: 20px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-            position: relative;
             transition: transform 0.3s, background-color 0.3s;
         }
 
@@ -274,36 +314,10 @@
             border-color: var(--gold-primary);
         }
 
-        /* Side Quick Apply Icons (Car on left, Home on right or category specific) */
-        .side-apply-icon {
-            position: absolute;
-            top: 15px;
-            background: rgba(37, 211, 102, 0.15);
-            border: 1px solid #25D366;
-            color: #25D366;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: 0.2s;
-            font-size: 14px;
-        }
-        .side-apply-icon.left { left: 15px; }
-        .side-apply-icon.right { right: 15px; }
-        
-        .side-apply-icon:hover {
-            background: #25D366;
-            color: #fff;
-        }
-
         .loan-type-card i.main-icon {
             font-size: 38px;
             color: var(--gold-primary);
             margin-bottom: 12px;
-            margin-top: 5px;
         }
 
         .loan-type-card h3 {
@@ -319,23 +333,45 @@
             margin-bottom: 15px;
         }
 
+        .card-btn-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
         .trigger-apply-btn {
-            background-color: var(--gold-primary);
-            color: #0f0f0f;
+            background-color: #25D366;
+            color: #fff;
             border: none;
-            padding: 8px 16px;
+            padding: 8px 14px;
             border-radius: 5px;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 12px;
             cursor: pointer;
             transition: background 0.2s;
         }
 
         .trigger-apply-btn:hover {
+            background-color: #1ebe5d;
+        }
+
+        .trigger-details-btn {
+            background-color: var(--gold-primary);
+            color: #0f0f0f;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .trigger-details-btn:hover {
             background-color: var(--gold-light);
         }
 
-        /* Modal Popup for Individual Loan Application Form */
+        /* Modal Popup for Individual Loan Application & Details */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -545,7 +581,7 @@
                 <span class="logo-text">LOAN THOZHAN</span>
             </a>
             
-            <!-- Desktop Navbar Menu (Career is back in navigation menu) -->
+            <!-- Desktop Navbar Menu -->
             <ul class="navbar-menu">
                 <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('home')"><i class="fa-solid fa-house"></i> Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('loans')"><i class="fa-solid fa-hand-holding-dollar"></i> Loans</a></li>
@@ -562,14 +598,16 @@
 
                 <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('career')"><i class="fa-solid fa-briefcase"></i> Career</a></li>
                 <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('calculator')"><i class="fa-solid fa-calculator"></i> EMI Calc</a></li>
-                <li class="nav-item"><a href="#" class="nav-link" onclick="showSection('enquiries')"><i class="fa-solid fa-phone"></i> Contact</a></li>
             </ul>
 
-            <!-- Header Right: Notification Bell (Updated Grievance Mail) -->
+            <!-- Header Right: Notification Bell & Contact Icon -->
             <div class="header-right-actions">
-                <button class="icon-btn" onclick="alert('இந்த வெப்சைட்டில் உங்களுக்கு ஏதும் குறைகள் இருந்தா tamil4666@gmail.com என்ற மெயில் ஐடிக்கு தெரிவிக்கவும்.')">
+                <button class="icon-btn" onclick="alert('இந்த வெப்சைட்டில் உங்களுக்கு ஏதும் குறைகள் இருந்தா tamil4666@gmail.com என்ற மெயில் ஐடிக்கு தெரிவிக்கவும்.')" title="Notifications">
                     <i class="fa-solid fa-bell"></i>
                     <span class="notification-badge">!</span>
+                </button>
+                <button class="icon-btn" onclick="showSection('enquiries')" title="Contact Us">
+                    <i class="fa-solid fa-phone"></i>
                 </button>
             </div>
         </div>
@@ -577,10 +615,21 @@
 
     <!-- MAIN CONTENT SECTIONS -->
 
-    <!-- 1. Home Section -->
+    <!-- 1. Home Section (Logo with Orbiting Green Round Loan Symbols) -->
     <div id="home" class="page-section active-section">
         <section class="hero">
-            <img src="logo.jpeg" alt="Loan Thozhan Logo" class="hero-logo">
+            <div class="hero-logo-orbit-container">
+                <!-- Orbiting Green Round Icons -->
+                <div class="orbit-icon orbit-1" title="New Car Loan" onclick="openLoanModal('New Car Loan')"><i class="fa-solid fa-car"></i></div>
+                <div class="orbit-icon orbit-2" title="Bike Loan" onclick="openLoanModal('Bike Loan')"><i class="fa-solid fa-motorcycle"></i></div>
+                <div class="orbit-icon orbit-3" title="Housing Loan" onclick="openLoanModal('Housing Loan')"><i class="fa-solid fa-house"></i></div>
+                <div class="orbit-icon orbit-4" title="Personal Loan" onclick="openLoanModal('Personal Loan')"><i class="fa-solid fa-user-tie"></i></div>
+                <div class="orbit-icon orbit-5" title="Mortgage Loan" onclick="openLoanModal('Mortgage Loan')"><i class="fa-solid fa-building-lock"></i></div>
+                
+                <!-- Center Logo -->
+                <img src="logo.jpeg" alt="Loan Thozhan Logo" class="hero-logo">
+            </div>
+
             <h1>LOAN THOZHAN</h1>
             <p>உங்கள் நிதித் தேவைகளுக்கான நம்பகமான தோழன்.</p>
             
@@ -661,7 +710,7 @@
         </div>
     </div>
 
-    <!-- 3. Loans Section (Cards with Left/Right Side Quick Apply Car & House/WhatsApp Icons) -->
+    <!-- 3. Loans Section (Clean Cards with Apply Now and Details buttons) -->
     <div id="loans" class="page-section">
         <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-hand-holding-dollar"></i> லோன் வகைகள் (Loan Types)</h2>
@@ -669,62 +718,68 @@
             <div class="loan-grid-container">
                 <!-- New Car Loan -->
                 <div class="loan-type-card">
-                    <div class="side-apply-icon left" title="Quick WhatsApp Apply" onclick="openLoanModal('New Car Loan')"><i class="fa-solid fa-car"></i></div>
-                    <div class="side-apply-icon right" title="Quick WhatsApp Apply" onclick="openLoanModal('New Car Loan')"><i class="fa-brands fa-whatsapp"></i></div>
                     <i class="fa-solid fa-car main-icon"></i>
                     <h3>New Car Loan</h3>
                     <p>புதிய கார் வாங்க எளிய முறையில் குறைந்த வட்டியில் லோன்.</p>
-                    <button class="trigger-apply-btn" onclick="openLoanModal('New Car Loan')">Apply Now</button>
+                    <div class="card-btn-group">
+                        <button class="trigger-apply-btn" onclick="openLoanModal('New Car Loan')">Apply Now</button>
+                        <button class="trigger-details-btn" onclick="openDetailsModal('New Car Loan', 'அவசியமான ஆவணங்கள்: PAN Card, Aadhaar Card, 3 Months Payslip / ITR, Bank Statement, Income Proof.')">Details</button>
+                    </div>
                 </div>
 
                 <!-- Used Car Loan -->
                 <div class="loan-type-card">
-                    <div class="side-apply-icon left" title="Quick WhatsApp Apply" onclick="openLoanModal('Used Car Loan')"><i class="fa-solid fa-car-side"></i></div>
-                    <div class="side-apply-icon right" title="Quick WhatsApp Apply" onclick="openLoanModal('Used Car Loan')"><i class="fa-brands fa-whatsapp"></i></div>
                     <i class="fa-solid fa-car-side main-icon"></i>
                     <h3>Used Car Loan</h3>
                     <p>பழைய / செகண்ட் ஹேண்ட் கார் வாங்க உடனடி நிதி உதவி.</p>
-                    <button class="trigger-apply-btn" onclick="openLoanModal('Used Car Loan')">Apply Now</button>
+                    <div class="card-btn-group">
+                        <button class="trigger-apply-btn" onclick="openLoanModal('Used Car Loan')">Apply Now</button>
+                        <button class="trigger-details-btn" onclick="openDetailsModal('Used Car Loan', 'அவசியமான ஆவணங்கள்: RC Book Copy, Insurance, PAN, Aadhaar, Income Proof / Non-Income Proof docs.')">Details</button>
+                    </div>
                 </div>
 
                 <!-- Bike Loan -->
                 <div class="loan-type-card">
-                    <div class="side-apply-icon left" title="Quick WhatsApp Apply" onclick="openLoanModal('Bike Loan')"><i class="fa-solid fa-motorcycle"></i></div>
-                    <div class="side-apply-icon right" title="Quick WhatsApp Apply" onclick="openLoanModal('Bike Loan')"><i class="fa-brands fa-whatsapp"></i></div>
                     <i class="fa-solid fa-motorcycle main-icon"></i>
                     <h3>Bike Loan</h3>
                     <p>இருசக்கர வாகனம் (Two Wheeler) வாங்க விரைவான லோன்.</p>
-                    <button class="trigger-apply-btn" onclick="openLoanModal('Bike Loan')">Apply Now</button>
+                    <div class="card-btn-group">
+                        <button class="trigger-apply-btn" onclick="openLoanModal('Bike Loan')">Apply Now</button>
+                        <button class="trigger-details-btn" onclick="openDetailsModal('Bike Loan', 'அவசியமான ஆவணங்கள்: Aadhaar Card, PAN Card, Passport Size Photo, Address Proof.')">Details</button>
+                    </div>
                 </div>
 
                 <!-- Housing Loan -->
                 <div class="loan-type-card">
-                    <div class="side-apply-icon left" title="Quick WhatsApp Apply" onclick="openLoanModal('Housing Loan')"><i class="fa-solid fa-house"></i></div>
-                    <div class="side-apply-icon right" title="Quick WhatsApp Apply" onclick="openLoanModal('Housing Loan')"><i class="fa-brands fa-whatsapp"></i></div>
                     <i class="fa-solid fa-house main-icon"></i>
                     <h3>Housing Loan</h3>
                     <p>உங்கள் சொந்த வீட்டுக்கனவை நனவாக்க ஹவுசிங் லோன்.</p>
-                    <button class="trigger-apply-btn" onclick="openLoanModal('Housing Loan')">Apply Now</button>
+                    <div class="card-btn-group">
+                        <button class="trigger-apply-btn" onclick="openLoanModal('Housing Loan')">Apply Now</button>
+                        <button class="trigger-details-btn" onclick="openDetailsModal('Housing Loan', 'அவசியமான ஆவணங்கள்: Property Documents, Approved Plan, ITR / Form 16, Bank Statements.')">Details</button>
+                    </div>
                 </div>
 
                 <!-- Personal Loan -->
                 <div class="loan-type-card">
-                    <div class="side-apply-icon left" title="Quick WhatsApp Apply" onclick="openLoanModal('Personal Loan')"><i class="fa-solid fa-user-tie"></i></div>
-                    <div class="side-apply-icon right" title="Quick WhatsApp Apply" onclick="openLoanModal('Personal Loan')"><i class="fa-brands fa-whatsapp"></i></div>
                     <i class="fa-solid fa-user-tie main-icon"></i>
                     <h3>Personal Loan</h3>
                     <p>அவசர தேவைகளுக்கான பர்சனல் லோன் சேவை.</p>
-                    <button class="trigger-apply-btn" onclick="openLoanModal('Personal Loan')">Apply Now</button>
+                    <div class="card-btn-group">
+                        <button class="trigger-apply-btn" onclick="openLoanModal('Personal Loan')">Apply Now</button>
+                        <button class="trigger-details-btn" onclick="openDetailsModal('Personal Loan', 'அவசியமான ஆவணங்கள்: Salary Slips or Business Proof, PAN, Aadhaar, Bank Statement.')">Details</button>
+                    </div>
                 </div>
 
                 <!-- Mortgage Loan -->
                 <div class="loan-type-card">
-                    <div class="side-apply-icon left" title="Quick WhatsApp Apply" onclick="openLoanModal('Mortgage Loan')"><i class="fa-solid fa-building-lock"></i></div>
-                    <div class="side-apply-icon right" title="Quick WhatsApp Apply" onclick="openLoanModal('Mortgage Loan')"><i class="fa-brands fa-whatsapp"></i></div>
                     <i class="fa-solid fa-building-lock main-icon"></i>
                     <h3>Mortgage Loan</h3>
                     <p>சொத்துடமை ஈட்டின் மீது பெறப்படும் மார்க்கேஜ் லோன்.</p>
-                    <button class="trigger-apply-btn" onclick="openLoanModal('Mortgage Loan')">Apply Now</button>
+                    <div class="card-btn-group">
+                        <button class="trigger-apply-btn" onclick="openLoanModal('Mortgage Loan')">Apply Now</button>
+                        <button class="trigger-details-btn" onclick="openDetailsModal('Mortgage Loan', 'அவசியமான ஆவணங்கள்: Collateral Property Papers, Income Proof, KYC Documents.')">Details</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -757,7 +812,17 @@
         </div>
     </div>
 
-    <!-- 4. Career Page Section (Updated with correct email tamil4666@gmail.com) -->
+    <!-- Loan Details Modal Popup -->
+    <div id="detailsModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeDetailsModal()">&times;</button>
+            <h3 id="detailsModalTitle" style="color: var(--gold-primary); margin-bottom: 15px; font-size: 18px;">Loan Details</h3>
+            <p id="detailsModalContent" style="color: var(--text-muted); font-size: 14px; line-height: 1.6; background: #121212; padding: 15px; border-radius: 6px; border-left: 4px solid var(--gold-primary);"></p>
+            <button type="button" class="submit-btn" onclick="closeDetailsModal()" style="margin-top: 15px;">Close</button>
+        </div>
+    </div>
+
+    <!-- 4. Career Page Section -->
     <div id="career" class="page-section">
         <div class="container">
             <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Career / Job Apply</h2>
@@ -896,6 +961,17 @@
 
         function closeLoanModal() {
             document.getElementById('loanModal').style.display = 'none';
+        }
+
+        // Modal Popups for Loan Details
+        function openDetailsModal(loanType, detailsText) {
+            document.getElementById('detailsModalTitle').innerText = loanType + " - Details & Documents";
+            document.getElementById('detailsModalContent').innerText = detailsText;
+            document.getElementById('detailsModal').style.display = 'flex';
+        }
+
+        function closeDetailsModal() {
+            document.getElementById('detailsModal').style.display = 'none';
         }
 
         function submitModalLoan() {
