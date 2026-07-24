@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ta">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Easyfinance - Car Loan & Multi-Loan Partner</title>
+    <title>Easyfinance - Multi-Loan Partner</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -52,16 +52,35 @@
             font-size: 15px;
         }
 
-        .btn-header-wa {
-            background-color: #25d366;
+        .header-contact-btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-header-call {
+            background-color: #0072ce;
             color: white;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            font-size: 14px;
+        }
+
+        .btn-header-wa {
+            background-color: #25d366;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
         }
 
         /* Hero Banner */
@@ -72,7 +91,7 @@
         }
 
         .hero h1 {
-            font-size: 36px;
+            font-size: 38px;
             color: #0b3c5d;
             margin-bottom: 10px;
         }
@@ -86,13 +105,28 @@
             font-size: 16px;
         }
 
+        /* Call Alert Banner */
+        .callback-notice {
+            background: #e8f4fd;
+            border-left: 5px solid #0072ce;
+            padding: 15px 20px;
+            max-width: 88%;
+            margin: 20px auto 0 auto;
+            border-radius: 6px;
+            color: #0b3c5d;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
         /* Loan Selection Tabs */
         .loan-tabs-container {
             max-width: 88%;
-            margin: 30px auto 10px auto;
+            margin: 25px auto 10px auto;
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
@@ -100,7 +134,7 @@
             background: #ffffff;
             border: 2px solid #0072ce;
             color: #0072ce;
-            padding: 12px 25px;
+            padding: 12px 22px;
             border-radius: 30px;
             font-size: 15px;
             font-weight: bold;
@@ -137,7 +171,7 @@
 
         .sub-toggle {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             margin-bottom: 20px;
         }
 
@@ -145,7 +179,7 @@
             background: #eef5fc;
             border: 1px solid #b3d7ff;
             color: #0b3c5d;
-            padding: 8px 18px;
+            padding: 10px 20px;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
@@ -271,8 +305,15 @@
             font-size: 14px;
         }
 
-        .btn-submit {
+        .form-action-btns {
             grid-column: span 2;
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .btn-submit {
+            flex: 1;
             background-color: #25d366;
             color: white;
             padding: 15px;
@@ -285,7 +326,22 @@
             justify-content: center;
             align-items: center;
             gap: 10px;
-            margin-top: 10px;
+        }
+
+        .btn-direct-call {
+            flex: 1;
+            background-color: #0072ce;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
         }
 
         /* Footer */
@@ -299,31 +355,43 @@
 
         @media (max-width: 768px) {
             .form-grid { grid-template-columns: 1fr; }
-            .btn-submit { grid-column: span 1; }
+            .form-action-btns { flex-direction: column; }
+            header { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Header -->
+    <!-- Header Navigation -->
     <header>
         <div class="logo"><i class="fa-solid fa-building-columns"></i> Easy<span>finance</span></div>
         <nav>
-            <a href="#">Home / முகப்பு</a>
-            <a href="#loan-details">Bank Rates / வட்டி விகிதங்கள்</a>
-            <a href="#documents">Documents / ஆவணங்கள்</a>
-            <a href="#apply">Apply Now / விண்ணப்பிக்க</a>
+            <a href="#">Home</a>
+            <a href="#loan-details">Bank Rates</a>
+            <a href="#documents">Documents</a>
+            <a href="#apply">Apply Now</a>
         </nav>
-        <a href="https://wa.me/917358844950" class="btn-header-wa"><i class="fa-brands fa-whatsapp"></i> 7358844950</a>
+        <div class="header-contact-btns">
+            <a href="tel:7358844950" class="btn-header-call"><i class="fa-solid fa-phone"></i> Call: 7358844950</a>
+            <a href="https://wa.me/917358844950" class="btn-header-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
     </header>
 
     <!-- Hero Banner -->
     <section class="hero">
         <h1>Easy Finance, <span>Better Tomorrow</span></h1>
-        <p>அனைத்து முன்னணி வங்கிகளின் கடன் சேவைகளும் ஒரே இடத்தில் | Fast Approval & Lowest Interest</p>
+        <p>All Leading Bank Loans at One Place | Fast Approval & Lowest Interest Rates</p>
     </section>
 
-    <!-- Main Loan Tabs -->
+    <!-- Callback Notice Banner -->
+    <div class="callback-notice">
+        <i class="fa-solid fa-headset" style="font-size: 22px; color: #0072ce;"></i>
+        <div>
+            <strong>Need Instant Assistance?</strong> Submit your details below, and our Finance Officer will call you back shortly! Or call us directly at <strong>+91 7358844950</strong>.
+        </div>
+    </div>
+
+    <!-- Main Loan Category Tabs -->
     <div class="loan-tabs-container">
         <button class="tab-btn active" onclick="switchMainLoan('car')"><i class="fa-solid fa-car"></i> Car Loan</button>
         <button class="tab-btn" onclick="switchMainLoan('home')"><i class="fa-solid fa-house"></i> Home Loan</button>
@@ -332,63 +400,60 @@
         <button class="tab-btn" onclick="switchMainLoan('gold')"><i class="fa-solid fa-coins"></i> Gold Loan</button>
     </div>
 
-    <!-- Bank Details & Rate of Interest Table -->
+    <!-- Bank Details Table -->
     <div class="bank-section" id="loan-details">
         <h2 id="section-heading"><i class="fa-solid fa-car" style="color: #0072ce;"></i> Car Loan - Bank Interest Rates & Tie-ups</h2>
         
-        <!-- Toggle for New Car vs Used Car (Appears for Car Loan) -->
+        <!-- Toggle for New Car vs Used Car -->
         <div class="sub-toggle" id="car-sub-toggle">
-            <button class="sub-btn active" id="btn-newcar" onclick="loadCarData('new')">New Car Loan (புதிய கார்)</button>
-            <button class="sub-btn" id="btn-usedcar" onclick="loadCarData('used')">Used Car Loan (செகண்ட் ஹேண்ட் கார்)</button>
+            <button class="sub-btn active" id="btn-newcar" onclick="loadCarData('new')">New Car Loan</button>
+            <button class="sub-btn" id="btn-usedcar" onclick="loadCarData('used')">Used Car Loan</button>
         </div>
 
         <table>
             <thead>
                 <tr>
-                    <th>வங்கி / நிதி நிறுவனம் (Bank / NBFC)</th>
-                    <th>வட்டி விகிதம் (Interest Rate)</th>
-                    <th>சிறப்பம்சங்கள் / விவரங்கள்</th>
+                    <th>Bank / Finance Partner</th>
+                    <th>Interest Rate</th>
+                    <th>Key Features</th>
                 </tr>
             </thead>
             <tbody id="bank-table-body">
-                <!-- Data populated dynamically via JS -->
+                <!-- Dynamic Content via JS -->
             </tbody>
         </table>
     </div>
 
     <!-- Required Documents Checklist -->
     <div class="doc-section" id="documents">
-        <h2 style="color:#0b3c5d;"><i class="fa-solid fa-file-invoice" style="color: #0072ce;"></i> Required Documents / தேவையான ஆவணங்கள்</h2>
+        <h2 style="color:#0b3c5d;"><i class="fa-solid fa-file-invoice" style="color: #0072ce;"></i> Required Documents Checklist</h2>
         
         <div class="doc-grid">
-            <!-- Salaried Card -->
             <div class="doc-card">
-                <h3>👔 Salaried (மாதச் சம்பளக்காரர்கள்)</h3>
+                <h3>👔 Salaried Employees</h3>
                 <ul>
                     <li><i class="fa-solid fa-circle-check"></i> PAN Card</li>
                     <li><i class="fa-solid fa-circle-check"></i> Aadhaar Card</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Last 3 Months Pay Slip</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Last 3 Months Pay Slips</li>
                     <li><i class="fa-solid fa-circle-check"></i> Last 6 Months Bank Statement</li>
                     <li><i class="fa-solid fa-circle-check"></i> Form 16 (Last 2 Years)</li>
                 </ul>
             </div>
 
-            <!-- Business Card -->
             <div class="doc-card">
-                <h3>🏭 Business (சுய தொழில் / வியாபாரம்)</h3>
+                <h3>🏭 Self-Employed / Business</h3>
                 <ul>
                     <li><i class="fa-solid fa-circle-check"></i> PAN Card</li>
                     <li><i class="fa-solid fa-circle-check"></i> Aadhaar Card</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Last 2 Years ITR Proof</li>
-                    <li><i class="fa-solid fa-circle-check"></i> GST Copy & Business Proof</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Last 2 Years ITR Proofs</li>
+                    <li><i class="fa-solid fa-circle-check"></i> GST Registration & Business Proof</li>
                     <li><i class="fa-solid fa-circle-check"></i> Last 1 Year Bank Statement</li>
                 </ul>
             </div>
 
-            <!-- NIP Card -->
             <div class="doc-card" style="border-top-color: #25d366;">
                 <h3>✨ NIP (Non-Income Profile)</h3>
-                <p style="font-size: 12px; color: #666; margin-bottom: 8px;">வருமான சான்று இல்லாதவர்களுக்கான எளிய வழி:</p>
+                <p style="font-size: 12px; color: #666; margin-bottom: 8px;">For profiles without formal income proof:</p>
                 <ul>
                     <li><i class="fa-solid fa-circle-check"></i> PAN Card</li>
                     <li><i class="fa-solid fa-circle-check"></i> Aadhaar Card</li>
@@ -400,109 +465,114 @@
 
     <!-- Application Form -->
     <div class="form-section" id="apply">
-        <h2 style="color:#0b3c5d;"><i class="fa-solid fa-paper-plane" style="color: #0072ce;"></i> Loan Application Form / விண்ணப்பிக்க</h2>
+        <h2 style="color:#0b3c5d;"><i class="fa-solid fa-paper-plane" style="color: #0072ce;"></i> Loan Application & Callback Form</h2>
+        <p style="font-size: 14px; color: #666; margin-top: 5px;">Submit your details, and our dedicated finance officer will contact you immediately.</p>
+        
         <form onsubmit="sendToWhatsApp(event)">
             <div class="form-grid">
                 <div class="form-group">
-                    <label>Full Name / உங்கள் பெயர்</label>
-                    <input type="text" id="fullname" placeholder="Name" required>
+                    <label>Full Name</label>
+                    <input type="text" id="fullname" placeholder="Enter Full Name" required>
                 </div>
                 <div class="form-group">
-                    <label>Mobile Number / போன் எண்</label>
-                    <input type="tel" id="mobile" placeholder="Mobile Number" required>
+                    <label>Mobile Number</label>
+                    <input type="tel" id="mobile" placeholder="Enter Mobile Number" required>
                 </div>
                 <div class="form-group">
-                    <label>Loan Type / கடன் வகை</label>
+                    <label>Selected Loan Type</label>
                     <select id="loantype" required>
-                        <option value="Car Loan">Car Loan / கார் லோன்</option>
-                        <option value="Home Loan">Home Loan / ஹோம் லோன்</option>
-                        <option value="Personal Loan">Personal Loan / பர்சனல் லோன்</option>
-                        <option value="Business Loan">Business Loan / பிசினஸ் லோன்</option>
-                        <option value="Gold Loan">Gold Loan / கோல்ட் லோன்</option>
+                        <option value="Car Loan">Car Loan</option>
+                        <option value="Home Loan">Home Loan</option>
+                        <option value="Personal Loan">Personal Loan</option>
+                        <option value="Business Loan">Business Loan</option>
+                        <option value="Gold Loan">Gold Loan</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Profile Type / வேலை வகை</label>
+                    <label>Profile Type</label>
                     <select id="profile" required>
-                        <option value="Salaried">Salaried (மாதச் சம்பளம்)</option>
-                        <option value="Business">Business (சுய தொழில்)</option>
-                        <option value="NIP">NIP (Non-Income Profile)</option>
+                        <option value="Salaried">Salaried</option>
+                        <option value="Business / Self-Employed">Business / Self-Employed</option>
+                        <option value="NIP (Non-Income Profile)">NIP (Non-Income Profile)</option>
                     </select>
                 </div>
                 <div class="form-group" style="grid-column: span 2;">
-                    <label>Required Loan Amount / தேவைப்படும் கடன் தொகை</label>
-                    <input type="text" id="amount" placeholder="₹ Amount" required>
+                    <label>Required Loan Amount</label>
+                    <input type="text" id="amount" placeholder="e.g. ₹ 5,00,000" required>
                 </div>
 
-                <button type="submit" class="btn-submit"><i class="fa-brands fa-whatsapp"></i> Apply via WhatsApp / விண்ணப்பிக்க</button>
+                <div class="form-action-btns">
+                    <button type="submit" class="btn-submit"><i class="fa-brands fa-whatsapp"></i> Apply via WhatsApp</button>
+                    <a href="tel:7358844950" class="btn-direct-call"><i class="fa-solid fa-phone"></i> Call Us Directly</a>
+                </div>
             </div>
         </form>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p><strong>Easyfinance - Multi Loan Partner</strong> | 📞 7358844950 | ✉️ tamil4666@gmail.com</p>
-        <p style="margin-top: 10px; font-size: 12px; opacity: 0.7;">© 2026 Easyfinance. All Rights Reserved.</p>
+        <p><strong>Easyfinance - Multi-Loan Partner</strong> | 📞 +91 7358844950 | ✉️ tamil4666@gmail.com</p>
+        <p style="margin-top: 8px; font-size: 12px; opacity: 0.7;">© 2026 Easyfinance. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Full Bank Data Structure
+        // Full Bank Master Data
         const loanData = {
             newCar: [
-                { name: "State Bank of India (SBI)", rate: "8.65% - 9.15%", detail: "மிகக் குறைந்த வட்டி, Zero Pre-payment Penalty", best: true },
-                { name: "Bank of Baroda (BOB)", rate: "8.70% - 9.30%", detail: "குறைந்த Processing Fee", best: false },
-                { name: "Canara Bank", rate: "8.75% - 9.40%", detail: "எளிமையான வழிமுறைகள்", best: false },
-                { name: "Bank of India (BOI)", rate: "8.85% - 9.50%", detail: "வேகமான கடன் அனுமதி", best: false },
-                { name: "Punjab National Bank (PNB)", rate: "8.75% - 9.25%", detail: "அரசு ஊழியர்களுக்கு சிறப்பு சலுகை", best: false },
-                { name: "HDFC Bank", rate: "8.75% - 9.50%", detail: "Instant Sanction", best: false },
-                { name: "ICICI Bank", rate: "8.75% - 9.60%", detail: "100% On-Road Funding", best: false },
-                { name: "Axis Bank", rate: "8.85% - 9.70%", detail: "Flexible Tenure Options", best: false },
-                { name: "Kotak Mahindra Bank", rate: "8.90% - 9.80%", detail: "குறைந்தபட்ச ஆவணங்கள்", best: false },
-                { name: "IndusInd Bank", rate: "9.00% - 10.50%", detail: "விரைவான சேவை", best: false },
-                { name: "Equitas Small Finance Bank", rate: "10.00% - 12.00%", detail: "சுலபமான தகுதிகள்", best: false }
+                { name: "State Bank of India (SBI)", rate: "8.65% - 9.15%", detail: "Lowest Interest & Zero Pre-payment Penalty", best: true },
+                { name: "Bank of Baroda (BOB)", rate: "8.70% - 9.30%", detail: "Lowest Processing Fee Options", best: false },
+                { name: "Canara Bank", rate: "8.75% - 9.40%", detail: "Hassle-free Documentation", best: false },
+                { name: "Bank of India (BOI)", rate: "8.85% - 9.50%", detail: "Fast Sanction Process", best: false },
+                { name: "Punjab National Bank (PNB)", rate: "8.75% - 9.25%", detail: "Special Discounts for Govt Employees", best: false },
+                { name: "HDFC Bank", rate: "8.75% - 9.50%", detail: "Instant Sanction for Pre-approved Customers", best: false },
+                { name: "ICICI Bank", rate: "8.75% - 9.60%", detail: "Up to 100% On-Road Funding Available", best: false },
+                { name: "Axis Bank", rate: "8.85% - 9.70%", detail: "Flexible Tenure up to 7 Years", best: false },
+                { name: "Kotak Mahindra Bank", rate: "8.90% - 9.80%", detail: "Quick Digital Verification", best: false },
+                { name: "IndusInd Bank", rate: "9.00% - 10.50%", detail: "Doorstep Documentation Service", best: false },
+                { name: "Equitas Small Finance Bank", rate: "10.00% - 12.00%", detail: "Easy Qualification Norms", best: false }
             ],
             usedCar: [
-                { name: "State Bank of India (SBI)", rate: "10.25% - 11.25%", detail: "நம்பகமான அரசு வங்கி சேவை", best: true },
-                { name: "Bank of Baroda / Canara Bank", rate: "10.50% - 12.00%", detail: "குறைவான நடைமுறைகள்", best: false },
-                { name: "HDFC Bank / ICICI Bank", rate: "10.75% - 13.50%", detail: "வேகமான பரிசீலனை", best: false },
-                { name: "Axis Bank / Kotak Bank", rate: "11.00% - 14.00%", detail: "நெகிழ்வான தவணைகள்", best: false },
-                { name: "Cholamandalam Finance (Chola)", rate: "12.50% - 16.00%", detail: "எளிமையான தகுதி அளவுகோல்", best: false },
-                { name: "Mahindra & Mahindra Finance", rate: "12.00% - 15.50%", detail: "அனைத்து வாகனங்களுக்கும் கடன்", best: false },
-                { name: "Bajaj Finance", rate: "11.50% - 15.00%", detail: "உடனடி ஒப்புதல்", best: false },
-                { name: "Tata Capital", rate: "11.50% - 14.50%", detail: "சிறந்த வாடிக்கையாளர் சேவை", best: false },
-                { name: "Equitas Small Finance Bank", rate: "13.00% - 17.00%", detail: "குறைந்தபட்ச ஆவணங்கள்", best: false }
+                { name: "State Bank of India (SBI)", rate: "10.25% - 11.25%", detail: "Trusted Govt Bank Financing", best: true },
+                { name: "Bank of Baroda / Canara Bank", rate: "10.50% - 12.00%", detail: "Low Charges & Minimal Processing", best: false },
+                { name: "HDFC Bank / ICICI Bank", rate: "10.75% - 13.50%", detail: "Quick Valuation & Fast Disbursal", best: false },
+                { name: "Axis Bank / Kotak Bank", rate: "11.00% - 14.00%", detail: "High LTV Funding Options", best: false },
+                { name: "Cholamandalam Finance (Chola)", rate: "12.50% - 16.00%", detail: "Specialized in Used Commercial & Private Cars", best: false },
+                { name: "Mahindra & Mahindra Finance", rate: "12.00% - 15.50%", detail: "Easy Approval for Rural & Urban", best: false },
+                { name: "Bajaj Finance", rate: "11.50% - 15.00%", detail: "Instant Disbursal & Flexible EMI", best: false },
+                { name: "Tata Capital", rate: "11.50% - 14.50%", detail: "Competitive Interest & Transparent Terms", best: false },
+                { name: "Equitas Small Finance Bank", rate: "13.00% - 17.00%", detail: "Simplified Income Document Check", best: false }
             ],
             home: [
-                { name: "State Bank of India (SBI)", rate: "8.40% - 9.05%", detail: "மிகக் குறைந்த வட்டி விகிதம்", best: true },
-                { name: "Bank of Baroda / Canara Bank", rate: "8.40% - 9.15%", detail: "குறைந்த Processing Fee", best: false },
-                { name: "Bank of India / PNB", rate: "8.45% - 9.20%", detail: "எளிமையான செயல்முறை", best: false },
-                { name: "HDFC Bank", rate: "8.50% - 9.25%", detail: "வேகமான ஆவணச் சரிபார்ப்பு", best: false },
-                { name: "ICICI Bank / Axis Bank", rate: "8.50% - 9.35%", detail: "நெகிழ்வான கடன் காலம்", best: false },
-                { name: "Kotak Mahindra Bank", rate: "8.70% - 9.30%", detail: "Quick Processing", best: false },
-                { name: "LIC Housing Finance", rate: "8.50% - 9.40%", detail: "சிறந்த ஹோம் லோன் திட்டங்கள்", best: false },
-                { name: "Tata Capital / Bajaj Housing", rate: "8.70% - 10.00%", detail: "சுலபமான தகுதிகள்", best: false },
-                { name: "Cholamandalam (Home Loans)", rate: "9.50% - 12.50%", detail: "சுய தொழில் செய்பவர்களுக்கு ஏற்றது", best: false }
+                { name: "State Bank of India (SBI)", rate: "8.40% - 9.05%", detail: "Lowest Home Loan Rates in Market", best: true },
+                { name: "Bank of Baroda / Canara Bank", rate: "8.40% - 9.15%", detail: "Low Processing Fee Offers", best: false },
+                { name: "Bank of India / PNB", rate: "8.45% - 9.20%", detail: "Simplified Approval Process", best: false },
+                { name: "HDFC Bank", rate: "8.50% - 9.25%", detail: "Fast Legal & Technical Evaluation", best: false },
+                { name: "ICICI Bank / Axis Bank", rate: "8.50% - 9.35%", detail: "Flexible Tenure up to 30 Years", best: false },
+                { name: "Kotak Mahindra Bank", rate: "8.70% - 9.30%", detail: "Attractive Balance Transfer Deals", best: false },
+                { name: "LIC Housing Finance", rate: "8.50% - 9.40%", detail: "Ideal Scheme for Salaried Individuals", best: false },
+                { name: "Tata Capital / Bajaj Housing", rate: "8.70% - 10.00%", detail: "Higher Loan Eligibility Funding", best: false },
+                { name: "Cholamandalam (Home Loans)", rate: "9.50% - 12.50%", detail: "Best suited for Self-Employed Profiles", best: false }
             ],
             personal: [
-                { name: "HDFC Bank", rate: "10.50% - 12.50%", detail: "Instant Loan for Salaried", best: true },
-                { name: "ICICI Bank", rate: "10.75% - 13.00%", detail: "குறைந்தபட்ச ஆவணங்கள்", best: false },
-                { name: "State Bank of India (SBI)", rate: "11.00% - 13.50%", detail: "குறைந்த வட்டி சலுகை", best: false },
-                { name: "Axis Bank / Kotak Bank", rate: "11.25% - 14.00%", detail: "Quick Disbursal", best: false },
-                { name: "IndusInd Bank / Bajaj Finserv", rate: "11.50% - 15.00%", detail: "உடனடி கடன் பெறலாம்", best: false },
-                { name: "Tata Capital", rate: "11.75% - 14.50%", detail: "எளிமையான தகுதிகள்", best: false }
+                { name: "HDFC Bank", rate: "10.50% - 12.50%", detail: "Instant Disbursal for Salaried", best: true },
+                { name: "ICICI Bank", rate: "10.75% - 13.00%", detail: "Minimal Documentation Required", best: false },
+                { name: "State Bank of India (SBI)", rate: "11.00% - 13.50%", detail: "Low Interest Personal Loan", best: false },
+                { name: "Axis Bank / Kotak Bank", rate: "11.25% - 14.00%", detail: "Quick Online Disbursal", best: false },
+                { name: "IndusInd Bank / Bajaj Finserv", rate: "11.50% - 15.00%", detail: "Flexible Tenure & EMI Options", best: false },
+                { name: "Tata Capital", rate: "11.75% - 14.50%", detail: "Transparent Processing", best: false }
             ],
             business: [
-                { name: "HDFC Bank / ICICI Bank", rate: "12.00% - 15.00%", detail: "தொழில் வளர்ச்சிக்கு சிறந்த திட்டம்", best: true },
-                { name: "Axis Bank / Kotak Bank", rate: "12.50% - 16.00%", detail: "Flexible Repayment", best: false },
-                { name: "Bajaj Finance", rate: "12.00% - 16.50%", detail: "Quick Business Loan", best: false },
-                { name: "Tata Capital", rate: "12.50% - 17.00%", detail: "குறைந்தபட்ச ஆவணங்கள்", best: false },
-                { name: "Cholamandalam / Mahindra Finance", rate: "14.00% - 18.00%", detail: "சுய தொழில் புரிவோருக்கு சிறப்பு திட்டம்", best: false }
+                { name: "HDFC Bank / ICICI Bank", rate: "12.00% - 15.00%", detail: "Unsecured Business Expansion Loans", best: true },
+                { name: "Axis Bank / Kotak Bank", rate: "12.50% - 16.00%", detail: "Flexible Repayment Structure", best: false },
+                { name: "Bajaj Finance", rate: "12.00% - 16.50%", detail: "Quick Loan Disbursal", best: false },
+                { name: "Tata Capital", rate: "12.50% - 17.00%", detail: "Minimal Eligibility Documents", best: false },
+                { name: "Cholamandalam / Mahindra Finance", rate: "14.00% - 18.00%", detail: "Specialized for Small & Medium Businesses", best: false }
             ],
             gold: [
-                { name: "State Bank of India (SBI)", rate: "8.25% - 9.00%", detail: "மிகக் குறைந்த வட்டி", best: true },
-                { name: "Canara Bank / Bank of Baroda", rate: "8.30% - 9.15%", detail: "அரசு வங்கி பாதுகாப்பு", best: false },
-                { name: "HDFC Bank / ICICI Bank", rate: "8.75% - 11.00%", detail: "உடனடி பண வசதி", best: false },
-                { name: "Muthoot Finance / Manappuram", rate: "9.90% - 18.00%", detail: "10 நிமிடங்களில் கடன் பெறலாம்", best: false }
+                { name: "State Bank of India (SBI)", rate: "8.25% - 9.00%", detail: "Lowest Gold Loan Interest Rate", best: true },
+                { name: "Canara Bank / Bank of Baroda", rate: "8.30% - 9.15%", detail: "Govt Bank Security & Benefits", best: false },
+                { name: "HDFC Bank / ICICI Bank", rate: "8.75% - 11.00%", detail: "Instant Liquidity Support", best: false },
+                { name: "Muthoot Finance / Manappuram", rate: "9.90% - 18.00%", detail: "Disbursal within 10 Minutes", best: false }
             ]
         };
 
@@ -521,7 +591,7 @@
             });
         }
 
-        // Switch Main Loan Categories
+        // Switch Main Categories
         function switchMainLoan(type) {
             const toggle = document.getElementById('car-sub-toggle');
             const heading = document.getElementById('section-heading');
@@ -556,7 +626,7 @@
             }
         }
 
-        // Load Car Loan Sub Categories (New vs Used)
+        // Load Car Sub Categories
         function loadCarData(subType) {
             document.getElementById('btn-newcar').classList.remove('active');
             document.getElementById('btn-usedcar').classList.remove('active');
@@ -570,7 +640,7 @@
             }
         }
 
-        // Initialize with Car Loan New Data
+        // Initialize default view
         loadCarData('new');
 
         // Send Form Data to WhatsApp
