@@ -1,223 +1,269 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ta">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loan Thozhan - Your Trusted Financial Partner</title>
+    <title>Loan Management System</title>
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --gold-primary: #d4af37;
-            --gold-light: #f3e5ab;
-            --dark-bg: #0f0f0f;
-            --card-bg: #1a1a1a;
-            --text-color: #ffffff;
-            --text-muted: #b0b0b0;
+            --primary-color: #1a73e8;
+            --secondary-color: #f0f4f8;
+            --text-color: #333;
+            --accent-color: #34a853;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--dark-bg);
+            background-color: var(--secondary-color);
             color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-            padding-bottom: 70px;
-        }
-
-        header {
-            background-color: var(--card-bg);
-            border-bottom: 2px solid var(--gold-primary);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .logo-text {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--gold-primary);
-            letter-spacing: 1px;
-        }
-
-        .page-section {
-            display: none;
-            padding: 20px 15px;
-            max-width: 800px;
-            margin: 0 auto;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-
-        .page-section.active-section {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero {
-            text-align: center;
-            padding: 20px 10px;
-        }
-
-        .welcome-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--gold-primary);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: left;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-        }
-
-        .welcome-card p {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-            line-height: 1.7;
-        }
-
-        .welcome-card p b {
-            color: var(--gold-light);
-        }
-
-        .action-highlight-btn {
-            background-color: var(--gold-primary);
-            color: #0f0f0f;
-            padding: 12px 25px;
-            border: none;
-            font-weight: 700;
-            font-size: 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            display: inline-block;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Google Form Responsive Container */
-        .form-container {
-            background-color: var(--card-bg);
-            border: 2px solid var(--gold-primary);
-            border-radius: 10px;
-            padding: 15px;
-            overflow: hidden;
-        }
-
-        .form-container iframe {
-            width: 100%;
-            height: 650px;
-            border: none;
-        }
-
-        /* Fixed Mobile Bottom Navigation Bar */
-        .mobile-menu-bar {
             display: flex;
-            justify-content: space-around;
-            background: var(--card-bg);
-            padding: 10px 0;
-            border-top: 2px solid var(--gold-primary);
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        .mobile-menu-bar a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 12px;
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Splash / First Page with Logo */
+        #splash-screen {
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 3px;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .mobile-menu-bar a i {
-            font-size: 18px;
-            color: var(--gold-primary);
-        }
-
-        .mobile-menu-bar a:hover, .mobile-menu-bar a.active-nav {
-            color: var(--gold-primary);
-        }
-
-        footer {
-            background-color: var(--card-bg);
+            height: 100vh;
+            background: #ffffff;
             text-align: center;
+            padding: 20px;
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+        }
+
+        .logo-container i {
+            font-size: 80px;
+            color: var(--primary-color);
+        }
+
+        .logo-container h1 {
+            font-size: 26px;
+            margin-top: 15px;
+            color: var(--primary-color);
+        }
+
+        .launch-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            font-size: 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 10px rgba(26, 115, 232, 0.3);
+        }
+
+        .launch-btn:hover {
+            background-color: #1557b0;
+        }
+
+        /* Main Application Section */
+        #main-app {
+            display: none;
+            padding: 25px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            background: #fff;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .option-card {
+            border: 2px solid #ddd;
+            border-radius: 8px;
             padding: 15px;
-            border-top: 2px solid #222;
-            color: var(--text-muted);
-            font-size: 12px;
-            margin-top: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #fafafa;
+        }
+
+        .option-card i {
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .option-card div {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .option-card.selected {
+            border-color: var(--primary-color);
+            background-color: #e8f0fe;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #2b8a43;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <span class="logo-text">LOAN THOZHAN</span>
-    </header>
+    <div class="container">
+        <!-- 1. First Page: Logo and Launch Button -->
+        <div id="splash-screen">
+            <div class="logo-container">
+                <i class="fa-solid fa-landmark-dome"></i>
+                <h1>Loan Solutions</h1>
+            </div>
+            <button class="launch-btn" onclick="openApp()">Launch</button>
+        </div>
 
-    <!-- 1. Home Section -->
-    <div id="home" class="page-section active-section">
-        <div class="hero">
-            <div class="welcome-card">
-                <p>வணக்கம் தோழரே! உங்களது கார் லோன், ஹோம் லோன் மற்றும் அனைத்து வகையான அவசர கால நிதித் தேவைகளுக்கும் நாங்கள் முழுமையான வழிகாட்டுதலை வழங்குகிறோம்.</p>
-                <p><b>அதிக வட்டி தொல்லையில் இருந்து விடுபடவும், மிகக் குறைந்த வட்டியிலும், குறைந்த ஆவணங்களுடன் (Low Documentation) வங்கிகள் மற்றும் நிதி நிறுவனங்கள் மூலமாக உடனடியாக லோன் பெற்றுத் தர எங்களது நிபுணர் குழு உங்களோடு துணை நிற்கும்.</b></p>
-                <p>உங்கள் தேவைகளுக்கு உடனடியாக உதவ நாங்கள் தயார். கீழே உள்ள <b>Apply Now</b> பட்டனை அழுத்தி உங்கள் விவரங்களைப் பதிவு செய்யுங்கள்!</p>
+        <!-- 2. Main App Screen -->
+        <div id="main-app">
+            <h2>Loan Calculator & Banks</h2>
+
+            <!-- Loan Category Selection -->
+            <div class="form-group">
+                <label>Loan Type தேர்ந்தெெடுக்கவும்:</label>
+                <div class="options-grid">
+                    <div class="option-card" onclick="selectLoan('New Car', this)">
+                        <i class="fa-solid fa-car"></i>
+                        <div>New Car Loan</div>
+                    </div>
+                    <div class="option-card" onclick="selectLoan('Used Car', this)">
+                        <i class="fa-solid fa-car-side"></i>
+                        <div>Used Car Loan</div>
+                    </div>
+                    <div class="option-card" onclick="selectLoan('Bike', this)">
+                        <i class="fa-solid fa-motorcycle"></i>
+                        <div>Bike Loan</div>
+                    </div>
+                    <div class="option-card" onclick="selectLoan('Home', this)">
+                        <i class="fa-solid fa-house"></i>
+                        <div>Home Loan</div>
+                    </div>
+                </div>
             </div>
 
-            <a href="#" onclick="showSection('contact', event)" class="action-highlight-btn"><i class="fa-solid fa-file-lines"></i> Apply Now</a>
+            <!-- Bank Selection with Icons -->
+            <div class="form-group">
+                <label for="bank-select"><i class="fa-solid fa-building-columns"></i> Bank தேர்ந்தெடுக்கவும்:</label>
+                <select id="bank-select">
+                    <option value="">-- வங்கியைத் தேர்ந்தெடுக்கவும் --</option>
+                    <option value="sbi">🏦 State Bank of India (SBI)</option>
+                    <option value="canara">🏦 Canara Bank</option>
+                    <option value="hdfc">🏦 HDFC Bank</option>
+                    <option value="icici">🏦 ICICI Bank</option>
+                    <option value="axis">🏦 Axis Bank</option>
+                    <option value="iob">🏦 Indian Overseas Bank (IOB)</option>
+                </select>
+            </div>
+
+            <!-- Amount Input -->
+            <div class="form-group">
+                <label for="amount"><i class="fa-solid fa-indian-rupee-sign"></i> Loan Amount:</label>
+                <input type="number" id="amount" placeholder="தொகையை உள்ளிடவும்">
+            </div>
+
+            <button class="submit-btn" onclick="submitData()">Process Loan</button>
         </div>
     </div>
-
-    <!-- 2. Contact / Google Form Section -->
-    <div id="contact" class="page-section">
-        <h2 style="color: var(--gold-primary); margin-bottom: 15px; text-align: center;"><i class="fa-solid fa-file-invoice"></i> Loan Application Form</h2>
-        <div class="form-container">
-            <!-- இங்கே உங்களது கூகுள் ஃபார்ம் கோடை (iframe) பேஸ்ட் செய்யவும் -->
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd.../viewform?embedded=true" width="100%" height="650" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-        </div>
-    </div>
-
-    <!-- Mobile Bottom Navigation Bar -->
-    <div class="mobile-menu-bar">
-        <a href="#" onclick="showSection('home', event)" id="nav-home" class="active-nav"><i class="fa-solid fa-house"></i>Home</a>
-        <a href="#" onclick="showSection('contact', event)" id="nav-contact"><i class="fa-solid fa-file-invoice"></i>Apply</a>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Loan Thozhan. All Rights Reserved. | Email: tamil4666@gmail.com</p>
-    </footer>
 
     <script>
-        function showSection(sectionId, event) {
-            if (event) event.preventDefault();
+        let selectedLoanType = "";
 
-            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active-section'));
-            document.getElementById(sectionId).classList.add('active-section');
+        function openApp() {
+            document.getElementById('splash-screen').style.display = 'none';
+            document.getElementById('main-app').style.display = 'block';
+        }
 
-            document.querySelectorAll('.mobile-menu-bar a').forEach(link => link.classList.remove('active-nav'));
-            if (sectionId === 'home') document.getElementById('nav-home').classList.add('active-nav');
-            if (sectionId === 'contact') document.getElementById('nav-contact').classList.add('active-nav');
+        function selectLoan(type, element) {
+            selectedLoanType = type;
+            let cards = document.querySelectorAll('.option-card');
+            cards.forEach(c => c.classList.remove('selected'));
+            element.classList.add('selected');
+        }
 
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        function submitData() {
+            let bank = document.getElementById('bank-select').value;
+            let amount = document.getElementById('amount').value;
+
+            if (!selectedLoanType) {
+                alert("தயவுசெய்து லோன் வகையைத் தேர்ந்தெடுக்கவும்!");
+                return;
+            }
+            if (!bank) {
+                alert("தயவுசெய்து வங்கியைத் தேர்ந்தெடுக்கவும்!");
+                return;
+            }
+            if (!amount) {
+                alert("தயவுசெய்து தொகையை உள்ளிடவும்!");
+                return;
+            }
+
+            alert(`Success!\nLoan: ${selectedLoanType}\nBank: ${bank.toUpperCase()}\nAmount: ₹${amount}`);
         }
     </script>
+
 </body>
 </html>
