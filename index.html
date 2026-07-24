@@ -381,7 +381,7 @@
                 <p>உங்கள் தேவைகளுக்கு உடனடியாக உதவ நாங்கள் தயார். கீழே உள்ள <b>Contact</b> பட்டனை அழுத்தி எங்களைத் தொடர்புகொள்ளுங்கள்!</p>
             </div>
 
-            <a href="#" onclick="showSection('contact', event)" class="action-highlight-btn"><i class="fa-brands fa-whatsapp"></i> Instant Loan Enquiry</a>
+            <a href="#" onclick="showSection('contact', event)" class="action-highlight-btn"><i class="fa-brands fa-whatsapp"></i> Apply Now</a>
         </section>
     </div>
 
@@ -403,7 +403,7 @@
                             <li><b>Interest Rate:</b> Starts from 8.5% p.a.</li>
                             <li><b>Documents:</b> PAN, Aadhaar, 3 Months Payslip/ITR, Bank Statement</li>
                         </ul>
-                        <a href="#" onclick="showSection('contact', event)" class="apply-now-btn">Apply Now for Car Loan</a>
+                        <a href="#" onclick="showSection('contact', event)" class="apply-now-btn">Apply Now</a>
                     </div>
                 </div>
             </div>
@@ -421,7 +421,7 @@
                             <li><b>Approval:</b> Instant processing with minimal docs</li>
                             <li><b>Documents:</b> PAN, Aadhaar, Income Proof, Photos & Cheques</li>
                         </ul>
-                        <a href="#" onclick="showSection('contact', event)" class="apply-now-btn">Apply Now for Bike Loan</a>
+                        <a href="#" onclick="showSection('contact', event)" class="apply-now-btn">Apply Now</a>
                     </div>
                 </div>
             </div>
@@ -439,7 +439,7 @@
                             <li><b>Interest Rate:</b> Lowest from 8.40% p.a.</li>
                             <li><b>Documents:</b> Property Papers, ITR/Form 16, Bank Statements</li>
                         </ul>
-                        <a href="#" onclick="showSection('contact', event)" class="apply-now-btn">Apply Now for Home Loan</a>
+                        <a href="#" onclick="showSection('contact', event)" class="apply-now-btn">Apply Now</a>
                     </div>
                 </div>
             </div>
@@ -456,7 +456,7 @@
                             <li><b>Top Partners:</b> Axis, ICICI, Tata Capital, Bajaj Finance</li>
                             <li><b>Documents:</b> Salary slips / 2 Yrs ITR & Business proof</li>
                         </ul>
-                        <a href="#" onclick="showSection('contact', event)" class="apply-now-btn">Apply Now for Personal/Business Loan</a>
+                        <a href="#" onclick="showSection('contact', event)" class="apply-now-btn">Apply Now</a>
                     </div>
                 </div>
             </div>
@@ -546,10 +546,10 @@
         </div>
     </div>
 
-    <!-- 5. Contact / WhatsApp Enquiry Section -->
+    <!-- 5. Contact / WhatsApp Application Section -->
     <div id="contact" class="page-section">
         <div class="container">
-            <h2 class="section-title"><i class="fa-solid fa-phone"></i> Direct WhatsApp Enquiry</h2>
+            <h2 class="section-title"><i class="fa-solid fa-phone"></i> Loan Application (WhatsApp)</h2>
             <div class="enquiry-form">
                 <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
                     <div class="form-group">
@@ -570,7 +570,7 @@
                             <option value="Business Loan">Business Loan</option>
                         </select>
                     </div>
-                    <button type="submit" class="submit-btn"><i class="fa-brands fa-whatsapp"></i> Send Details to WhatsApp</button>
+                    <button type="submit" class="submit-btn"><i class="fa-brands fa-whatsapp"></i> Apply</button>
                 </form>
             </div>
         </div>
@@ -582,7 +582,7 @@
         <a href="#" onclick="showSection('loans', event)" id="nav-loans"><i class="fa-solid fa-hand-holding-dollar"></i>Loans</a>
         <a href="#" onclick="showSection('banks', event)" id="nav-banks"><i class="fa-solid fa-building-columns"></i>Banks</a>
         <a href="#" onclick="showSection('calculator', event)" id="nav-calc"><i class="fa-solid fa-calculator"></i>EMI</a>
-        <a href="#" onclick="showSection('contact', event)" id="nav-contact"><i class="fa-solid fa-phone"></i>Contact</a>
+        <a href="#" onclick="showSection('contact', event)" id="nav-contact"><i class="fa-solid fa-phone"></i>Apply</a>
     </div>
 
     <footer>
@@ -635,7 +635,7 @@
 
             const myWhatsAppNumber = "917358844950"; 
 
-            const message = `Hello Loan Thozhan,%0ANew Loan Enquiry!%0AName: ${name}%0AMobile: ${mobile}%0ALoan Type: ${loanType}`;
+            const message = `Hello Loan Thozhan,%0ANew Loan Application!%0AName: ${name}%0AMobile: ${mobile}%0ALoan Type: ${loanType}`;
             
             window.open(`https://wa.me/${myWhatsAppNumber}?text=${message}`, '_blank');
         }
