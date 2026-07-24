@@ -18,7 +18,7 @@
             color: #333;
         }
 
-        /* Top Notification Bar */
+        /* Top Contact Bar */
         .top-bar {
             background-color: #004c8f;
             color: #ffffff;
@@ -390,11 +390,11 @@
 
     <!-- Loan Tabs -->
     <div class="loan-tabs">
-        <button class="tab-btn active" onclick="switchMainLoan('car')"><i class="fa-solid fa-car"></i> Car Loan</button>
-        <button class="tab-btn" onclick="switchMainLoan('home')"><i class="fa-solid fa-house"></i> Home Loan</button>
-        <button class="tab-btn" onclick="switchMainLoan('personal')"><i class="fa-solid fa-user"></i> Personal Loan</button>
-        <button class="tab-btn" onclick="switchMainLoan('business')"><i class="fa-solid fa-briefcase"></i> Business Loan</button>
-        <button class="tab-btn" onclick="switchMainLoan('gold')"><i class="fa-solid fa-coins"></i> Gold Loan</button>
+        <button class="tab-btn active" onclick="switchMainLoan('car', event)"><i class="fa-solid fa-car"></i> Car Loan</button>
+        <button class="tab-btn" onclick="switchMainLoan('home', event)"><i class="fa-solid fa-house"></i> Home Loan</button>
+        <button class="tab-btn" onclick="switchMainLoan('personal', event)"><i class="fa-solid fa-user"></i> Personal Loan</button>
+        <button class="tab-btn" onclick="switchMainLoan('business', event)"><i class="fa-solid fa-briefcase"></i> Business Loan</button>
+        <button class="tab-btn" onclick="switchMainLoan('gold', event)"><i class="fa-solid fa-coins"></i> Gold Loan</button>
     </div>
 
     <!-- Bank Interest Rates Table -->
@@ -415,7 +415,7 @@
                 </tr>
             </thead>
             <tbody id="bank-table-body">
-                <!-- Populated via JS -->
+                <!-- Data populated via JavaScript -->
             </tbody>
         </table>
     </div>
@@ -572,7 +572,14 @@
 
         function renderTable(dataList) {
             const tbody = document.getElementById('bank-table-body');
+            if(!tbody) return;
             tbody.innerHTML = '';
+            
+            if(!dataList || dataList.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;">No details available.</td></tr>';
+                return;
+            }
+
             dataList.forEach(item => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
@@ -584,12 +591,14 @@
             });
         }
 
-        function switchMainLoan(type) {
+        function switchMainLoan(type, evt) {
             const toggle = document.getElementById('car-sub-toggle');
             const heading = document.getElementById('section-heading');
             
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
+            if(evt && evt.currentTarget) {
+                evt.currentTarget.classList.add('active');
+            }
 
             if(type === 'car') {
                 toggle.style.display = 'flex';
@@ -619,18 +628,27 @@
         }
 
         function loadCarData(subType) {
-            document.getElementById('btn-newcar').classList.remove('active');
-            document.getElementById('btn-usedcar').classList.remove('active');
+            const btnNew = document.getElementById('btn-newcar');
+            const btnUsed = document.getElementById('btn-usedcar');
+
+            if(btnNew) btnNew.classList.remove('active');
+            if(btnUsed) btnUsed.classList.remove('active');
 
             if(subType === 'new') {
-                document.getElementById('btn-newcar').classList.add('active');
+                if(btnNew) btnNew.classList.add('active');
                 renderTable(loanData.newCar);
             } else {
-                document.getElementById('btn-usedcar').classList.add('active');
+                if(btnUsed) btnUsed.classList.add('active');
                 renderTable(loanData.usedCar);
             }
         }
 
+        // Auto load on page start
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCarData('new');
+        });
+
+        // Fallback execution
         loadCarData('new');
 
         function sendToWhatsApp(e) {
