@@ -25,6 +25,7 @@
             background-color: var(--dark-bg);
             color: var(--text-color);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         /* Header & Navigation */
@@ -46,7 +47,7 @@
         }
 
         .logo-img {
-            height: 80px; /* லோகோ பெரிதாகத் தெரிய உயரம் அதிகரிக்கப்பட்டுள்ளது */
+            height: 65px;
             vertical-align: middle;
             border-radius: 6px;
         }
@@ -54,13 +55,15 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         nav ul li a {
             color: var(--text-color);
             text-decoration: none;
             font-weight: 600;
+            font-size: 15px;
             transition: color 0.3s;
         }
 
@@ -71,19 +74,26 @@
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(rgba(18,18,18,0.8), rgba(18,18,18,0.9)), var(--card-bg);
+            padding: 90px 20px;
+            background: linear-gradient(rgba(18,18,18,0.85), rgba(18,18,18,0.95)), var(--card-bg);
             border-bottom: 1px solid #333;
+        }
+
+        .hero-logo {
+            max-height: 150px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 2px solid var(--gold-primary);
         }
 
         .hero h1 {
             color: var(--gold-primary);
-            font-size: 42px;
+            font-size: 44px;
             margin-bottom: 10px;
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 22px;
             color: var(--text-muted);
         }
 
@@ -95,7 +105,7 @@
         }
 
         section {
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         h2.section-title {
@@ -127,6 +137,7 @@
         .card h3 {
             color: var(--gold-primary);
             margin-bottom: 15px;
+            font-size: 20px;
         }
 
         .card ul {
@@ -135,13 +146,17 @@
             color: var(--text-muted);
         }
 
+        .card ul li {
+            margin-bottom: 8px;
+        }
+
         /* Forms & Calculator */
         .enquiry-form, .calculator-box {
             background-color: var(--card-bg);
             border: 2px solid var(--gold-primary);
             border-radius: 10px;
             padding: 40px;
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto;
         }
 
@@ -156,16 +171,17 @@
             font-weight: 600;
         }
 
-        .form-group input, .form-group select {
+        .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 12px;
             background-color: #2b2b2b;
             border: 1px solid #444;
             color: #fff;
             border-radius: 5px;
+            font-size: 16px;
         }
 
-        .form-group input:focus, .form-group select:focus {
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             border-color: var(--gold-primary);
             outline: none;
         }
@@ -188,20 +204,27 @@
         }
 
         .calc-result {
-            margin-top: 20px;
-            padding: 15px;
+            margin-top: 25px;
+            padding: 20px;
             background-color: #2b2b2b;
             border-left: 4px solid var(--gold-primary);
-            font-size: 18px;
+            font-size: 16px;
             color: var(--gold-light);
             display: none;
+            line-height: 1.8;
+        }
+
+        .calc-result h4 {
+            color: var(--gold-primary);
+            margin-bottom: 10px;
+            font-size: 18px;
         }
 
         /* Footer */
         footer {
             background-color: var(--card-bg);
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             border-top: 1px solid #333;
             color: var(--text-muted);
         }
@@ -218,102 +241,157 @@
     <!-- Header & Menu -->
     <header>
         <div class="nav-container">
-            <!-- லோகோ இமேஜ் இணைக்கும் இடம் -->
-            <a href="#">
+            <a href="#home">
                 <img src="logo.jpeg" alt="Loan Thozhan Logo" class="logo-img">
             </a>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#banks">Banks</a></li>
+                    <li><a href="#loans">Loans</a></li>
                     <li><a href="#interest">Interest Rates</a></li>
                     <li><a href="#calculator">EMI Calculator</a></li>
                     <li><a href="#documents">Documents</a></li>
-                    <li><a href="#apply">Applies</a></li>
+                    <li><a href="#verify">Verify</a></li>
                     <li><a href="#careers">Careers</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section / Home -->
     <section id="home" class="hero">
+        <img src="logo.jpeg" alt="Loan Thozhan Logo" class="hero-logo">
         <h1>LOAN THOZHAN (லோன் தோழன்)</h1>
-        <p>உங்கள் கடன்களுக்கான சிறந்த தீர்வு</p>
+        <p>உங்களது சிறந்த கனவு இல்லம் மற்றும் வாகனங்களுக்கான நிபுணத்துவ கடன் தீர்வு</p>
     </section>
 
     <div class="container">
 
-        <!-- Banks Section -->
+        <!-- 1. Banks Section (Tie-up Banks) -->
         <section id="banks">
-            <h2 class="section-title">Banks & Loan Categories</h2>
+            <h2 class="section-title">Tie-up Banks & Financial Institutions</h2>
             <div class="grid-cards">
                 <div class="card">
-                    <h3>Car Loan</h3>
+                    <h3>Government Banks (அரசு வங்கிகள்)</h3>
                     <ul>
-                        <li><b>New Car Loan:</b> Govt, Private & Financial Banks</li>
-                        <li><b>Used Car Loan:</b> Govt, Private & Financial Banks</li>
+                        <li>State Bank of India (SBI)</li>
+                        <li>Canara Bank</li>
+                        <li>Bank of Baroda</li>
+                        <li>Indian Overseas Bank (IOB)</li>
+                        <li>Indian Bank & Others</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h3>Home Loan</h3>
+                    <h3>Private Banks (தனியார் வங்கிகள்)</h3>
                     <ul>
-                        <li>Purchase & Construction Types</li>
-                        <li>Govt, Private & Financial Banks</li>
+                        <li>HDFC Bank</li>
+                        <li>ICICI Bank</li>
+                        <li>Axis Bank</li>
+                        <li>Federal Bank</li>
+                        <li>Kotak Mahindra Bank & Others</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h3>Other Loans</h3>
+                    <h3>NBFC & Financial Institutions</h3>
                     <ul>
-                        <li>Personal Loan</li>
-                        <li>Business Loan</li>
-                        <li>Gold Loan</li>
+                        <li>Cholamandalam Finance</li>
+                        <li>Shriram Finance</li>
+                        <li>Sundaram Finance</li>
+                        <li>Tata Capital & L&T Finance</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Interest Rates Section -->
+        <!-- 2. Loans Categories Section -->
+        <section id="loans">
+            <h2 class="section-title">Our Loan Products</h2>
+            <div class="grid-cards">
+                <div class="card">
+                    <h3>Car Loan (கார் கடன்)</h3>
+                    <ul>
+                        <li>New Car Loan (Govt, Private & NBFC)</li>
+                        <li>Used / Second-hand Car Loan</li>
+                        <li>Car Refinance Options</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Bike Loan (இருசக்கர வாகன கடன்)</h3>
+                    <ul>
+                        <li>Two Wheeler New & Used Loans</li>
+                        <li>Instant Approval Schemes</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Home Loan (வீட்டு கடன்)</h3>
+                    <ul>
+                        <li>Purchase & Construction Loans</li>
+                        <li>Home Extension & Plot Loans</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Personal & Business Loan</h3>
+                    <ul>
+                        <li>Unsecured Personal Loans</li>
+                        <li>MSME & Business Growth Loans</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Mortgage & Other Loans</h3>
+                    <ul>
+                        <li>Loan Against Property (LAP)</li>
+                        <li>Gold Loan & Balance Transfer</li>
+                        <li>Tractor & Commercial Vehicle Loan</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Interest Rates Section -->
         <section id="interest">
-            <h2 class="section-title">Current Interest Rates</h2>
-            <div class="card">
-                <p>அனைத்து முன்னணி அரசு (Govt), தனியார் (Private) மற்றும் நிதி நிறுவன (Financial) வங்கிகளின் தற்போதைய வட்டி விகிதங்கள் இங்கே புதுப்பிக்கப்படும்.</p>
+            <h2 class="section-title">Current Interest Rates (बanks Wise)</h2>
+            <div class="card" style="margin-bottom: 20px;">
+                <h3>அரசு மற்றும் தனியார் வங்கிகளின் தற்போதைய தோராயமான வட்டி நிலவரம்:</h3>
+                <ul>
+                    <li><b>Car Loan:</b> 8.5% லிருந்து 11.5% வரை (Depends on CIBIL & Profile)</li>
+                    <li><b>Home Loan:</b> 8.40% லிருந்து 10.5% வரை</li>
+                    <li><b>Personal Loan:</b> 10.5% லிருந்து 22% வரை</li>
+                    <li><b>Business / LAP:</b> 11% லிருந்து 16% வரை</li>
+                </ul>
             </div>
         </section>
 
-        <!-- EMI Calculator Section -->
+        <!-- 4. Advanced Reducing/IRR EMI Calculator Section -->
         <section id="calculator">
-            <h2 class="section-title">Loan EMI Calculator</h2>
+            <h2 class="section-title">Advanced IRR / Reducing EMI Calculator</h2>
             <div class="calculator-box">
                 <div class="form-group">
                     <label for="calc-amount">லோன் தொகை (Loan Amount in ₹)</label>
                     <input type="number" id="calc-amount" placeholder="எ.கா: 1000000">
                 </div>
                 <div class="form-group">
-                    <label for="calc-rate">வட்டி விகிதம் (% per annum)</label>
-                    <input type="number" step="0.1" id="calc-rate" placeholder="எ.கா: 8.5">
+                    <label for="calc-rate">வட்டி விகிதம் (% Per Annum - Reducing/IRR)</label>
+                    <input type="number" step="0.01" id="calc-rate" placeholder="எ.கா: 8.5">
                 </div>
                 <div class="form-group">
                     <label for="calc-tenure">கால அவகாசம் (Tenure in Years)</label>
-                    <input type="number" id="calc-tenure" placeholder="எ.கா: 20">
+                    <input type="number" id="calc-tenure" placeholder="எ.கா: 5 (அல்லது மாதங்களில் கணக்கிடப்படும்)">
                 </div>
-                <div class="form-group">
-                    <label for="rate-type">வட்டி வகை (Interest Type)</label>
-                    <select id="rate-type">
-                        <option value="floating">Floating Rate (மாறுபடும் வட்டி)</option>
-                        <option value="fixed">Fixed Rate (நிலையான வட்டி)</option>
-                    </select>
-                </div>
-                <button type="button" class="calc-btn" onclick="calculateEMI()">EMI கணக்கிட (Calculate EMI)</button>
+                <button type="button" class="calc-btn" onclick="calculateReducingEMI()">விரிவான வட்டி கணக்கீடு (Calculate Detailed EMI)</button>
                 
                 <div id="result-box" class="calc-result">
-                    மதிப்பிடப்பட்ட EMI: <span id="emi-output">₹0</span> 
-                    <br><small id="rate-type-output" style="color: var(--text-muted);"></small>
+                    <h4>கடன் கணக்கீட்டு விவரங்கள் (Reducing Balance / IRR):</h4>
+                    <p>மாத தவணை (Monthly EMI): <strong id="emi-output" style="color: var(--gold-primary);">₹0</strong></p>
+                    <p>மாத சராசரி வட்டி விவரம்: <span id="monthly-interest-output">₹0</span></p>
+                    <p>ஒரு வருடத்திற்கான வட்டி (Approx 1st Year): <span id="yearly-interest-output">₹0</span></p>
+                    <p>மொத்த வட்டி (Total Interest Payable): <span id="total-interest-output">₹0</span></p>
+                    <p>மொத்தம் செலுத்த வேண்டிய தொகை (Principal + Interest): <span id="total-payment-output">₹0</span></p>
                 </div>
             </div>
         </section>
 
-        <!-- Documents Section -->
+        <!-- 5. Required Documents Section -->
         <section id="documents">
             <h2 class="section-title">Required Documents</h2>
             <div class="grid-cards">
@@ -322,71 +400,96 @@
                     <ul>
                         <li>PAN Card & Aadhaar Card</li>
                         <li>Last 3 Months Pay Slip</li>
-                        <li>Last Year 6 Months Bank Statement</li>
-                        <li>Form 16 & Photo (3) & Cheque (3)</li>
+                        <li>Last 6 Months Bank Statement</li>
+                        <li>Form 16 & Photos (3) & Cheques (3)</li>
                     </ul>
                 </div>
                 <div class="card">
                     <h3>Self-Employed Profile</h3>
                     <ul>
                         <li>PAN Card & Aadhaar Card</li>
-                        <li>Last 2 Years ITR Returns</li>
-                        <li>GST Copy or Business Proof</li>
-                        <li>Last 6 Months Bank Statement</li>
-                        <li>Photo (3) & Cheque (3)</li>
+                        <li>Last 2 Years ITR Returns with computation</li>
+                        <li>GST Copy / Business Proof</li>
+                        <li>Last 6 Months Bank Statement (Current & Savings)</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h3>NIP / Not Owners Profile</h3>
+                    <h3>NIP / Other Profiles</h3>
                     <ul>
                         <li>PAN & Aadhaar Card</li>
                         <li>Last 6 Months Bank Statement</li>
-                        <li>EB Bill Copy (OR Guarantor Option)</li>
-                        <li>Guarantor Documents (PAN, Aadhaar, EB Bill)</li>
-                        <li>Photo (3) & Cheque (3)</li>
+                        <li>EB Bill / Ownership Proof (or Guarantor Support)</li>
+                        <li>Photos & Cheques</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Apply / Enquiry Section -->
-        <section id="apply">
-            <h2 class="section-title">Apply For Loan / Enquiry</h2>
+        <!-- 6. Verify Section (Previously Applies) -->
+        <section id="verify">
+            <h2 class="section-title">Loan Eligibility Verification & Enquiry</h2>
             <div class="enquiry-form">
-                <form action="#" method="POST">
+                <form action="mailto:your-email@example.com" method="POST" enctype="text/plain">
                     <div class="form-group">
                         <label for="name">பெயர் (Customer Name)</label>
-                        <input type="text" id="name" name="name" required placeholder="உங்கள் பெயரை உள்ளிடவும்">
+                        <input type="text" id="name" name="Customer Name" required placeholder="உங்கள் பெயரை உள்ளிடவும்">
                     </div>
                     <div class="form-group">
                         <label for="mobile">மொபைல் எண் (Mobile Number)</label>
-                        <input type="tel" id="mobile" name="mobile" required placeholder="உங்கள் எண்களை உள்ளிடவும்">
+                        <input type="tel" id="mobile" name="Mobile Number" required placeholder="உங்கள் தொலைபேசி எண்">
                     </div>
                     <div class="form-group">
                         <label for="loantype">லோன் வகை (Loan Type)</label>
-                        <select id="loantype" name="loantype">
-                            <option value="new-car">New Car Loan</option>
-                            <option value="used-car">Used Car Loan</option>
-                            <option value="home">Home Loan</option>
-                            <option value="personal">Personal Loan</option>
-                            <option value="business">Business Loan</option>
-                            <option value="gold">Gold Loan</option>
+                        <select id="loantype" name="Loan Type">
+                            <option value="New Car Loan">New Car Loan</option>
+                            <option value="Used Car Loan">Used Car Loan</option>
+                            <option value="Bike Loan">Bike Loan</option>
+                            <option value="Home Loan">Home Loan</option>
+                            <option value="Personal Loan">Personal Loan</option>
+                            <option value="Business Loan">Business Loan</option>
+                            <option value="Mortgage / LAP">Mortgage / LAP</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="employment">வேலை / தொழில் வகை (Employment Type)</label>
-                        <select id="employment" name="employment">
-                            <option value="salaried">Salaried</option>
-                            <option value="self-employed">Self-Employed</option>
-                            <option value="nip">NIP</option>
-                            <option value="not-owner">Not Owner (With Guarantor)</option>
+                        <select id="employment" name="Employment Type">
+                            <option value="Salaried">Salaried</option>
+                            <option value="Self-Employed">Self-Employed</option>
+                            <option value="NIP">NIP</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="amount">தேவையான லோன் தொகை (Loan Amount)</label>
-                        <input type="text" id="amount" name="amount" placeholder="எ.கா: 5,00,000">
+                        <label for="amount">தேவையான லோன் தொகை (Required Loan Amount)</label>
+                        <input type="text" id="amount" name="Loan Amount" placeholder="எ.கா: 5,00,,000">
                     </div>
-                    <button type="submit" class="submit-btn">சமர்ப்பிக்கவும் (Submit Enquiry)</button>
+                    <button type="submit" class="submit-btn">விவரங்களை சரிபார்க்க அனுப்பவும் (Verify & Submit)</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- 7. Careers Page Section (Resume Upload) -->
+        <section id="careers">
+            <h2 class="section-title">Careers - Join Our Team</h2>
+            <div class="enquiry-form">
+                <p style="margin-bottom: 20px; color: var(--text-muted);">லோன் தோழன் நிறுவனத்தில் இணைந்து பணியாற்ற உங்களது விவரங்கள் மற்றும் ரெஸ்யூமை (Resume) கீழே சமர்ப்பிக்கவும்.</p>
+                <form action="mailto:your-email@example.com" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="c-name">பெயர் (Full Name)</label>
+                        <input type="text" id="c-name" name="Applicant Name" required placeholder="உங்கள் பெயர்">
+                    </div>
+                    <div class="form-group">
+                        <label for="c-phone">தொடர்பு எண் (Phone Number)</label>
+                        <input type="tel" id="c-phone" name="Phone Number" required placeholder="போன் எண்">
+                    </div>
+                    <div class="form-group">
+                        <label for="c-email">மின்னஞ்சல் (Email Address)</label>
+                        <input type="email" id="c-email" name="Email" required placeholder="Email id">
+                    </div>
+                    <div class="form-group">
+                        <label for="c-resume">ரெஸ்யூம் பதிவேற்றம் (Upload Resume / CV)</label>
+                        <input type="file" id="c-resume" name="Resume" accept=".pdf,.doc,.docx" required style="background:none; border:none; padding-left:0;">
+                    </div>
+                    <button type="submit" class="submit-btn">வேலைக்கு விண்ணப்பிக்க (Apply Now)</button>
                 </form>
             </div>
         </section>
@@ -397,32 +500,48 @@
     <footer>
         <p>&copy; 2026 Loan Thozhan. All Rights Reserved.</p>
         <div class="contact-bar">
-            தொடர்புக்கு / WhatsApp: +91 XXXXXXXXXX | Call Us Now
+            தொடர்புக்கு / WhatsApp: +91 XXXXXXXXXX | Email: support@loanthozhan.com
         </div>
     </footer>
 
-    <!-- JavaScript for EMI Calculation -->
+    <!-- JavaScript for Reducing Balance / IRR EMI Calculation -->
     <script>
-        function calculateEMI() {
+        function calculateReducingEMI() {
             const p = parseFloat(document.getElementById('calc-amount').value);
             const annualRate = parseFloat(document.getElementById('calc-rate').value);
             const tenureYears = parseFloat(document.getElementById('calc-tenure').value);
-            const rateType = document.getElementById('rate-type').value;
 
             if (isNaN(p) || isNaN(annualRate) || isNaN(tenureYears) || p <= 0 || annualRate <= 0 || tenureYears <= 0) {
-                alert("தயவுசெய்து சரியான மதிப்புகளை உள்ளிடவும்!");
+                alert("தயவுசெய்து சரியான மற்றும் முறையான மதிப்புகளை உள்ளிடவும்!");
                 return;
             }
 
-            const r = annualRate / 12 / 100;
-            const n = tenureYears * 12;
+            const r = annualRate / 12 / 100; // Monthly reducing interest rate
+            const n = tenureYears * 12; // Total months
 
+            // Reducing Balance EMI Formula
             const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+            const totalPayment = emi * n;
+            const totalInterest = totalPayment - p;
             
+            // Approximate 1st year interest for initial breakdown
+            let remainingPrincipal = p;
+            let firstYearInterest = 0;
+            for(let i = 1; i <= Math.min(12, n); i++) {
+                let interestForMonth = remainingPrincipal * r;
+                firstYearInterest += interestForMonth;
+                let principalForMonth = emi - interestForMonth;
+                remainingPrincipal -= principalForMonth;
+            }
+
+            const avgMonthlyInterest = totalInterest / n;
+
+            // Display results
             document.getElementById('emi-output').innerText = "₹ " + emi.toFixed(2);
-            
-            let typeText = (rateType === 'floating') ? "வகை: Floating Rate (வட்டி சந்தைக்கு ஏற்ப மாறக்கூடியது)" : "வகை: Fixed Rate (வட்டி மாறாமல் நிலையாக இருக்கும்)";
-            document.getElementById('rate-type-output').innerText = typeText;
+            document.getElementById('monthly-interest-output').innerText = "₹ " + avgMonthlyInterest.toFixed(2) + " (மாத சராசரி)";
+            document.getElementById('yearly-interest-output').innerText = "₹ " + firstYearInterest.toFixed(2) + " (முதல் வருட தோராய வட்டி)";
+            document.getElementById('total-interest-output').innerText = "₹ " + totalInterest.toFixed(2);
+            document.getElementById('total-payment-output').innerText = "₹ " + totalPayment.toFixed(2);
             
             document.getElementById('result-box').style.display = 'block';
         }
