@@ -45,11 +45,10 @@
             padding: 15px 20px;
         }
 
-        .logo-text {
-            color: var(--gold-primary);
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
+        .logo-img {
+            height: 45px;
+            vertical-align: middle;
+            border-radius: 4px;
         }
 
         nav ul {
@@ -219,7 +218,10 @@
     <!-- Header & Menu -->
     <header>
         <div class="nav-container">
-            <a href="#" class="logo-text">LOAN THOZHAN</a>
+            <!-- லோகோ இமேஜ் இணைக்கும் இடம் -->
+            <a href="#">
+                <img src="logo.png" alt="Loan Thozhan Logo" class="logo-img">
+            </a>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -279,7 +281,7 @@
             </div>
         </section>
 
-        <!-- EMI Calculator Section (Newly Added) -->
+        <!-- EMI Calculator Section -->
         <section id="calculator">
             <h2 class="section-title">Loan EMI Calculator</h2>
             <div class="calculator-box">
@@ -305,7 +307,7 @@
                 <button type="button" class="calc-btn" onclick="calculateEMI()">EMI கணக்கிட (Calculate EMI)</button>
                 
                 <div id="result-box" class="calc-result">
-                    சதோவீத EMI மதிப்பிடப்பட்டுள்ளது: <span id="emi-output">₹0</span> 
+                    மதிப்பிடப்பட்ட EMI: <span id="emi-output">₹0</span> 
                     <br><small id="rate-type-output" style="color: var(--text-muted);"></small>
                 </div>
             </div>
