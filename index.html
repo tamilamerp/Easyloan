@@ -46,7 +46,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 20px;
+            padding: 10px 20px;
         }
 
         .logo-area {
@@ -57,139 +57,105 @@
         }
 
         .logo-img {
-            height: 55px;
+            height: 50px;
             width: auto;
             border-radius: 6px;
             border: 1px solid var(--gold-primary);
         }
 
         .logo-text {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--gold-primary);
-            letter-spacing: 0.5px;
         }
 
-        /* Hamburger Menu Button */
-        .menu-toggle {
-            background: none;
-            border: 2px solid var(--gold-primary);
-            color: var(--gold-primary);
-            font-size: 24px;
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.3s, color 0.3s;
+        /* Dropdown Navbar Styles (Bank Style) */
+        .navbar-menu {
             display: flex;
+            list-style: none;
+            gap: 5px;
             align-items: center;
-            gap: 8px;
         }
 
-        .menu-toggle:hover {
-            background-color: var(--gold-primary);
-            color: #0f0f0f;
+        .nav-item {
+            position: relative;
         }
 
-        /* Side Navigation Drawer */
-        .side-drawer {
-            position: fixed;
-            top: 0;
-            right: -320px;
-            width: 300px;
-            height: 100%;
-            background-color: #161616;
-            border-left: 2px solid var(--gold-primary);
-            box-shadow: -5px 0 25px rgba(0,0,0,0.8);
-            transition: right 0.4s ease-in-out;
-            z-index: 2000;
-            padding: 30px 20px;
-            overflow-y: auto;
-        }
-
-        .side-drawer.active {
-            right: 0;
-        }
-
-        .drawer-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 15px;
-        }
-
-        .drawer-header h3 {
-            color: var(--gold-primary);
-            font-size: 20px;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
+        .nav-link {
             color: var(--text-color);
-            font-size: 24px;
-            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 15px 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
             transition: color 0.3s;
         }
 
-        .close-btn:hover {
+        .nav-link i {
+            color: var(--gold-primary);
+            font-size: 12px;
+        }
+
+        .nav-link:hover, .nav-item:hover .nav-link {
             color: var(--gold-primary);
         }
 
-        .drawer-menu {
-            list-style: none;
-            display: flex;
+        /* Dropdown Sub-menu Container */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--card-bg);
+            border: 1px solid var(--gold-primary);
+            border-radius: 0 0 8px 8px;
+            min-width: 220px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+            display: none;
             flex-direction: column;
-            gap: 15px;
+            list-style: none;
+            z-index: 1100;
         }
 
-        .drawer-menu li a {
-            color: var(--text-color);
+        .nav-item:hover .dropdown-menu {
+            display: flex;
+        }
+
+        .dropdown-menu li a {
+            color: var(--text-muted);
             text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
+            padding: 10px 15px;
+            font-size: 14px;
             display: flex;
             align-items: center;
-            gap: 15px;
-            padding: 12px 15px;
-            border-radius: 6px;
-            transition: background 0.3s, color 0.3s;
+            gap: 10px;
+            transition: background 0.2s, color 0.2s;
+            border-bottom: 1px solid #252525;
         }
 
-        .drawer-menu li a i {
+        .dropdown-menu li:last-child a {
+            border-bottom: none;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: var(--card-hover);
             color: var(--gold-primary);
-            font-size: 18px;
-            width: 20px;
-            text-align: center;
+            padding-left: 20px;
         }
 
-        .drawer-menu li a:hover, .drawer-menu li a.active-link {
-            background-color: var(--card-bg);
-            color: var(--gold-primary);
-            border-left: 4px solid var(--gold-primary);
+        .contact-top-btn {
+            background-color: var(--gold-primary);
+            color: #0f0f0f !important;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: 700 !important;
         }
 
-        /* Overlay background when menu opens */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-            display: none;
-            z-index: 1500;
-        }
-
-        .overlay.active {
-            display: block;
-        }
-
-        /* Page Content Display Control (Single Page View Logic) */
+        /* Page Content Display Control */
         .page-section {
             display: none;
-            animation: fadeIn 0.5s ease-in-out;
+            animation: fadeIn 0.4s ease-in-out;
         }
 
         .page-section.active-section {
@@ -197,7 +163,7 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -221,7 +187,6 @@
             color: var(--gold-primary);
             font-size: 50px;
             margin-bottom: 12px;
-            letter-spacing: 1px;
         }
 
         .hero p {
@@ -398,37 +363,75 @@
 </head>
 <body>
 
-    <!-- Header & Navigation -->
+    <!-- Header & Navigation with Dropdowns -->
     <header>
         <div class="nav-container">
             <a href="#" onclick="showSection('home')" class="logo-area">
                 <img src="logo.jpeg" alt="Loan Thozhan Logo" class="logo-img">
                 <span class="logo-text">LOAN THOZHAN</span>
             </a>
-            <button class="menu-toggle" onclick="toggleMenu()">
-                <i class="fa-solid fa-bars"></i> Menu
-            </button>
+            
+            <ul class="navbar-menu">
+                <!-- 1. Home -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="showSection('home')"><i class="fa-solid fa-house"></i> Home</a>
+                </li>
+
+                <!-- 2. Banks Dropdown -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="showSection('banks')"><i class="fa-solid fa-building-columns"></i> Banks <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="showSection('banks')"><i class="fa-solid fa-landmark"></i> Government Banks</a></li>
+                        <li><a href="#" onclick="showSection('banks')"><i class="fa-solid fa-building-user"></i> Private Banks</a></li>
+                        <li><a href="#" onclick="showSection('banks')"><i class="fa-solid fa-vault"></i> NBFC Financials</a></li>
+                    </ul>
+                </li>
+
+                <!-- 3. Loans Dropdown -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="showSection('loans')"><i class="fa-solid fa-hand-holding-dollar"></i> Loans <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="showSection('loans')"><i class="fa-solid fa-car"></i> Car Loan</a></li>
+                        <li><a href="#" onclick="showSection('loans')"><i class="fa-solid fa-motorcycle"></i> Bike Loan</a></li>
+                        <li><a href="#" onclick="showSection('loans')"><i class="fa-solid fa-house-chimney"></i> Home Loan</a></li>
+                        <li><a href="#" onclick="showSection('loans')"><i class="fa-solid fa-user-tie"></i> Personal Loan</a></li>
+                        <li><a href="#" onclick="showSection('loans')"><i class="fa-solid fa-briefcase"></i> Business Loan</a></li>
+                        <li><a href="#" onclick="showSection('loans')"><i class="fa-solid fa-landmark-flag"></i> Mortgage & LAP</a></li>
+                    </ul>
+                </li>
+
+                <!-- 4. Interest Rates -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="showSection('interest')"><i class="fa-solid fa-percent"></i> Interest Rates</a>
+                </li>
+
+                <!-- 5. Calculator -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="showSection('calculator')"><i class="fa-solid fa-calculator"></i> Calculator</a>
+                </li>
+
+                <!-- 6. Documents -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="showSection('documents')"><i class="fa-solid fa-file-lines"></i> Documents</a>
+                </li>
+
+                <!-- 7. Enquiries -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="showSection('enquiries')"><i class="fa-solid fa-circle-question"></i> Enquiries</a>
+                </li>
+
+                <!-- 8. Careers -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="showSection('careers')"><i class="fa-solid fa-briefcase"></i> Careers</a>
+                </li>
+
+                <!-- Contact Button -->
+                <li class="nav-item" style="margin-left: 10px;">
+                    <a href="#" class="nav-link contact-top-btn" onclick="showSection('enquiries')"><i class="fa-solid fa-phone"></i> Contact Now</a>
+                </li>
+            </ul>
         </div>
     </header>
-
-    <!-- Side Navigation Drawer -->
-    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-    <div class="side-drawer" id="sideDrawer">
-        <div class="drawer-header">
-            <h3>Navigation Menu</h3>
-            <button class="close-btn" onclick="toggleMenu()"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <ul class="drawer-menu">
-            <li><a href="#" onclick="showSection('home'); toggleMenu();" id="link-home" class="active-link"><i class="fa-solid fa-house"></i> Home</a></li>
-            <li><a href="#" onclick="showSection('banks'); toggleMenu();" id="link-banks"><i class="fa-solid fa-building-columns"></i> Banks</a></li>
-            <li><a href="#" onclick="showSection('loans'); toggleMenu();" id="link-loans"><i class="fa-solid fa-hand-holding-dollar"></i> Loans</a></li>
-            <li><a href="#" onclick="showSection('interest'); toggleMenu();" id="link-interest"><i class="fa-solid fa-percent"></i> Interest Rates</a></li>
-            <li><a href="#" onclick="showSection('calculator'); toggleMenu();" id="link-calculator"><i class="fa-solid fa-calculator"></i> Calculator</a></li>
-            <li><a href="#" onclick="showSection('documents'); toggleMenu();" id="link-documents"><i class="fa-solid fa-file-lines"></i> Documents</a></li>
-            <li><a href="#" onclick="showSection('enquiries'); toggleMenu();" id="link-enquiries"><i class="fa-solid fa-circle-question"></i> Enquiries</a></li>
-            <li><a href="#" onclick="showSection('careers'); toggleMenu();" id="link-careers"><i class="fa-solid fa-briefcase"></i> Careers</a></li>
-        </ul>
-    </div>
 
     <!-- MAIN CONTENT SECTIONS -->
 
@@ -718,36 +721,16 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Menu Toggle and Page Switching Logic -->
+    <!-- JavaScript for Page Switching Logic -->
     <script>
-        function toggleMenu() {
-            const drawer = document.getElementById('sideDrawer');
-            const overlay = document.getElementById('overlay');
-            drawer.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
-
         function showSection(sectionId) {
-            // Hide all sections
             const sections = document.querySelectorAll('.page-section');
             sections.forEach(sec => sec.classList.remove('active-section'));
 
-            // Show target section
             const target = document.getElementById(sectionId);
             if (target) {
                 target.classList.add('active-section');
             }
-
-            // Update active link styling in drawer
-            const links = document.querySelectorAll('.drawer-menu a');
-            links.forEach(link => link.classList.remove('active-link'));
-            
-            const activeLink = document.getElementById('link-' + sectionId);
-            if (activeLink) {
-                activeLink.classList.add('active-link');
-            }
-
-            // Scroll to top smoothly when changing page views
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
